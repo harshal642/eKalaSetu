@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    >
+
+    <meta name="theme-color" content="#5C3A21">
+
+    <title>{{ t('my_products') }}</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/app.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/artisan.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/my_products.css') }}"
+    >
+</head>
+
+<body class="app-body">
+
+<div class="app-shell">
+
+    <!-- TOP BAR -->
+    <header class="top-bar">
+
+        <a
+            href="{{ url_for('artisan_dashboard') }}"
+            class="top-bar-back"
+        >
+            ← {{ t('back') }}
+        </a>
+
+        <span class="top-bar-title">
+            {{ t('my_products') }}
+        </span>
+
+        <span class="top-bar-action"></span>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="scroll-main">
+
+        <div class="products-page">
+
+            <!-- PAGE INTRO -->
+            <div class="products-intro">
+
+                <h2>
+                    {{ t('my_products') }}
+                </h2>
+
+                <p>
+                    Manage your products and check their market demand.
+                </p>
+
+            </div>
+
+
+            <!-- SUCCESS MESSAGE -->
+            {% if just_published %}
+
+            <div class="published-alert">
+
+                <span class="published-alert-icon">
+                    ✓
+                </span>
+
+                <span>
+                    {{ t('published_success') }}
+                </span>
+
+            </div>
+
+            {% endif %}
+
+
+            <!-- PRODUCTS -->
+            {% if products %}
+
+            <div class="products-section-header">
+
+                <h3 class="products-section-title">
+                    Your Products
+                </h3>
+
+                <span class="product-count">
+                    {{ products|length }}
+                    product{% if products|length != 1 %}s{% endif %}
+                </span>
+
+            </div>
+
+
+            <div class="product-list-modern">
+
+                {% for p in products %}
+
+                <article class="product-card-modern">
+
+                    <!-- PRODUCT IMAGE -->
+                    <div class="product-image-wrapper">
+
+                        <img
+                            src="{{ p.image }}"
+                            alt="{{ p.name }}"
+                            class="product-image-modern"
+                        >
+
+                        <!-- STATUS -->
+                        {% if p.status == 'published' %}
+
+                        <span class="product-status published">
+                            ✓ {{ t('status_published') }}
+                        </span>
+
+                        {% else %}
+
+                        <span class="product-status draft">
+                            {{ t('status_draft') }}
+                        </span>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- PRODUCT INFORMATION -->
+                    <div class="product-body-modern">
+
+                        <!-- PRODUCT NAME -->
+                        <h3 class="product-name-modern">
+                            {{ p.name }}
+                        </h3>
+
+
+                        <!-- DESCRIPTION -->
+                        {% if p.description %}
+
+                        <p class="product-description-modern">
+                            {{ p.description }}
+                        </p>
+
+                        {% endif %}
+
+
+                        <!-- MATERIAL + SIZE -->
+                        <div class="product-details-row">
+
+                            {% if p.material %}
+
+                            <div class="product-detail">
+
+                                <span class="product-detail-label">
+                                    Material
+                                </span>
+
+                                <span class="product-detail-value">
+                                    {{ p.material }}
+                                </span>
+
+                            </div>
+
+                            {% endif %}
+
+
+                            {% if p.size %}
+
+                            <div class="product-detail">
+
+                                <span class="product-detail-label">
+                                    Size
+                                </span>
+
+                                <span class="product-detail-value">
+                                    {{ p.size }}
+                                </span>
+
+                            </div>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- PRICE -->
+                        <div class="product-price-row">
+
+                            <span class="product-price-label">
+                                Selling Price
+                            </span>
+
+                            <span class="product-price-modern">
+                                ₹{{ p.final_price|int }}
+                            </span>
+
+                        </div>
+
+
+                        <!-- MARKET DEMAND -->
+                        <a
+                            href="{{ url_for('demand_insights', product_id=p.product_id) }}"
+                            class="demand-button"
+                        >
+                            📈 {{ t('market_demand') }}
+                        </a>
+
+                    </div>
+
+                </article>
+
+                {% endfor %}
+
+            </div>
+
+
+            {% else %}
+
+            <!-- EMPTY STATE -->
+            <div class="empty-products">
+
+                <div class="empty-icon">
+                    +
+                </div>
+
+                <h3 class="empty-title">
+                    {{ t('no_products_yet') }}
+                </h3>
+
+                <p class="empty-text-modern">
+                    Add your first handmade product and let
+                    KalaSetu help you create its catalog.
+                </p>
+
+                <a
+                    href="{{ url_for('add_product') }}"
+                    class="add-product-button"
+                >
+                    + {{ t('add_product') }}
+                </a>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

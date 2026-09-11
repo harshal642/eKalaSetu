@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    >
+
+    <meta name="theme-color" content="#5C3A21">
+
+    <title>KalaSetu - Customer Registration</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/customer_auth.css') }}"
+    >
+
+</head>
+
+
+<body class="customer-auth-body">
+
+<div class="auth-app">
+
+
+    <!-- DECORATIVE LINE -->
+    <div class="craft-line"></div>
+
+
+    <div class="corner-pattern corner-top-left"></div>
+    <div class="corner-pattern corner-top-right"></div>
+
+
+    <main class="auth-content">
+
+
+        <!-- BACK -->
+        <a
+            href="{{ url_for('customer_login') }}"
+            class="back-button"
+        >
+            <span>←</span>
+            Back to Login
+        </a>
+
+
+        <!-- BRAND -->
+        <section class="auth-brand">
+
+            <div class="logo-frame">
+
+                <div class="logo-ring"></div>
+
+                <img
+                    src="{{ url_for('static', filename='images/kala_setu_role.png') }}"
+                    alt="KalaSetu"
+                >
+
+            </div>
+
+            <h1>KalaSetu</h1>
+
+            <p>
+                कला • Craft • Culture
+            </p>
+
+        </section>
+
+
+        <!-- HEADING -->
+        <section class="auth-heading">
+
+            <span class="small-label">
+                JOIN THE COMMUNITY
+            </span>
+
+            <h2>
+                Create Account
+            </h2>
+
+            <p>
+                Join KalaSetu and discover beautiful
+                creations made by local artisans.
+            </p>
+
+        </section>
+
+
+        <!-- REGISTER CARD -->
+        <section class="auth-card">
+
+
+            {% if error %}
+
+            <div class="auth-error">
+                {{ error }}
+            </div>
+
+            {% endif %}
+
+
+            <form
+                method="POST"
+                action="{{ url_for('customer_register') }}"
+            >
+
+
+                <!-- NAME -->
+                <div class="field-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            ◇
+                        </span>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- MOBILE -->
+                <div class="field-group">
+
+                    <label for="mobile">
+                        Mobile Number
+                    </label>
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            +
+                        </span>
+
+                        <input
+                            type="tel"
+                            id="mobile"
+                            name="mobile"
+                            placeholder="Enter mobile number"
+                            maxlength="10"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+                <!-- ADDRESS -->
+                <div class="field-group">
+                    <label for="address">Address</label>
+
+                    <div class="input-box address-box">
+                        <div class="input-icon">⌂</div>
+
+                        <textarea
+                            id="address"
+                            name="address"
+                            rows="3"
+                            placeholder="Enter your full address"
+                            required
+                        ></textarea>
+                    </div>
+                </div>
+                <!-- PASSWORD -->
+                <div class="field-group">
+
+                    <label for="password">
+                        Create Password
+                    </label>
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            •
+                        </span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create a password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            onclick="togglePassword('password', this)"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+                <div class="field-group">
+
+                    <label for="confirm_password">
+                        Confirm Password
+                    </label>
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            •
+                        </span>
+
+                        <input
+                            type="password"
+                            id="confirm_password"
+                            name="confirm_password"
+                            placeholder="Confirm password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            onclick="togglePassword('confirm_password', this)"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CREATE ACCOUNT -->
+                <button
+                    type="submit"
+                    class="auth-button"
+                >
+                    <span>Create Account</span>
+                    <span class="button-arrow">→</span>
+                </button>
+
+
+            </form>
+
+
+            <!-- LOGIN -->
+            <div class="auth-divider">
+
+                <span></span>
+
+                <small>
+                    Already have an account?
+                </small>
+
+                <span></span>
+
+            </div>
+
+
+            <a
+                href="{{ url_for('customer_login') }}"
+                class="secondary-button"
+            >
+                Login to KalaSetu
+            </a>
+
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <div class="auth-footer">
+
+            <span class="footer-pattern">✦</span>
+
+            <p>
+                Every purchase supports traditional craftsmanship
+            </p>
+
+            <span class="footer-pattern">✦</span>
+
+        </div>
+
+
+    </main>
+
+</div>
+
+
+<script>
+
+function togglePassword(id, button) {
+
+    const password =
+        document.getElementById(id);
+
+    if (password.type === "password") {
+
+        password.type = "text";
+
+        button.textContent = "Hide";
+
+    } else {
+
+        password.type = "password";
+
+        button.textContent = "Show";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>{{ t('market_demand') }}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/artisan.css') }}">
+</head>
+<body class="app-body">
+  <div class="app-shell">
+
+    <header class="top-bar">
+      <a href="{{ url_for('artisan_dashboard') }}" class="top-bar-back">← {{ t('back') }}</a>
+      <span class="top-bar-title">📈 {{ t('market_demand') }}</span>
+      <span class="top-bar-action"></span>
+    </header>
+
+    <main class="scroll-main">
+
+      {% if not selected_product %}
+        <div class="card empty-state">
+          <p class="empty-text">{{ t('no_products_yet') }}</p>
+          <a href="{{ url_for('add_product') }}" class="btn btn-primary btn-large">📸 {{ t('add_product') }}</a>
+        </div>
+      {% else %}
+
+        {% if products|length > 1 %}
+        <form method="GET" action="{{ url_for('demand_insights') }}" class="card select-product-form">
+          <label class="form-label" for="product_id">{{ t('select_product') }}</label>
+          <select name="product_id" id="product_id" class="form-input" onchange="this.form.submit()">
+            {% for p in products %}
+            <option value="{{ p.product_id }}" {% if selected_product.product_id == p.product_id %}selected{% endif %}>
+              {{ p.name }}
+            </option>
+            {% endfor %}
+          </select>
+        </form>
+        {% endif %}
+
+        <div class="card demand-card">
+          <div class="demand-header">
+            <img src="{{ selected_product.image }}" alt="{{ selected_product.name }}" class="demand-thumb">
+            <div>
+              <p class="product-name">{{ selected_product.name }}</p>
+              <p class="craft-label">{{ selected_product.craft }}</p>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-box">
+              <p class="stat-value">{{ demand.views }}</p>
+              <p class="stat-label">{{ t('views') }}</p>
+            </div>
+            <div class="stat-box">
+              <p class="stat-value">{{ demand.wishlist }}</p>
+              <p class="stat-label">{{ t('wishlist') }}</p>
+            </div>
+            <div class="stat-box">
+              <p class="stat-value">{{ demand.cart }}</p>
+              <p class="stat-label">{{ t('cart') }}</p>
+            </div>
+            <div class="stat-box">
+              <p class="stat-value">{{ demand.orders }}</p>
+              <p class="stat-label">{{ t('orders') }}</p>
+            </div>
+          </div>
+
+          <div class="demand-score-box">
+            <p class="demand-score-label">{{ t('demand_score') }}: {{ demand.demand_score }}/100</p>
+            <div class="demand-bar-track">
+              <div class="demand-bar-fill" style="width: {{ demand.demand_score }}%;"></div>
+            </div>
+            <span class="badge {% if demand.demand_level == 'high' %}badge-green{% elif demand.demand_level == 'medium' %}badge-yellow{% else %}badge-blue{% endif %}">
+              {% if demand.demand_level == 'high' %}🔥 {{ t('high_demand') }}
+              {% elif demand.demand_level == 'medium' %}⚡ {{ t('medium_demand') }}
+              {% else %}🌱 {{ t('low_demand') }}{% endif %}
+            </span>
+          </div>
+
+          <div class="ai-insight-box">
+            <p class="ai-tag">🤖 AI Insight</p>
+            <p class="ai-insight-text">
+              {% if demand.demand_level == 'high' %}{{ t('ai_insight_high') }}
+              {% elif demand.demand_level == 'medium' %}{{ t('ai_insight_medium') }}
+              {% else %}{{ t('ai_insight_low') }}{% endif %}
+            </p>
+            <p class="ai-suggestion-text">
+              {% if demand.demand_level == 'high' %}{{ t('ai_suggestion_high') }}
+              {% elif demand.demand_level == 'medium' %}{{ t('ai_suggestion_medium') }}
+              {% else %}{{ t('ai_suggestion_low') }}{% endif %}
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="section-title">🏪 {{ t('market_opportunities') }}</h2>
+          <div class="market-list">
+            {% for m in markets %}
+            <div class="market-item">
+              <div>
+                <p class="market-name">{{ m.name }}</p>
+                <p class="market-location">{{ m.location }}</p>
+              </div>
+              <span class="match-badge">{{ m.match_percent }}% {{ t('market_match') }}</span>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+      {% endif %}
+    </main>
+  </div>
+</body>
+</html>

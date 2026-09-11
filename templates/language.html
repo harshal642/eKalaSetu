@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>KalaSetu</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/artisan.css') }}">
+
+
+</head>
+
+<body class="app-body center-screen">
+
+  <div class="app-shell">
+
+    <div class="lang-hero">
+
+      <!-- KalaSetu Logo -->
+      <img
+        src="{{ url_for('static', filename='images/kala_setu.png') }}"
+        alt="KalaSetu Logo"
+        class="kalasetu-logo"
+      >
+
+      <p class="lang-subtitle">
+        Choose your language / आपली भाषा निवडा / अपनी भाषा चुनें
+      </p>
+
+    </div>
+
+    <form method="POST"
+          action="{{ url_for('choose_language') }}"
+          class="lang-form">
+
+      <button type="submit" name="language" value="en" class="lang-btn">
+        <span class="lang-flag">🇬🇧</span>
+        <span class="lang-name">English</span>
+      </button>
+
+      <button type="submit" name="language" value="mr" class="lang-btn">
+        <span class="lang-flag">🇮🇳</span>
+        <span class="lang-name">मराठी</span>
+      </button>
+
+      <button type="submit" name="language" value="hi" class="lang-btn">
+        <span class="lang-flag">🇮🇳</span>
+        <span class="lang-name">हिंदी</span>
+      </button>
+
+    </form>
+
+  </div>
+
+</body>
+</html>

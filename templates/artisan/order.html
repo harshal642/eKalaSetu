@@ -1,0 +1,595 @@
+
+<!DOCTYPE html>
+<html lang="{{ current_lang|default('en') }}">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    >
+
+    <meta
+        name="theme-color"
+        content="#5C3A21"
+    >
+
+    <title>
+        {{ t('customer_orders') }} - KalaSetu
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/app.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/artisan.css') }}"
+    >
+
+    <style>
+
+        /* =========================================================
+           ORDERS PAGE
+           ========================================================= */
+
+        .orders-page {
+            padding: 20px 18px 40px;
+        }
+
+        .orders-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .orders-back {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 24px;
+            background: #f4eadf;
+            color: #5c3a21;
+            flex-shrink: 0;
+        }
+
+        .orders-heading {
+            flex: 1;
+        }
+
+        .orders-eyebrow {
+            margin: 0 0 4px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: #9a6a45;
+        }
+
+        .orders-title {
+            margin: 0;
+            font-size: 26px;
+            line-height: 1.15;
+            color: #3f2819;
+        }
+
+        .orders-count {
+            min-width: 38px;
+            height: 38px;
+            padding: 0 10px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #5c3a21;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+
+        /* =========================================================
+           ORDER CARD
+           ========================================================= */
+
+        .customer-order-card {
+            background: #fff;
+            border: 1px solid #eadfd4;
+            border-radius: 18px;
+            padding: 16px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 18px rgba(92, 58, 33, 0.07);
+        }
+
+        .order-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .order-id {
+            margin: 0;
+            font-size: 13px;
+            font-weight: 700;
+            color: #6e4930;
+        }
+
+        .order-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            border-radius: 20px;
+            background: #edf6ed;
+            color: #397044;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: capitalize;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #4b8b50;
+        }
+
+
+        /* =========================================================
+           PRODUCT
+           ========================================================= */
+
+        .order-product {
+            display: flex;
+            gap: 13px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #eee5dc;
+        }
+
+        .order-product-image {
+            width: 76px;
+            height: 76px;
+            border-radius: 13px;
+            overflow: hidden;
+            background: #f3ebe3;
+            flex-shrink: 0;
+        }
+
+        .order-product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .order-product-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9a806b;
+            font-size: 11px;
+        }
+
+        .order-product-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .order-product-name {
+            margin: 2px 0 6px;
+            color: #3f2819;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .order-product-quantity {
+            margin: 0;
+            color: #806957;
+            font-size: 13px;
+        }
+
+
+        /* =========================================================
+           CUSTOMER INFORMATION
+           ========================================================= */
+
+        .customer-info {
+            padding: 14px 0 4px;
+        }
+
+        .customer-info-title {
+            margin: 0 0 10px;
+            color: #5c3a21;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .customer-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            margin-bottom: 8px;
+        }
+
+        .customer-detail-label {
+            width: 72px;
+            flex-shrink: 0;
+            color: #927967;
+            font-size: 12px;
+        }
+
+        .customer-detail-value {
+            flex: 1;
+            color: #493326;
+            font-size: 13px;
+            line-height: 1.4;
+            word-break: break-word;
+        }
+
+
+        /* =========================================================
+           TOTAL
+           ========================================================= */
+
+        .order-bottom {
+            margin-top: 12px;
+            padding-top: 13px;
+            border-top: 1px solid #eee5dc;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .order-date {
+            color: #927967;
+            font-size: 11px;
+        }
+
+        .order-total {
+            color: #5c3a21;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           EMPTY STATE
+           ========================================================= */
+
+        .orders-empty {
+            background: #fff;
+            border: 1px dashed #d9c8b9;
+            border-radius: 20px;
+            padding: 38px 22px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .orders-empty-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f4eadf;
+            color: #7c5135;
+            font-size: 28px;
+        }
+
+        .orders-empty h2 {
+            margin: 0 0 8px;
+            color: #493326;
+            font-size: 19px;
+        }
+
+        .orders-empty p {
+            margin: 0;
+            color: #806957;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================================================
+           MOBILE
+           ========================================================= */
+
+        @media (max-width: 420px) {
+
+            .orders-page {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .orders-title {
+                font-size: 23px;
+            }
+
+            .customer-order-card {
+                padding: 14px;
+            }
+
+            .order-product-image {
+                width: 68px;
+                height: 68px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="app-body">
+
+<div class="app-shell artisan-dashboard">
+
+
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
+
+    <header class="dashboard-header">
+
+        <a
+            href="{{ url_for('artisan_dashboard') }}"
+            class="dashboard-brand"
+            aria-label="KalaSetu Dashboard"
+        >
+
+            <img
+                src="{{ url_for('static', filename='images/kalasetu_dash.png') }}"
+                alt="KalaSetu"
+                class="dashboard-logo"
+            >
+
+        </a>
+
+
+        <a
+            href="{{ url_for('artisan_logout') }}"
+            class="dashboard-logout"
+            title="{{ t('logout') }}"
+            aria-label="{{ t('logout') }}"
+        >
+            <span>↪</span>
+        </a>
+
+    </header>
+
+
+    <!-- =========================================================
+         MAIN
+         ========================================================= -->
+
+    <main class="scroll-main">
+
+        <div class="orders-page">
+
+
+            <!-- =====================================================
+                 PAGE HEADER
+                 ===================================================== -->
+
+            <div class="orders-header">
+
+                <a
+                    href="{{ url_for('artisan_dashboard') }}"
+                    class="orders-back"
+                    aria-label="Back"
+                >
+                    ←
+                </a>
+
+                <div class="orders-heading">
+
+                    <p class="orders-eyebrow">
+                        KalaSetu
+                    </p>
+
+                    <h1 class="orders-title">
+                        {{ t('customer_orders') }}
+                    </h1>
+
+                </div>
+
+                <div class="orders-count">
+                    {{ orders|length }}
+                </div>
+
+            </div>
+
+
+            <!-- =====================================================
+                 ORDERS
+                 ===================================================== -->
+
+            {% if orders %}
+
+                {% for order in orders %}
+
+                    <article class="customer-order-card">
+
+
+                        <!-- ORDER TOP -->
+
+                        <div class="order-top">
+
+                            <p class="order-id">
+                                {{ order.order_id }}
+                            </p>
+
+                            <span class="order-status">
+
+                                <span class="status-dot"></span>
+
+                                {{ order.status|default('placed') }}
+
+                            </span>
+
+                        </div>
+
+
+                        <!-- PRODUCT -->
+
+                        <div class="order-product">
+
+                            <div class="order-product-image">
+
+                                {% if order.product_image %}
+
+                                    <img
+                                        src="{{ order.product_image }}"
+                                        alt="{{ order.product_name }}"
+                                    >
+
+                                {% else %}
+
+                                    <div class="order-product-placeholder">
+                                        Product
+                                    </div>
+
+                                {% endif %}
+
+                            </div>
+
+
+                            <div class="order-product-info">
+
+                                <h2 class="order-product-name">
+                                    {{ order.product_name }}
+                                </h2>
+
+                                <p class="order-product-quantity">
+
+                                    {{ t('quantity') }}:
+                                    <strong>
+                                        {{ order.quantity }}
+                                    </strong>
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CUSTOMER -->
+
+                        <div class="customer-info">
+
+                            <h3 class="customer-info-title">
+                                {{ t('customer_details') }}
+                            </h3>
+
+
+                            <div class="customer-detail">
+
+                                <span class="customer-detail-label">
+                                    {{ t('name') }}
+                                </span>
+
+                                <span class="customer-detail-value">
+                                    {{ order.customer_name }}
+                                </span>
+
+                            </div>
+
+
+                            <div class="customer-detail">
+
+                                <span class="customer-detail-label">
+                                    {{ t('mobile') }}
+                                </span>
+
+                                <span class="customer-detail-value">
+                                    {{ order.customer_mobile }}
+                                </span>
+
+                            </div>
+
+
+                            <div class="customer-detail">
+
+                                <span class="customer-detail-label">
+                                    {{ t('address') }}
+                                </span>
+
+                                <span class="customer-detail-value">
+                                    {{ order.customer_address }}
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- TOTAL -->
+
+                        <div class="order-bottom">
+
+                            <span class="order-date">
+                                {{ order.created_at }}
+                            </span>
+
+                            <strong class="order-total">
+                                ₹{{ order.total_price|int }}
+                            </strong>
+
+                        </div>
+
+
+                    </article>
+
+                {% endfor %}
+
+
+            {% else %}
+
+
+                <!-- =================================================
+                     EMPTY STATE
+                     ================================================= -->
+
+                <div class="orders-empty">
+
+                    <div class="orders-empty-icon">
+                        🛍
+                    </div>
+
+                    <h2>
+                        {{ t('no_customer_orders') }}
+                    </h2>
+
+                    <p>
+                        {{ t('customer_orders_empty_message') }}
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

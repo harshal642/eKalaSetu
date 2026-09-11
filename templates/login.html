@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalasetu - Login</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body class="app-body center-screen">
+  <div class="app-shell">
+    <div class="lang-hero">
+      <div class="lang-lamp">🪔</div>
+      <h1 class="lang-title">KALASETU</h1>
+    </div>
+    <div class="card">
+      <p style="text-align:center; margin-bottom:16px;">This build focuses on the Artisan experience.</p>
+      <a href="{{ url_for('artisan_login') }}" class="btn btn-primary btn-large">👨‍🎨 Artisan Login</a>
+    </div>
+  </div>
+</body>
+</html>

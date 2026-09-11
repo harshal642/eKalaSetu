@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="{{ current_lang|default('en') }}">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+>
+
+<meta name="theme-color" content="#5C3A21">
+
+<title>Order Confirmed - KalaSetu</title>
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f7f1e8;
+        color: #3d281a;
+    }
+
+    .customer-app {
+        width: 100%;
+        max-width: 430px;
+        min-height: 100vh;
+        margin: 0 auto;
+        background: #fffaf3;
+        padding: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .success-card {
+        width: 100%;
+        text-align: center;
+        background: white;
+        border-radius: 24px;
+        padding: 32px 24px;
+        box-shadow: 0 12px 35px rgba(92, 58, 33, 0.12);
+    }
+
+    .success-symbol {
+        width: 72px;
+        height: 72px;
+        margin: 0 auto 20px;
+        border-radius: 50%;
+        background: #0f802f;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 34px;
+    }
+
+    .success-card h1 {
+        margin: 0 0 10px;
+        font-size: 27px;
+    }
+
+    .success-card p {
+        color: #777;
+        line-height: 1.6;
+    }
+
+    .order-number {
+        margin: 22px 0;
+        padding: 15px;
+        background: #f7f1e8;
+        border-radius: 14px;
+    }
+
+    .order-number span {
+        display: block;
+        font-size: 12px;
+        color: #8a6a50;
+        margin-bottom: 5px;
+    }
+
+    .order-number strong {
+        font-size: 20px;
+    }
+
+    .order-details {
+        text-align: left;
+        margin-top: 20px;
+    }
+
+    .detail-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .detail-row span {
+        color: #777;
+    }
+
+    .detail-row strong {
+        text-align: right;
+    }
+
+    .home-button {
+        display: block;
+        margin-top: 25px;
+        padding: 14px;
+        border-radius: 12px;
+        background: #5c3a21;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+</style>
+
+</head>
+
+<body>
+
+<div class="customer-app">
+
+
+<div class="success-card">
+
+    <div class="success-symbol">
+        ✓
+    </div>
+
+    <h1>
+        Order Confirmed
+    </h1>
+
+    <p>
+        Thank you for supporting Indian artisans.
+        Your order has been successfully placed.
+    </p>
+
+    <div class="order-number">
+
+        <span>
+            ORDER NUMBER
+        </span>
+
+        <strong>
+            {{ order.order_id }}
+        </strong>
+
+    </div>
+
+    <div class="order-details">
+
+        <div class="detail-row">
+            <span>Product</span>
+            <strong>{{ order.product_name }}</strong>
+        </div>
+
+        <div class="detail-row">
+            <span>Quantity</span>
+            <strong>{{ order.quantity }}</strong>
+        </div>
+
+        <div class="detail-row">
+            <span>Total</span>
+            <strong>
+                ₹{{ "%.0f"|format(order.total_price|float) }}
+            </strong>
+        </div>
+
+        <div class="detail-row">
+            <span>Artisan</span>
+            <strong>{{ order.artisan_name }}</strong>
+        </div>
+
+    </div>
+
+    <a
+        href="{{ url_for('customer_home') }}"
+        class="home-button"
+    >
+        Continue Shopping
+    </a>
+
+</div>
+
+
+</div>
+
+</body>
+
+</html>

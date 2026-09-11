@@ -1,0 +1,278 @@
+[
+  {
+    "product_id": 1,
+    "artisan_id": 24,
+    "artisan_name": "सावित्री",
+    "image": "/uploads/products/front_enhanced_92958ed74d3c436a965fce181c020548.jpeg",
+    "final_image": "/uploads/products/front_enhanced_92958ed74d3c436a965fce181c020548.jpeg",
+    "images": {
+      "detail": "/uploads/products/detail_enhanced_94fbc1f5dcb74bbd8e64682f557b1425.jpeg",
+      "front": "/uploads/products/front_enhanced_92958ed74d3c436a965fce181c020548.jpeg",
+      "side": "/uploads/products/side_enhanced_da3ef3cbaf0e46e3b9cd2231c66942a5.jpeg"
+    },
+    "front_image": "/uploads/products/front_enhanced_92958ed74d3c436a965fce181c020548.jpeg",
+    "side_image": "/uploads/products/side_enhanced_da3ef3cbaf0e46e3b9cd2231c66942a5.jpeg",
+    "detail_image": "/uploads/products/detail_enhanced_94fbc1f5dcb74bbd8e64682f557b1425.jpeg",
+    "original_images": {
+      "detail": "/uploads/products/detail_original_94fbc1f5dcb74bbd8e64682f557b1425.jpeg",
+      "front": "/uploads/products/front_original_92958ed74d3c436a965fce181c020548.jpeg",
+      "side": "/uploads/products/side_original_da3ef3cbaf0e46e3b9cd2231c66942a5.jpeg"
+    },
+    "original_image": "/uploads/products/front_original_92958ed74d3c436a965fce181c020548.jpeg",
+    "enhanced_images": {
+      "detail": "/uploads/products/detail_enhanced_94fbc1f5dcb74bbd8e64682f557b1425.jpeg",
+      "front": "/uploads/products/front_enhanced_92958ed74d3c436a965fce181c020548.jpeg",
+      "side": "/uploads/products/side_enhanced_da3ef3cbaf0e46e3b9cd2231c66942a5.jpeg"
+    },
+    "name": "Handmade wood Craft",
+    "description": "This is a beautiful traditional handmade product. It is carefully crafted using wood. Size: medium. Each piece is created with traditional craftsmanship and attention to detail.",
+    "material": "wood",
+    "size": "medium",
+    "target_market": [
+      "Home Décor",
+      "Gift Shops",
+      "Handmade Marketplaces"
+    ],
+    "making_time": "5hour",
+    "making_cost": 350.0,
+    "suggested_price_min": 630,
+    "suggested_price_max": 820,
+    "recommended_price": 720,
+    "final_price": 720.0,
+    "status": "published",
+    "approval_status": "approved",
+    "image_choice": "enhanced",
+    "created_at": "2026-09-11T15:17:54.587751",
+    "published_at": "2026-09-11T15:17:54.587958"
+  },
+  {
+    "product_id": 2,
+    "artisan_id": 24,
+    "artisan_name": "सावित्री",
+    "image": "/uploads/products/front_enhanced_f45aa3385a0e4e49bcd1cc85ca418a2a.jpeg",
+    "final_image": "/uploads/products/front_enhanced_f45aa3385a0e4e49bcd1cc85ca418a2a.jpeg",
+    "images": {
+      "detail": "/uploads/products/detail_enhanced_31a4059cb14a4f89a1298bdf065367eb.jpeg",
+      "front": "/uploads/products/front_enhanced_f45aa3385a0e4e49bcd1cc85ca418a2a.jpeg",
+      "side": "/uploads/products/side_enhanced_1f7b126210fc48bb8125f7d1bfb58095.jpeg"
+    },
+    "front_image": "/uploads/products/front_enhanced_f45aa3385a0e4e49bcd1cc85ca418a2a.jpeg",
+    "side_image": "/uploads/products/side_enhanced_1f7b126210fc48bb8125f7d1bfb58095.jpeg",
+    "detail_image": "/uploads/products/detail_enhanced_31a4059cb14a4f89a1298bdf065367eb.jpeg",
+    "original_images": {
+      "detail": "/uploads/products/detail_original_31a4059cb14a4f89a1298bdf065367eb.jpeg",
+      "front": "/uploads/products/front_original_f45aa3385a0e4e49bcd1cc85ca418a2a.jpeg",
+      "side": "/uploads/products/side_original_1f7b126210fc48bb8125f7d1bfb58095.jpeg"
+    },
+    "original_image": "/uploads/products/front_original_f45aa3385a0e4e49bcd1cc85ca418a2a.jpeg",
+    "enhanced_images": {
+      "detail": "/uploads/products/detail_enhanced_31a4059cb14a4f89a1298bdf065367eb.jpeg",
+      "front": "/uploads/products/front_enhanced_f45aa3385a0e4e49bcd1cc85ca418a2a.jpeg",
+      "side": "/uploads/products/side_enhanced_1f7b126210fc48bb8125f7d1bfb58095.jpeg"
+    },
+    "name": "Handmade bamboo Craft",
+    "description": "This is a beautiful traditional handmade product. It is carefully crafted using bamboo. Size: large. Each piece is created with traditional craftsmanship and attention to detail.",
+    "material": "bamboo",
+    "size": "large",
+    "target_market": [
+      "Home Décor",
+      "Gift Shops",
+      "Handmade Marketplaces"
+    ],
+    "making_time": "3 hour",
+    "making_cost": 250.0,
+    "suggested_price_min": 410,
+    "suggested_price_max": 540,
+    "recommended_price": 480,
+    "final_price": 480.0,
+    "status": "published",
+    "approval_status": "approved",
+    "image_choice": "enhanced",
+    "created_at": "2026-09-11T15:19:48.303145",
+    "published_at": "2026-09-11T15:19:48.303223"
+  },
+  {
+    "product_id": 3,
+    "artisan_id": 25,
+    "artisan_name": "अमोल",
+    "image": "/uploads/products/front_enhanced_d543da988a41473d877fc2bf0881bfed.jpeg",
+    "final_image": "/uploads/products/front_enhanced_d543da988a41473d877fc2bf0881bfed.jpeg",
+    "images": {
+      "detail": "/uploads/products/detail_enhanced_520d373c7d4e45b7b36913500b51ebb5.jpeg",
+      "front": "/uploads/products/front_enhanced_d543da988a41473d877fc2bf0881bfed.jpeg",
+      "side": "/uploads/products/side_enhanced_835546419d0847389104060033fe115f.jpeg"
+    },
+    "front_image": "/uploads/products/front_enhanced_d543da988a41473d877fc2bf0881bfed.jpeg",
+    "side_image": "/uploads/products/side_enhanced_835546419d0847389104060033fe115f.jpeg",
+    "detail_image": "/uploads/products/detail_enhanced_520d373c7d4e45b7b36913500b51ebb5.jpeg",
+    "original_images": {
+      "detail": "/uploads/products/detail_original_520d373c7d4e45b7b36913500b51ebb5.jpeg",
+      "front": "/uploads/products/front_original_d543da988a41473d877fc2bf0881bfed.jpeg",
+      "side": "/uploads/products/side_original_835546419d0847389104060033fe115f.jpeg"
+    },
+    "original_image": "/uploads/products/front_original_d543da988a41473d877fc2bf0881bfed.jpeg",
+    "enhanced_images": {
+      "detail": "/uploads/products/detail_enhanced_520d373c7d4e45b7b36913500b51ebb5.jpeg",
+      "front": "/uploads/products/front_enhanced_d543da988a41473d877fc2bf0881bfed.jpeg",
+      "side": "/uploads/products/side_enhanced_835546419d0847389104060033fe115f.jpeg"
+    },
+    "name": "Handmade marbal elephant showpeice Craft",
+    "description": "This is a beautiful traditional handmade product. It is carefully crafted using marbal elephant showpeice. Size: 15 * 15 cm. Each piece is created with traditional craftsmanship and attention to detail.",
+    "material": "marbal elephant showpeice",
+    "size": "15 * 15 cm",
+    "target_market": [
+      "Handmade Marketplaces",
+      "Local Gift Shops",
+      "Online Marketplaces"
+    ],
+    "making_time": "3hour",
+    "making_cost": 300.0,
+    "suggested_price_min": 490,
+    "suggested_price_max": 640,
+    "recommended_price": 560,
+    "final_price": 560.0,
+    "status": "published",
+    "approval_status": "approved",
+    "image_choice": "enhanced",
+    "created_at": "2026-09-11T15:23:38.335640",
+    "published_at": "2026-09-11T15:23:38.335655"
+  },
+  {
+    "product_id": 4,
+    "artisan_id": 26,
+    "artisan_name": "पूजा",
+    "image": "/uploads/products/front_enhanced_10e0f6fe64114e0ba1ec446e9b3f4e05.jpeg",
+    "final_image": "/uploads/products/front_enhanced_10e0f6fe64114e0ba1ec446e9b3f4e05.jpeg",
+    "images": {
+      "detail": "/uploads/products/detail_enhanced_a42f794137b94bb1bb8ad04e27c0989d.jpeg",
+      "front": "/uploads/products/front_enhanced_10e0f6fe64114e0ba1ec446e9b3f4e05.jpeg",
+      "side": "/uploads/products/side_enhanced_ea81b033964247bc9e43d1e13c331750.jpeg"
+    },
+    "front_image": "/uploads/products/front_enhanced_10e0f6fe64114e0ba1ec446e9b3f4e05.jpeg",
+    "side_image": "/uploads/products/side_enhanced_ea81b033964247bc9e43d1e13c331750.jpeg",
+    "detail_image": "/uploads/products/detail_enhanced_a42f794137b94bb1bb8ad04e27c0989d.jpeg",
+    "original_images": {
+      "detail": "/uploads/products/detail_original_a42f794137b94bb1bb8ad04e27c0989d.jpeg",
+      "front": "/uploads/products/front_original_10e0f6fe64114e0ba1ec446e9b3f4e05.jpeg",
+      "side": "/uploads/products/side_original_ea81b033964247bc9e43d1e13c331750.jpeg"
+    },
+    "original_image": "/uploads/products/front_original_10e0f6fe64114e0ba1ec446e9b3f4e05.jpeg",
+    "enhanced_images": {
+      "detail": "/uploads/products/detail_enhanced_a42f794137b94bb1bb8ad04e27c0989d.jpeg",
+      "front": "/uploads/products/front_enhanced_10e0f6fe64114e0ba1ec446e9b3f4e05.jpeg",
+      "side": "/uploads/products/side_enhanced_ea81b033964247bc9e43d1e13c331750.jpeg"
+    },
+    "name": "Handmade Marbal Craft",
+    "description": "This is a beautiful traditional handmade product. It is carefully crafted using Marbal. Size: 20*20 cm. Each piece is created with traditional craftsmanship and attention to detail.",
+    "material": "Marbal",
+    "size": "20*20 cm",
+    "target_market": [
+      "Handmade Marketplaces",
+      "Local Gift Shops",
+      "Online Marketplaces"
+    ],
+    "making_time": "2 hour",
+    "making_cost": 150.0,
+    "suggested_price_min": 240,
+    "suggested_price_max": 320,
+    "recommended_price": 280,
+    "final_price": 280.0,
+    "status": "published",
+    "approval_status": "approved",
+    "image_choice": "enhanced",
+    "created_at": "2026-09-11T15:26:37.608718",
+    "published_at": "2026-09-11T15:26:37.608726"
+  },
+  {
+    "product_id": 5,
+    "artisan_id": 28,
+    "artisan_name": "मीना",
+    "image": "/uploads/products/front_enhanced_ef42f83796554c6981feb441ad23b5b0.jpeg",
+    "final_image": "/uploads/products/front_enhanced_ef42f83796554c6981feb441ad23b5b0.jpeg",
+    "images": {
+      "detail": "/uploads/products/detail_enhanced_032b260cba964e74913e77bacb10d2af.jpeg",
+      "front": "/uploads/products/front_enhanced_ef42f83796554c6981feb441ad23b5b0.jpeg",
+      "side": "/uploads/products/side_enhanced_d254ab26759543328e25dc8088345c0b.jpeg"
+    },
+    "front_image": "/uploads/products/front_enhanced_ef42f83796554c6981feb441ad23b5b0.jpeg",
+    "side_image": "/uploads/products/side_enhanced_d254ab26759543328e25dc8088345c0b.jpeg",
+    "detail_image": "/uploads/products/detail_enhanced_032b260cba964e74913e77bacb10d2af.jpeg",
+    "original_images": {
+      "detail": "/uploads/products/detail_original_032b260cba964e74913e77bacb10d2af.jpeg",
+      "front": "/uploads/products/front_original_ef42f83796554c6981feb441ad23b5b0.jpeg",
+      "side": "/uploads/products/side_original_d254ab26759543328e25dc8088345c0b.jpeg"
+    },
+    "original_image": "/uploads/products/front_original_ef42f83796554c6981feb441ad23b5b0.jpeg",
+    "enhanced_images": {
+      "detail": "/uploads/products/detail_enhanced_032b260cba964e74913e77bacb10d2af.jpeg",
+      "front": "/uploads/products/front_enhanced_ef42f83796554c6981feb441ad23b5b0.jpeg",
+      "side": "/uploads/products/side_enhanced_d254ab26759543328e25dc8088345c0b.jpeg"
+    },
+    "name": "Handmade metal (Bidriware) Craft",
+    "description": "This is a beautiful traditional handmade product. It is carefully crafted using metal (Bidriware). Size: 25 cm height. Each piece is created with traditional craftsmanship and attention to detail.",
+    "material": "metal (Bidriware)",
+    "size": "25 cm height",
+    "target_market": [
+      "Premium Gift Shops",
+      "Home Décor",
+      "Art & Craft Stores"
+    ],
+    "making_time": "6hour",
+    "making_cost": 500.0,
+    "suggested_price_min": 820,
+    "suggested_price_max": 1070,
+    "recommended_price": 940,
+    "final_price": 940.0,
+    "status": "published",
+    "approval_status": "approved",
+    "image_choice": "enhanced",
+    "created_at": "2026-09-11T15:52:37.230726",
+    "published_at": "2026-09-11T15:52:37.230871"
+  },
+  {
+    "product_id": 6,
+    "artisan_id": 30,
+    "artisan_name": "कविता",
+    "image": "/uploads/products/front_enhanced_ddc4e81891964054a0646f11e219b9db.jpeg",
+    "final_image": "/uploads/products/front_enhanced_ddc4e81891964054a0646f11e219b9db.jpeg",
+    "images": {
+      "detail": "/uploads/products/detail_enhanced_7bfb0ddf99d244b299cb556266903ba6.jpeg",
+      "front": "/uploads/products/front_enhanced_ddc4e81891964054a0646f11e219b9db.jpeg",
+      "side": "/uploads/products/side_enhanced_0ae6db1e488c46b2a53745e35bb7f0b7.jpeg"
+    },
+    "front_image": "/uploads/products/front_enhanced_ddc4e81891964054a0646f11e219b9db.jpeg",
+    "side_image": "/uploads/products/side_enhanced_0ae6db1e488c46b2a53745e35bb7f0b7.jpeg",
+    "detail_image": "/uploads/products/detail_enhanced_7bfb0ddf99d244b299cb556266903ba6.jpeg",
+    "original_images": {
+      "detail": "/uploads/products/detail_original_7bfb0ddf99d244b299cb556266903ba6.jpeg",
+      "front": "/uploads/products/front_original_ddc4e81891964054a0646f11e219b9db.jpeg",
+      "side": "/uploads/products/side_original_0ae6db1e488c46b2a53745e35bb7f0b7.jpeg"
+    },
+    "original_image": "/uploads/products/front_original_ddc4e81891964054a0646f11e219b9db.jpeg",
+    "enhanced_images": {
+      "detail": "/uploads/products/detail_enhanced_7bfb0ddf99d244b299cb556266903ba6.jpeg",
+      "front": "/uploads/products/front_enhanced_ddc4e81891964054a0646f11e219b9db.jpeg",
+      "side": "/uploads/products/side_enhanced_0ae6db1e488c46b2a53745e35bb7f0b7.jpeg"
+    },
+    "name": "Handmade mud soil (pot) Craft",
+    "description": "This is a beautiful traditional handmade product. It is carefully crafted using mud soil (pot). Size: medium. Each piece is created with traditional craftsmanship and attention to detail.",
+    "material": "mud soil (pot)",
+    "size": "medium",
+    "target_market": [
+      "Home Décor",
+      "Art & Craft Stores",
+      "Gift Shops"
+    ],
+    "making_time": "2hour",
+    "making_cost": 150.0,
+    "suggested_price_min": 240,
+    "suggested_price_max": 320,
+    "recommended_price": 280,
+    "final_price": 280.0,
+    "status": "published",
+    "approval_status": "approved",
+    "image_choice": "enhanced",
+    "created_at": "2026-09-11T16:10:11.377731",
+    "published_at": "2026-09-11T16:10:11.377951"
+  }
+]

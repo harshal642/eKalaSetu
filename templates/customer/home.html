@@ -1,0 +1,1081 @@
+
+<!DOCTYPE html>
+<html lang="{{ current_lang|default('en') }}">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    >
+
+    <meta
+        name="theme-color"
+        content="#5C3A21"
+    >
+
+    <title>KalaSetu - Discover Indian Crafts</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/custome_home.css') }}"
+    >
+
+    <style>
+
+        /* =========================================
+           PRODUCT THREE-IMAGE SLIDER
+        ========================================= */
+
+        .product-image-slider {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .product-image-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .product-image-slider img {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            scroll-snap-align: start;
+            display: block;
+        }
+
+        /* Keep image area working correctly */
+
+        .product-image {
+            overflow: hidden;
+        }
+
+        /* Product size */
+
+        .product-size {
+            margin: 4px 0 0;
+            font-size: 12px;
+            color: #777;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="customer-app">
+
+
+    <!-- =========================
+         TOP HEADER
+    ========================== -->
+
+    <header class="customer-header">
+
+        <div class="brand-area">
+
+            <img
+                src="{{ url_for('static', filename='images/kala_setu_role.png') }}"
+                alt="KalaSetu"
+            >
+
+            <div class="brand-text">
+
+                <h1>
+                    KalaSetu
+                </h1>
+
+                <span>
+                    Indian Crafts Marketplace
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROFILE BUTTON -->
+
+        
+
+        {% if session.get('customer_logged_in') %}
+
+            <a
+                href="{{ url_for('customer_profile') }}"
+                class="profile-button"
+            >
+                <span>👤</span>
+            </a>
+
+            {% else %}
+
+            <button
+                type="button"
+                class="profile-button"
+                onclick="openProfilePopup()"
+            >
+                <span>👤</span>
+            </button>
+
+{% endif %}
+
+    </header>
+
+
+
+    <!-- =========================
+         SEARCH
+    ========================== -->
+
+    <section class="search-section">
+
+        <div class="search-box">
+
+            <span class="search-icon">
+                ⌕
+            </span>
+
+            <input
+                type="text"
+                id="productSearch"
+                placeholder="Search handmade products"
+                autocomplete="off"
+            >
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         HERO / WELCOME
+    ========================== -->
+
+    <section class="hero-section">
+
+        <div class="hero-content">
+
+            <span class="hero-label">
+                DISCOVER • SUPPORT • PRESERVE
+            </span>
+
+            <h2>
+                Discover India's
+                <br>
+                Traditional Crafts
+            </h2>
+
+            <p>
+                Beautiful handmade products created directly
+                by talented Indian artisans.
+            </p>
+
+            <button
+                type="button"
+                class="hero-button"
+                onclick="scrollToProducts()"
+            >
+                Explore Crafts
+            </button>
+
+        </div>
+
+
+        <div class="hero-decoration">
+            ❋
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         GUEST MESSAGE
+    ========================== -->
+
+    <section class="guest-message">
+
+        <div class="guest-icon">
+            ❖
+        </div>
+
+        <div class="guest-text">
+
+            <strong>
+                Explore Beautiful Crafts Freely
+            </strong>
+
+            <p>
+                No account is required to explore our artisan collection.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CATEGORIES
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    EXPLORE
+                </span>
+
+                <h3>
+                    Craft Categories
+                </h3>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="see-all-button"
+            >
+                See All
+            </button>
+
+        </div>
+
+
+        <div class="category-list">
+
+            <button
+                type="button"
+                class="category-item"
+                data-category="Pottery"
+            >
+
+                <span class="category-icon">
+                    🏺
+                </span>
+
+                <small>
+                    Pottery
+                </small>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="category-item"
+                data-category="Handloom"
+            >
+
+                <span class="category-icon">
+                    🧵
+                </span>
+
+                <small>
+                    Handloom
+                </small>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="category-item"
+                data-category="Bamboo"
+            >
+
+                <span class="category-icon">
+                    🎋
+                </span>
+
+                <small>
+                    Bamboo
+                </small>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="category-item"
+                data-category="Jewellery"
+            >
+
+                <span class="category-icon">
+                    💍
+                </span>
+
+                <small>
+                    Jewellery
+                </small>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="category-item"
+                data-category="Painting"
+            >
+
+                <span class="category-icon">
+                    🎨
+                </span>
+
+                <small>
+                    Painting
+                </small>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ARTISAN COLLECTION
+    ========================== -->
+
+    <section
+        class="section products-section"
+        id="products"
+    >
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    FROM OUR ARTISANS
+                </span>
+
+                <h3>
+                    Featured Crafts
+                </h3>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="see-all-button"
+            >
+                See All
+            </button>
+
+        </div>
+
+
+
+        <!-- =========================
+             PRODUCT GRID
+        ========================== -->
+
+        <div class="product-grid">
+
+
+            {% if products %}
+
+
+                {% for product in products %}
+
+
+                <!-- =========================
+                     PRODUCT CARD
+                ========================== -->
+
+                <article
+                    class="product-card"
+                    data-product-name="{{ product.name|default('') }}"
+                    data-material="{{ product.material|default('') }}"
+                    data-artisan="{{ product.artisan_name|default('') }}"
+                >
+
+
+                    <!-- =========================
+                         PRODUCT IMAGE SLIDER
+                    ========================== -->
+
+                    <div class="product-image">
+
+                        <div class="product-image-slider">
+
+
+                            {% if product.images %}
+
+
+                                {% if product.images.front %}
+
+                                <img
+                                    src="{{ product.images.front }}"
+                                    alt="{{ product.name }} - Front"
+                                    loading="lazy"
+                                >
+
+                                {% endif %}
+
+
+                                {% if product.images.side %}
+
+                                <img
+                                    src="{{ product.images.side }}"
+                                    alt="{{ product.name }} - Side"
+                                    loading="lazy"
+                                >
+
+                                {% endif %}
+
+
+                                {% if product.images.detail %}
+
+                                <img
+                                    src="{{ product.images.detail }}"
+                                    alt="{{ product.name }} - Detail"
+                                    loading="lazy"
+                                >
+
+                                {% endif %}
+
+
+                            {% else %}
+
+
+                                <div class="product-placeholder">
+                                    Artisan Craft
+                                </div>
+
+
+                            {% endif %}
+
+
+                        </div>
+
+
+                        <!-- WISHLIST -->
+
+                        <button
+                            type="button"
+                            class="wishlist-button"
+                            onclick="openOfferPopup()"
+                            aria-label="Add to wishlist"
+                        >
+                            ♡
+                        </button>
+
+
+                        <!-- ARTISAN BADGE -->
+
+                        <span class="artisan-badge">
+                            Artisan Made
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- =========================
+                         CUSTOMER-SAFE INFORMATION
+                    ========================== -->
+
+                    <div class="product-info">
+
+
+                        <!-- MATERIAL -->
+
+                        <span class="product-category">
+
+                            {{ product.material|default('Handmade Craft') }}
+
+                        </span>
+
+
+
+                        <!-- PRODUCT NAME -->
+
+                        <h4>
+
+                            {{ product.name|default('Handmade Artisan Product') }}
+
+                        </h4>
+
+
+
+                        <!-- ARTISAN NAME -->
+
+                        <p class="artisan-name">
+
+                            By {{ product.artisan_name|default('KalaSetu Artisan') }}
+
+                        </p>
+
+
+
+                        <!-- SIZE -->
+
+                        {% if product.size %}
+
+                        <p class="product-size">
+
+                            Size: {{ product.size }}
+
+                        </p>
+
+                        {% endif %}
+
+
+
+                        <!-- PRICE + VIEW -->
+
+                        <div class="product-bottom">
+
+
+                            <strong>
+
+                                ₹{{ "{:,.0f}".format(product.final_price|float) }}
+
+                            </strong>
+
+
+                           <a
+                                href="{{ url_for('product_details', product_id=product.product_id) }}"
+                                class="view-button"
+                            >
+                                View
+                            </a>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+                {% endfor %}
+
+
+            {% else %}
+
+
+                <!-- NO PRODUCTS -->
+
+                <div class="product-placeholder">
+
+                    No artisan products are available yet.
+
+                </div>
+
+
+            {% endif %}
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SUPPORT ARTISANS
+    ========================== -->
+
+    <section class="support-card">
+
+        <div class="support-content">
+
+            <span class="support-label">
+                SUPPORT LOCAL ARTISANS
+            </span>
+
+            <h3>
+                Every purchase helps
+                preserve traditional craftsmanship.
+            </h3>
+
+            <p>
+                Discover unique products made with skill,
+                tradition and passion.
+            </p>
+
+        </div>
+
+
+        <div class="support-symbol">
+            ✦
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         EXCLUSIVE OFFER POPUP
+    ================================================== -->
+
+    <div
+        class="popup-overlay"
+        id="offerPopup"
+        onclick="closeOfferPopup(event)"
+    >
+
+        <div
+            class="offer-popup"
+            onclick="event.stopPropagation()"
+        >
+
+            <button
+                type="button"
+                class="popup-close"
+                onclick="closeOfferPopup()"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+
+            <div class="offer-icon">
+                ✦
+            </div>
+
+
+            <span class="popup-label">
+                EXCLUSIVE KALASETU OFFER
+            </span>
+
+
+            <h2>
+                Unlock a Better
+                <br>
+                Shopping Experience
+            </h2>
+
+
+            <p>
+                Create an account to save your favourite crafts,
+                track orders, receive exclusive offers and enjoy
+                a personalised KalaSetu experience.
+            </p>
+
+
+            <div class="popup-benefits">
+
+                <div>
+
+                    <span>♡</span>
+
+                    <small>
+                        Save favourites
+                    </small>
+
+                </div>
+
+
+                <div>
+
+                    <span>✓</span>
+
+                    <small>
+                        Track orders
+                    </small>
+
+                </div>
+
+
+                <div>
+
+                    <span>★</span>
+
+                    <small>
+                        Special offers
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="popup-actions">
+
+                <a
+                    href="{{ url_for('customer_login') }}"
+                    class="popup-login"
+                >
+                    Login
+                </a>
+
+
+                <a
+                    href="{{ url_for('customer_register') }}"
+                    class="popup-register"
+                >
+                    Create Account
+                </a>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="continue-guest"
+                onclick="closeOfferPopup()"
+            >
+                Continue as Guest
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         CUSTOMER PROFILE POPUP
+    ================================================== -->
+
+    <div
+        class="popup-overlay"
+        id="profilePopup"
+        onclick="closeProfilePopup(event)"
+    >
+
+        <div
+            class="offer-popup profile-popup"
+            onclick="event.stopPropagation()"
+        >
+
+            <button
+                type="button"
+                class="popup-close"
+                onclick="closeProfilePopup()"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+
+            <div class="offer-icon">
+                👤
+            </div>
+
+
+            <span class="popup-label">
+                KALASETU ACCOUNT
+            </span>
+
+
+            <h2>
+                Welcome to
+                <br>
+                KalaSetu
+            </h2>
+
+
+            <p>
+                Sign in to manage your orders, wishlist
+                and personalised shopping experience.
+            </p>
+
+
+            <div class="popup-actions">
+
+                <a
+                    href="{{ url_for('customer_login') }}"
+                    class="popup-login"
+                >
+                    Login
+                </a>
+
+
+                <a
+                    href="{{ url_for('customer_register') }}"
+                    class="popup-register"
+                >
+                    Create Account
+                </a>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="continue-guest"
+                onclick="closeProfilePopup()"
+            >
+                Continue as Guest
+            </button>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script>
+
+
+    /* =========================================
+       EXCLUSIVE OFFER POPUP
+    ========================================= */
+
+    function openOfferPopup() {
+
+        const popup =
+            document.getElementById("offerPopup");
+
+        if (popup) {
+
+            popup.classList.add("show");
+
+            document.body.classList.add("popup-open");
+
+        }
+
+    }
+
+
+    function closeOfferPopup(event) {
+
+        if (
+            event &&
+            event.target !== event.currentTarget
+        ) {
+
+            return;
+
+        }
+
+
+        const popup =
+            document.getElementById("offerPopup");
+
+        if (popup) {
+
+            popup.classList.remove("show");
+
+            document.body.classList.remove("popup-open");
+
+        }
+
+    }
+
+
+
+    /* =========================================
+       CUSTOMER PROFILE POPUP
+    ========================================= */
+
+    function openProfilePopup() {
+
+        const popup =
+            document.getElementById("profilePopup");
+
+        if (popup) {
+
+            popup.classList.add("show");
+
+            document.body.classList.add("popup-open");
+
+        }
+
+    }
+
+
+    function closeProfilePopup(event) {
+
+        if (
+            event &&
+            event.target !== event.currentTarget
+        ) {
+
+            return;
+
+        }
+
+
+        const popup =
+            document.getElementById("profilePopup");
+
+        if (popup) {
+
+            popup.classList.remove("show");
+
+            document.body.classList.remove("popup-open");
+
+        }
+
+    }
+
+
+
+    /* =========================================
+       EXPLORE CRAFTS
+    ========================================= */
+
+    function scrollToProducts() {
+
+        const products =
+            document.getElementById("products");
+
+        if (products) {
+
+            products.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    }
+
+
+
+    /* =========================================
+       PRODUCT SEARCH
+    ========================================= */
+
+    const searchInput =
+        document.getElementById("productSearch");
+
+
+    if (searchInput) {
+
+        searchInput.addEventListener(
+            "input",
+            function () {
+
+                const searchText =
+                    this.value
+                        .toLowerCase()
+                        .trim();
+
+
+                const cards =
+                    document.querySelectorAll(
+                        ".product-card"
+                    );
+
+
+                cards.forEach(
+                    function (card) {
+
+                        const text =
+                            card.innerText
+                                .toLowerCase();
+
+
+                        if (
+                            text.includes(searchText)
+                        ) {
+
+                            card.style.display = "";
+
+                        } else {
+
+                            card.style.display = "none";
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* =========================================
+       CATEGORY FILTER
+    ========================================= */
+
+    document
+        .querySelectorAll(".category-item")
+        .forEach(
+            function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const category =
+                            this.dataset.category;
+
+
+                        if (searchInput) {
+
+                            searchInput.value =
+                                category;
+
+
+                            searchInput.dispatchEvent(
+                                new Event("input")
+                            );
+
+                        }
+
+
+                        scrollToProducts();
+
+                    }
+                );
+
+            }
+        );
+
+
+
+    /* =========================================
+       ESCAPE KEY
+    ========================================= */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Escape") {
+
+                closeOfferPopup();
+
+                closeProfilePopup();
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>
+

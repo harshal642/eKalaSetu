@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <meta name="theme-color" content="#FBF4E9">
+
+    <title>{{ t('add_product') }}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/app.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/artisan.css') }}">
+</head>
+
+<body class="app-body">
+
+<div class="app-shell add-product-page">
+
+    <!-- ================================================= -->
+    <!-- HEADER -->
+    <!-- ================================================= -->
+
+    <header class="product-header">
+
+        <a href="{{ url_for('artisan_dashboard') }}"
+           class="product-back-button"
+           aria-label="{{ t('back') }}">
+            ←
+        </a>
+
+        <div class="product-header-title">
+            {{ t('add_your_product') }}
+        </div>
+
+        <div class="product-header-spacer"></div>
+
+    </header>
+
+
+    <!-- ================================================= -->
+    <!-- PROGRESS -->
+    <!-- ================================================= -->
+
+    <div class="product-progress">
+
+        <div class="progress-item active">
+            <span class="progress-number">1</span>
+
+            <span class="progress-label">
+                {{ t('photos') }}
+            </span>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-item">
+            <span class="progress-number">2</span>
+
+            <span class="progress-label">
+                {{ t('ai_enhance') }}
+            </span>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-item">
+            <span class="progress-number">3</span>
+
+            <span class="progress-label">
+                {{ t('catalog') }}
+            </span>
+        </div>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- MAIN -->
+    <!-- ================================================= -->
+
+    <main class="scroll-main add-product-main">
+
+
+        <!-- ================================================= -->
+        <!-- STEP 1 : THREE PHOTO UPLOAD -->
+        <!-- ================================================= -->
+
+        <section id="upload-panel"
+                 class="three-photo-screen">
+
+            <!-- INTRO -->
+
+            <div class="upload-intro">
+
+                <span class="upload-eyebrow">
+                    {{ t('step_1_of_3') }}
+                </span>
+
+                <h1 class="upload-title">
+                    {{ t('add_3_photos') }}
+                </h1>
+
+                <p class="upload-description">
+                    {{ t('photo_angle_description') }}
+                </p>
+
+            </div>
+
+
+            <!-- PHOTO GUIDANCE -->
+
+            <div class="photo-guidance">
+
+                <div class="guidance-icon">
+                    ✦
+                </div>
+
+                <div>
+
+                    <strong>
+                        {{ t('better_photos') }}
+                    </strong>
+
+                    <p>
+                        {{ t('photo_guidance') }}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- FRONT PHOTO -->
+            <!-- ================================================= -->
+
+            <div class="photo-slot"
+                 id="front-slot">
+
+                <div class="photo-slot-heading">
+
+                    <div class="photo-slot-number">
+                        1
+                    </div>
+
+                    <div class="photo-slot-title">
+
+                        <h2>
+                            {{ t('front_view') }}
+                        </h2>
+
+                        <p>
+                            {{ t('front_view_description') }}
+                        </p>
+
+                    </div>
+
+                    <span class="photo-status">
+                        {{ t('required') }}
+                    </span>
+
+                </div>
+
+
+                <div class="photo-preview-area">
+
+                    <div class="photo-placeholder"
+                         id="front-placeholder">
+
+                        <div class="photo-placeholder-icon">
+
+                            <svg viewBox="0 0 24 24"
+                                 aria-hidden="true">
+
+                                <path d="M4 7h3l2-2h6l2 2h3v11H4z"/>
+
+                                <circle cx="12"
+                                        cy="12"
+                                        r="3.5"/>
+
+                            </svg>
+
+                        </div>
+
+                        <strong>
+                            {{ t('front_photo') }}
+                        </strong>
+
+                        <span>
+                            {{ t('front_photo_description') }}
+                        </span>
+
+                    </div>
+
+
+                    <img id="front-preview"
+                         class="multi-photo-preview"
+                         src=""
+                         alt="{{ t('front_photo') }}"
+                         style="display:none;">
+
+                </div>
+
+
+                <label class="photo-upload-action">
+
+                    <span class="action-icon">
+
+                        <svg viewBox="0 0 24 24"
+                             aria-hidden="true">
+
+                            <path d="M4 7h3l2-2h6l2 2h3v11H4z"/>
+
+                            <circle cx="12"
+                                    cy="12"
+                                    r="3.5"/>
+
+                        </svg>
+
+                    </span>
+
+                    <span>
+                        {{ t('take_upload_front') }}
+                    </span>
+
+                    <input type="file"
+                           id="front-input"
+                           accept="image/*"
+                           capture="environment"
+                           hidden>
+
+                </label>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- SIDE PHOTO -->
+            <!-- ================================================= -->
+
+            <div class="photo-slot"
+                 id="side-slot">
+
+                <div class="photo-slot-heading">
+
+                    <div class="photo-slot-number">
+                        2
+                    </div>
+
+                    <div class="photo-slot-title">
+
+                        <h2>
+                            {{ t('side_view') }}
+                        </h2>
+
+                        <p>
+                            {{ t('side_view_description') }}
+                        </p>
+
+                    </div>
+
+                    <span class="photo-status">
+                        {{ t('required') }}
+                    </span>
+
+                </div>
+
+
+                <div class="photo-tip-mini">
+
+                    <span>↗</span>
+
+                    <p>
+                        {{ t('side_photo_tip') }}
+                    </p>
+
+                </div>
+
+
+                <div class="photo-preview-area">
+
+                    <div class="photo-placeholder"
+                         id="side-placeholder">
+
+                        <div class="photo-placeholder-icon side-icon">
+
+                            <svg viewBox="0 0 24 24"
+                                 aria-hidden="true">
+
+                                <path d="M5 18L12 4l7 14"/>
+                                <path d="M8 14h8"/>
+
+                            </svg>
+
+                        </div>
+
+                        <strong>
+                            {{ t('side_photo') }}
+                        </strong>
+
+                        <span>
+                            {{ t('side_photo_description') }}
+                        </span>
+
+                    </div>
+
+
+                    <img id="side-preview"
+                         class="multi-photo-preview"
+                         src=""
+                         alt="{{ t('side_photo') }}"
+                         style="display:none;">
+
+                </div>
+
+
+                <label class="photo-upload-action">
+
+                    <span class="action-icon side-action-icon">
+
+                        <svg viewBox="0 0 24 24"
+                             aria-hidden="true">
+
+                            <path d="M5 18L12 4l7 14"/>
+                            <path d="M8 14h8"/>
+
+                        </svg>
+
+                    </span>
+
+                    <span>
+                        {{ t('take_upload_side') }}
+                    </span>
+
+                    <input type="file"
+                           id="side-input"
+                           accept="image/*"
+                           capture="environment"
+                           hidden>
+
+                </label>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- DETAIL PHOTO -->
+            <!-- ================================================= -->
+
+            <div class="photo-slot"
+                 id="detail-slot">
+
+                <div class="photo-slot-heading">
+
+                    <div class="photo-slot-number">
+                        3
+                    </div>
+
+                    <div class="photo-slot-title">
+
+                        <h2>
+                            {{ t('detail_view') }}
+                        </h2>
+
+                        <p>
+                            {{ t('detail_view_description') }}
+                        </p>
+
+                    </div>
+
+                    <span class="photo-status">
+                        {{ t('required') }}
+                    </span>
+
+                </div>
+
+
+                <div class="photo-tip-mini">
+
+                    <span>🔍</span>
+
+                    <p>
+                        {{ t('detail_photo_tip') }}
+                    </p>
+
+                </div>
+
+
+                <div class="photo-preview-area">
+
+                    <div class="photo-placeholder"
+                         id="detail-placeholder">
+
+                        <div class="photo-placeholder-icon detail-icon">
+
+                            <svg viewBox="0 0 24 24"
+                                 aria-hidden="true">
+
+                                <circle cx="10.5"
+                                        cy="10.5"
+                                        r="5.5"/>
+
+                                <path d="M15 15l5 5"/>
+
+                            </svg>
+
+                        </div>
+
+                        <strong>
+                            {{ t('detail_photo') }}
+                        </strong>
+
+                        <span>
+                            {{ t('detail_photo_description') }}
+                        </span>
+
+                    </div>
+
+
+                    <img id="detail-preview"
+                         class="multi-photo-preview"
+                         src=""
+                         alt="{{ t('detail_photo') }}"
+                         style="display:none;">
+
+                </div>
+
+
+                <label class="photo-upload-action">
+
+                    <span class="action-icon detail-action-icon">
+
+                        <svg viewBox="0 0 24 24"
+                             aria-hidden="true">
+
+                            <circle cx="10.5"
+                                    cy="10.5"
+                                    r="5.5"/>
+
+                            <path d="M15 15l5 5"/>
+
+                        </svg>
+
+                    </span>
+
+                    <span>
+                        {{ t('take_upload_detail') }}
+                    </span>
+
+                    <input type="file"
+                           id="detail-input"
+                           accept="image/*"
+                           capture="environment"
+                           hidden>
+
+                </label>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- PHOTO TIPS -->
+            <!-- ================================================= -->
+
+            <div class="photo-tips-card">
+
+                <h3>
+                    📸 {{ t('photo_tips') }}
+                </h3>
+
+                <div class="photo-tips-list">
+
+                    <div class="photo-tip-item">
+
+                        <span>✓</span>
+
+                        <p>
+                            {{ t('tip_natural_light') }}
+                        </p>
+
+                    </div>
+
+
+                    <div class="photo-tip-item">
+
+                        <span>✓</span>
+
+                        <p>
+                            {{ t('tip_clean_product') }}
+                        </p>
+
+                    </div>
+
+
+                    <div class="photo-tip-item">
+
+                        <span>✓</span>
+
+                        <p>
+                            {{ t('tip_no_blur') }}
+                        </p>
+
+                    </div>
+
+
+                    <div class="photo-tip-item">
+
+                        <span>✓</span>
+
+                        <p>
+                            {{ t('tip_different_angles') }}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- UPLOAD ERROR -->
+            <!-- ================================================= -->
+
+            <div id="upload-error"
+                 class="alert alert-error upload-error"
+                 style="display:none;">
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- CONTINUE BUTTON -->
+            <!-- ================================================= -->
+
+            <button type="button"
+                    id="continue-photos-button"
+                    class="btn btn-primary btn-large continue-photo-button"
+                    disabled>
+
+                {{ t('continue_to_ai') }} →
+
+            </button>
+
+
+            <p class="photo-count-message"
+               id="photo-count-message">
+
+                {{ t('add_all_photos') }}
+
+            </p>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- STEP 2 : AI PROCESSING -->
+        <!-- ================================================= -->
+
+        <section id="loading-panel"
+                 class="ai-processing-screen"
+                 style="display:none;">
+
+            <div class="ai-loader">
+
+                <div class="ai-loader-ring"></div>
+
+                <div class="ai-loader-center">
+                    ✦
+                </div>
+
+            </div>
+
+
+            <span class="processing-label">
+                KALASETU AI
+            </span>
+
+
+            <h2>
+                ✨ KalaSetu AI is enhancing your product photos...
+            </h2>
+
+
+            <p>
+                Improving lighting, colours, clarity and presentation
+                to create marketplace-ready images.
+            </p>
+
+
+            <!-- PROGRESS -->
+
+            <div class="processing-progress">
+
+                <div class="processing-progress-bar">
+
+                    <div id="processing-progress-fill">
+                    </div>
+
+                </div>
+
+                <span id="processing-progress-text">
+                    Preparing your photos...
+                </span>
+
+            </div>
+
+
+            <!-- PROCESSING STEPS -->
+
+            <div class="processing-steps">
+
+
+                <!-- STEP 1 -->
+
+                <div class="processing-step active"
+                     id="step-upload">
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <p>
+                        Photos uploaded
+                    </p>
+
+                </div>
+
+
+                <!-- STEP 2 -->
+
+                <div class="processing-step active"
+                     id="step-quality">
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <p>
+                        Checking photo quality
+                    </p>
+
+                </div>
+
+
+                <!-- STEP 3 -->
+
+                <div class="processing-step"
+                     id="step-enhance">
+
+                    <span>
+                        ✦
+                    </span>
+
+                    <p>
+                        Enhancing product images
+                    </p>
+
+                </div>
+
+
+                <!-- STEP 4 -->
+
+                <div class="processing-step"
+                     id="step-background">
+
+                    <span>
+                        4
+                    </span>
+
+                    <p>
+                        Creating studio presentation
+                    </p>
+
+                </div>
+
+
+                <!-- STEP 5 -->
+
+                <div class="processing-step"
+                     id="step-gallery">
+
+                    <span>
+                        5
+                    </span>
+
+                    <p>
+                        Preparing customer gallery
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <p class="processing-note">
+
+                Please don't close this page while
+                KalaSetu AI is working.
+
+            </p>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- STEP 3 : IMAGE COMPARISON -->
+        <!-- ================================================= -->
+
+        <section id="compare-panel"
+                 class="compare-screen"
+                 style="display:none;">
+
+            <!-- INTRO -->
+
+            <div class="compare-intro">
+
+                <span class="upload-eyebrow">
+                    {{ t('step_2_of_3') }}
+                </span>
+
+                <h1>
+                    {{ t('images_ready') }}
+                </h1>
+
+                <p>
+                    {{ t('review_images_description') }}
+                </p>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- CUSTOMER GALLERY -->
+            <!-- ================================================= -->
+
+            <div class="customer-gallery-preview">
+
+                <div class="gallery-preview-header">
+
+                    <div>
+
+                        <span>
+                            {{ t('customer_view') }}
+                        </span>
+
+                        <h2>
+                            {{ t('product_gallery') }}
+                        </h2>
+
+                    </div>
+
+
+                    <span class="ai-gallery-badge">
+                        ✦ {{ t('ai_enhanced') }}
+                    </span>
+
+                </div>
+
+
+                <div class="customer-gallery-grid">
+
+
+                    <!-- FRONT -->
+
+                    <div class="gallery-image-card large">
+
+                        <img id="gallery-front-img"
+                             src=""
+                             alt="{{ t('front') }}"
+                             style="display:none;">
+
+                        <span>
+                            {{ t('front') }}
+                        </span>
+
+                    </div>
+
+
+                    <!-- SIDE -->
+
+                    <div class="gallery-image-card">
+
+                        <img id="gallery-side-img"
+                             src=""
+                             alt="{{ t('side') }}"
+                             style="display:none;">
+
+                        <span>
+                            {{ t('side') }}
+                        </span>
+
+                    </div>
+
+
+                    <!-- DETAIL -->
+
+                    <div class="gallery-image-card">
+
+                        <img id="gallery-detail-img"
+                             src=""
+                             alt="{{ t('detail') }}"
+                             style="display:none;">
+
+                        <span>
+                            {{ t('detail') }}
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- ORIGINAL VS ENHANCED -->
+            <!-- ================================================= -->
+
+            <div class="image-comparison-card">
+
+
+                <!-- ORIGINAL -->
+
+                <div class="comparison-column">
+
+                    <div class="comparison-label">
+
+                        <span class="comparison-dot original-dot">
+                        </span>
+
+                        {{ t('original_image') }}
+
+                    </div>
+
+
+                    <div class="comparison-image-wrapper">
+
+                        <img id="original-image"
+                             class="compare-img"
+                             src=""
+                             alt="{{ t('original_image') }}"
+                             style="display:none;">
+
+                    </div>
+
+                </div>
+
+
+                <!-- ENHANCED -->
+
+                <div class="comparison-column">
+
+                    <div class="comparison-label enhanced-label">
+
+                        <span class="comparison-dot enhanced-dot">
+                        </span>
+
+                        {{ t('enhanced_image') }}
+
+                    </div>
+
+
+                    <div class="comparison-image-wrapper enhanced-wrapper">
+
+                        <img id="enhanced-image"
+                             class="compare-img"
+                             src=""
+                             alt="{{ t('enhanced_image') }}"
+                             style="display:none;">
+
+                        <span class="ai-enhanced-badge">
+                            ✦ AI
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- IMAGE CHOICE -->
+            <!-- ================================================= -->
+
+            <form method="POST"
+                  action="{{ url_for('choose_image') }}"
+                  class="image-choice-form">
+
+
+                <!-- USE ENHANCED -->
+
+                <button type="submit"
+                        name="choice"
+                        value="enhanced"
+                        class="btn btn-primary btn-large enhanced-choice-button">
+
+                    ✦ {{ t('use_ai_enhanced_images') }}
+
+                </button>
+
+
+                <!-- KEEP ORIGINAL -->
+
+                <button type="submit"
+                        name="choice"
+                        value="original"
+                        class="btn btn-outline btn-large">
+
+                    {{ t('keep_original_images') }}
+
+                </button>
+
+            </form>
+
+
+            <p class="comparison-note">
+
+                {{ t('review_catalog_note') }}
+
+            </p>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- GLOBAL APP JAVASCRIPT -->
+<!-- ================================================= -->
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT CONFIGURATION -->
+<!-- ================================================= -->
+
+<script>
+
+    /*
+     * Flask upload endpoint
+     */
+    const UPLOAD_URL =
+        "{{ url_for('upload_image') }}";
+
+
+    /*
+     * Flask image selection endpoint
+     */
+    const CHOOSE_IMAGE_URL =
+        "{{ url_for('choose_image') }}";
+
+
+    /*
+     * Translated messages
+     */
+    const MSG_PLEASE_UPLOAD =
+        {{ t('please_upload_image')|tojson }};
+
+
+    /*
+     * Current selected language
+     */
+    const CURRENT_LANGUAGE =
+        {{ current_lang|tojson }};
+
+</script>
+
+
+<!-- ================================================= -->
+<!-- ARTISAN JAVASCRIPT -->
+<!-- ================================================= -->
+
+<script src="{{ url_for('static', filename='js/artisan.js') }}"></script>
+
+
+</body>
+</html>

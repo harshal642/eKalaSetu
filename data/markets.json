@@ -1,0 +1,10 @@
+[
+  {"market_id": 1, "name": "Pune Handicraft Exhibition", "location": "Pune, Maharashtra", "crafts": ["Warli Painting", "Bamboo Craft", "Wooden Toys", "Handmade Jewellery"], "type": "Exhibition"},
+  {"market_id": 2, "name": "Mumbai Cultural Market", "location": "Mumbai, Maharashtra", "crafts": ["Warli Painting", "Paithani Weaving", "Kolhapuri Leather Craft", "Leather Craft"], "type": "Cultural Market"},
+  {"market_id": 3, "name": "Traditional Art Boutique", "location": "Nashik, Maharashtra", "crafts": ["Warli Painting", "Madhubani Painting", "Block Printing"], "type": "Boutique"},
+  {"market_id": 4, "name": "Delhi Craft Bazaar", "location": "Delhi", "crafts": ["Wood Carving", "Brass Craft", "Chikankari Embroidery", "Block Printing"], "type": "Bazaar"},
+  {"market_id": 5, "name": "Kolkata Heritage Fair", "location": "Kolkata, West Bengal", "crafts": ["Terracotta Craft", "Handwoven Sarees", "Dhokra Art"], "type": "Fair"},
+  {"market_id": 6, "name": "Kerala Craft Village", "location": "Kochi, Kerala", "crafts": ["Coconut Shell Craft", "Cane Craft"], "type": "Village Market"},
+  {"market_id": 7, "name": "Jaipur Artisan Expo", "location": "Jaipur, Rajasthan", "crafts": ["Stone Carving", "Block Printing", "Handmade Jewellery"], "type": "Expo"},
+  {"market_id": 8, "name": "National Handloom Mela", "location": "New Delhi", "crafts": ["Handloom Weaving", "Handwoven Sarees", "Paithani Weaving"], "type": "Mela"}
+]

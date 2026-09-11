@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html lang="{{ current_lang|default('en') }}">
+
+<head>
+    <meta charset="UTF-8">
+
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+>
+
+<meta name="theme-color" content="#5C3A21">
+
+<title>Checkout - KalaSetu</title>
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/checkout.css') }}"
+>
+
+
+</head>
+
+<body>
+
+<div class="customer-app">
+
+
+<!-- HEADER -->
+<header class="checkout-header">
+
+    <a
+        href="{{ url_for('customer_home') }}"
+        class="back-button"
+        aria-label="Back"
+    >
+        ←
+    </a>
+
+    <div class="header-title">
+        <span>KALASETU</span>
+        <strong>Checkout</strong>
+    </div>
+
+    <div class="header-space"></div>
+
+</header>
+
+
+<!-- CHECKOUT CONTENT -->
+<main class="checkout-page">
+
+    <!-- PRODUCT SUMMARY -->
+    <section class="checkout-section">
+
+        <span class="section-label">
+            YOUR PRODUCT
+        </span>
+
+        <div class="checkout-product">
+
+            <div class="checkout-product-image">
+
+                {% if product.images and product.images.front %}
+
+                <img
+                    src="{{ product.images.front }}"
+                    alt="{{ product.name }}"
+                >
+
+                {% elif product.image %}
+
+                <img
+                    src="{{ product.image }}"
+                    alt="{{ product.name }}"
+                >
+
+                {% else %}
+
+                <div class="image-placeholder">
+                    Product
+                </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <div class="checkout-product-info">
+
+                <h2>
+                    {{ product.name }}
+                </h2>
+
+                <p>
+                    By {{ product.artisan_name }}
+                </p>
+
+                {% if product.material %}
+                <small>
+                    Material: {{ product.material }}
+                </small>
+                {% endif %}
+
+                {% if product.size %}
+                <small>
+                    Size: {{ product.size }}
+                </small>
+                {% endif %}
+
+                <strong class="checkout-price">
+                    ₹{{ "%.0f"|format(product.final_price|float) }}
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CUSTOMER DETAILS -->
+    <section class="checkout-section">
+
+        <span class="section-label">
+            DELIVERY DETAILS
+        </span>
+
+        <h1>
+            Confirm Your Details
+        </h1>
+
+        <form
+            method="POST"
+            action="{{ url_for('place_order', product_id=product.product_id) }}"
+        >
+
+            <!-- NAME -->
+            <div class="form-group">
+
+                <label for="customer_name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="customer_name"
+                    name="customer_name"
+                    value="{{ customer.name|default('') }}"
+                    required
+                >
+
+            </div>
+
+
+            <!-- MOBILE -->
+            <div class="form-group">
+
+                <label for="customer_mobile">
+                    Mobile Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="customer_mobile"
+                    name="customer_mobile"
+                    value="{{ customer.mobile|default('') }}"
+                    maxlength="10"
+                    required
+                >
+
+            </div>
+
+
+            <!-- ADDRESS -->
+            <div class="form-group">
+
+                <label for="customer_address">
+                    Delivery Address
+                </label>
+
+                <textarea
+                    id="customer_address"
+                    name="customer_address"
+                    rows="4"
+                    required
+                >{{ customer.address|default('') }}</textarea>
+
+            </div>
+
+
+            <!-- QUANTITY -->
+            <div class="form-group">
+
+                <label for="quantity">
+                    Quantity
+                </label>
+
+                <div class="quantity-control">
+
+                    <button
+                        type="button"
+                        onclick="decreaseQuantity()"
+                    >
+                        −
+                    </button>
+
+                    <input
+                        type="number"
+                        id="quantity"
+                        name="quantity"
+                        value="1"
+                        min="1"
+                        max="10"
+                        readonly
+                    >
+
+                    <button
+                        type="button"
+                        onclick="increaseQuantity()"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ORDER SUMMARY -->
+            <section class="order-summary">
+
+                <h2>
+                    Order Summary
+                </h2>
+
+                <div class="summary-row">
+
+                    <span>
+                        Product
+                    </span>
+
+                    <strong id="productTotal">
+                        ₹{{ "%.0f"|format(product.final_price|float) }}
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Delivery
+                    </span>
+
+                    <strong>
+                        Free
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-divider"></div>
+
+
+                <div class="summary-row total-row">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong id="orderTotal">
+                        ₹{{ "%.0f"|format(product.final_price|float) }}
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- PLACE ORDER -->
+            <button
+                type="submit"
+                class="place-order-button"
+            >
+                Place Order
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- TRUST MESSAGE -->
+    <div class="checkout-note">
+
+        <span>❖</span>
+
+        <p>
+            Your purchase directly supports traditional Indian artisans.
+        </p>
+
+    </div>
+
+
+    <!-- BACK -->
+    <a
+        href="{{ url_for('product_details', product_id=product.product_id) }}"
+        class="back-product"
+    >
+        ← Back to Product
+    </a>
+
+</main>
+
+</div>
+
+<script>
+
+const productPrice =
+    {{ product.final_price|float }};
+
+
+function increaseQuantity() {
+
+    const quantity =
+        document.getElementById("quantity");
+
+    let value =
+        parseInt(quantity.value);
+
+    if (value < 10) {
+        value++;
+        quantity.value = value;
+        updateTotal(value);
+    }
+}
+
+
+function decreaseQuantity() {
+
+    const quantity =
+        document.getElementById("quantity");
+
+    let value =
+        parseInt(quantity.value);
+
+    if (value > 1) {
+        value--;
+        quantity.value = value;
+        updateTotal(value);
+    }
+}
+
+
+function updateTotal(quantity) {
+
+    const total =
+        productPrice * quantity;
+
+    const productTotal =
+        document.getElementById("productTotal");
+
+    const orderTotal =
+        document.getElementById("orderTotal");
+
+    const formatted =
+        "₹" + Math.round(total).toLocaleString("en-IN");
+
+    if (productTotal) {
+        productTotal.textContent = formatted;
+    }
+
+    if (orderTotal) {
+        orderTotal.textContent = formatted;
+    }
+}
+
+</script>
+
+</body>
+
+</html>

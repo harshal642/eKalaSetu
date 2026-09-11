@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html lang="{{ current_lang|default('en') }}">
+
+<head>
+    <meta charset="UTF-8">
+
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+>
+
+<meta name="theme-color" content="#5C3A21">
+
+<title>{{ product.name }} - KalaSetu</title>
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/product_details.css') }}"
+>
+
+
+</head>
+
+<body>
+
+<div class="customer-app">
+
+
+<!-- HEADER -->
+<header class="product-header">
+
+    <a
+        href="{{ url_for('customer_home') }}"
+        class="back-button"
+        aria-label="Back to marketplace"
+    >
+        ←
+    </a>
+
+    <div class="header-title">
+        <span>KALASETU</span>
+        <strong>Product Details</strong>
+    </div>
+
+    <div class="header-space"></div>
+
+</header>
+
+
+<!-- PRODUCT CONTENT -->
+<main class="product-page">
+
+    <!-- IMAGE GALLERY -->
+    <section class="product-gallery">
+
+        <div class="main-product-image">
+
+            {% if product.images and product.images.front %}
+
+            <img
+                id="mainProductImage"
+                src="{{ product.images.front }}"
+                alt="{{ product.name }}"
+            >
+
+            {% elif product.image %}
+
+            <img
+                id="mainProductImage"
+                src="{{ product.image }}"
+                alt="{{ product.name }}"
+            >
+
+            {% else %}
+
+            <div class="image-placeholder">
+                Product Image
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- THUMBNAILS -->
+        <div class="thumbnail-list">
+
+            {% if product.images and product.images.front %}
+
+            <button
+                type="button"
+                class="thumbnail active"
+                onclick="changeProductImage('{{ product.images.front }}', this)"
+            >
+                <img
+                    src="{{ product.images.front }}"
+                    alt="Front view"
+                >
+            </button>
+
+            {% endif %}
+
+
+            {% if product.images and product.images.side %}
+
+            <button
+                type="button"
+                class="thumbnail"
+                onclick="changeProductImage('{{ product.images.side }}', this)"
+            >
+                <img
+                    src="{{ product.images.side }}"
+                    alt="Side view"
+                >
+            </button>
+
+            {% endif %}
+
+
+            {% if product.images and product.images.detail %}
+
+            <button
+                type="button"
+                class="thumbnail"
+                onclick="changeProductImage('{{ product.images.detail }}', this)"
+            >
+                <img
+                    src="{{ product.images.detail }}"
+                    alt="Detail view"
+                >
+            </button>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCT INFORMATION -->
+    <section class="product-information">
+
+        <span class="product-label">
+            TRADITIONAL HANDCRAFT
+        </span>
+
+
+        <!-- PRODUCT NAME -->
+        <h1>
+            {{ product.name }}
+        </h1>
+
+
+        <!-- ARTISAN -->
+        <div class="artisan-information">
+
+            <div class="artisan-icon">
+                👤
+            </div>
+
+            <div>
+                <small>CRAFTED BY</small>
+
+                <strong>
+                    {{ product.artisan_name }}
+                </strong>
+            </div>
+
+        </div>
+
+
+        <!-- PRICE -->
+        <div class="price-section">
+
+            <span class="price-label">
+                PRICE
+            </span>
+
+            <strong class="product-price">
+                ₹{{ "%.0f"|format(product.final_price|float) }}
+            </strong>
+
+        </div>
+
+
+        <!-- DESCRIPTION -->
+        <div class="detail-section">
+
+            <h2>About this product</h2>
+
+            <p>
+                {{ product.description }}
+            </p>
+
+        </div>
+
+
+        <!-- PRODUCT INFORMATION -->
+        <div class="detail-section">
+
+            <h2>Product Information</h2>
+
+            <div class="information-list">
+
+                {% if product.material %}
+
+                <div class="information-row">
+                    <span>Material</span>
+                    <strong>
+                        {{ product.material }}
+                    </strong>
+                </div>
+
+                {% endif %}
+
+
+                {% if product.size %}
+
+                <div class="information-row">
+                    <span>Size</span>
+                    <strong>
+                        {{ product.size }}
+                    </strong>
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+        <section class="product-actions">
+
+            <!-- WISHLIST -->
+            <button
+                type="button"
+                class="wishlist-action"
+                onclick="handleWishlist()"
+            >
+                ♡
+                <span>Wishlist</span>
+            </button>
+
+
+            <!-- CART -->
+            <button
+                type="button"
+                class="cart-action"
+                onclick="handleCart()"
+            >
+                🛒
+                <span>Add to Cart</span>
+            </button>
+
+
+            <!-- BUY NOW -->
+            <button
+                type="button"
+                class="buy-action"
+                onclick="handleBuyNow()"
+            >
+                Buy Now
+            </button>
+
+        </section>
+
+
+        <!-- BACK TO MARKETPLACE -->
+        <a
+            href="{{ url_for('customer_home') }}"
+            class="back-marketplace"
+        >
+            ← Back to Marketplace
+        </a>
+
+    </section>
+
+</main>
+
+
+</div>
+
+<script>
+
+function changeProductImage(imageUrl, button) {
+
+    const mainImage =
+        document.getElementById("mainProductImage");
+
+    if (mainImage) {
+        mainImage.src = imageUrl;
+    }
+
+    document
+        .querySelectorAll(".thumbnail")
+        .forEach(function(item) {
+            item.classList.remove("active");
+        });
+
+    if (button) {
+        button.classList.add("active");
+    }
+}
+
+
+/* ---------------------------------------------------------
+   WISHLIST
+--------------------------------------------------------- */
+
+function handleWishlist() {
+
+    {% if session.get("customer_logged_in") %}
+
+        alert("Wishlist feature will be connected next.");
+
+    {% else %}
+
+        window.location.href =
+            "{{ url_for('customer_login') }}";
+
+    {% endif %}
+}
+
+
+/* ---------------------------------------------------------
+   CART
+--------------------------------------------------------- */
+
+function handleCart() {
+
+    {% if session.get("customer_logged_in") %}
+
+        alert("Cart feature will be connected next.");
+
+    {% else %}
+
+        window.location.href =
+            "{{ url_for('customer_login') }}";
+
+    {% endif %}
+}
+
+
+/* ---------------------------------------------------------
+   BUY NOW
+--------------------------------------------------------- */
+function handleBuyNow() {
+    window.location.href = "{{ url_for('customer_buy', product_id=product.product_id) }}";
+}
+
+</script>
+
+</body>
+
+</html>

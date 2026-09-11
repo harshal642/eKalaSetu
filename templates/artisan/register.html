@@ -1,0 +1,1893 @@
+
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>{{ t('register_as_artisan') }} - KalaSetu</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/app.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/artisan.css') }}">
+
+
+    <style>
+
+        /* =====================================================
+           KEEP EXISTING REGISTER LAYOUT
+        ===================================================== */
+
+        .register-card {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .field-group {
+            margin-bottom: 18px;
+        }
+
+
+        /* =====================================================
+           FIELD TITLE ROW
+           
+           Same style concept as Artisan Login:
+           Label on left + Speaker on right
+        ===================================================== */
+
+        .field-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            width: 100%;
+            margin-bottom: 6px;
+        }
+
+        .field-title {
+            flex: 1;
+            min-width: 0;
+        }
+.lang-hero.small {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.kalasetu-logo {
+    width: 150px;
+    height: 150px;
+
+    object-fit: contain;
+    display: block;
+
+    margin: 0 auto;
+}
+
+        /* =====================================================
+           SPEAKER BUTTON
+        ===================================================== */
+
+        .speaker-btn {
+            width: 36px;
+            height: 36px;
+
+            min-width: 36px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: #f3e1cc;
+            color: #5c3a21;
+
+            font-size: 16px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            flex-shrink: 0;
+
+            transition:
+                transform 0.2s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .speaker-btn:hover {
+
+            transform: translateY(-2px);
+
+            background: #ead0b4;
+
+            box-shadow:
+                0 4px 10px rgba(92, 58, 33, 0.18);
+        }
+
+        .speaker-btn:active {
+
+            transform: scale(0.90);
+        }
+
+
+        /* =====================================================
+           SPEAKER ACTIVE
+        ===================================================== */
+
+        .speaker-btn.speaking {
+
+            background: #6b452b;
+
+            color: white;
+
+            animation: speakerPulse 1s infinite;
+
+            box-shadow:
+                0 0 0 0 rgba(107, 69, 43, 0.45);
+        }
+
+
+        @keyframes speakerPulse {
+
+            0% {
+
+                transform: scale(1);
+
+                box-shadow:
+                    0 0 0 0 rgba(107, 69, 43, 0.45);
+            }
+
+            50% {
+
+                transform: scale(1.08);
+
+                box-shadow:
+                    0 0 0 7px rgba(107, 69, 43, 0.12);
+            }
+
+            100% {
+
+                transform: scale(1);
+
+                box-shadow:
+                    0 0 0 13px rgba(107, 69, 43, 0);
+            }
+        }
+
+
+        /* =====================================================
+           INPUT + MIC
+           
+           Mic is positioned at the right side of input,
+           similar to Artisan Login.
+        ===================================================== */
+
+        .input-with-mic {
+            position: relative;
+            width: 100%;
+        }
+
+        .input-with-mic .form-input {
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding-right: 54px;
+        }
+
+
+        /* =====================================================
+           MICROPHONE BUTTON
+        ===================================================== */
+
+        .mic-btn {
+
+            position: absolute;
+
+            right: 7px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 40px;
+            height: 40px;
+
+            min-width: 40px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #f3e1cc;
+
+            color: #5c3a21;
+
+            font-size: 17px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+            z-index: 2;
+
+            transition:
+                transform 0.2s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        /* =====================================================
+           MIC HOVER
+        ===================================================== */
+
+        .mic-btn:hover {
+
+            background: #ead0b4;
+
+            transform:
+                translateY(-50%)
+                scale(1.04);
+
+            box-shadow:
+                0 4px 10px rgba(92, 58, 33, 0.18);
+        }
+
+
+        /* =====================================================
+           MIC PRESS
+        ===================================================== */
+
+        .mic-btn:active {
+
+            transform:
+                translateY(-50%)
+                scale(0.90);
+        }
+
+
+        /* =====================================================
+           MIC LISTENING
+        ===================================================== */
+
+        .mic-btn.listening {
+
+            background: #c94f3d;
+
+            color: white;
+
+            animation: micPulse 1.2s infinite;
+
+            box-shadow:
+                0 0 0 0 rgba(201, 79, 61, 0.55);
+        }
+
+
+        @keyframes micPulse {
+
+            0% {
+
+                transform:
+                    translateY(-50%)
+                    scale(1);
+
+                box-shadow:
+                    0 0 0 0 rgba(201, 79, 61, 0.55);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-50%)
+                    scale(1.08);
+
+                box-shadow:
+                    0 0 0 8px rgba(201, 79, 61, 0.12);
+            }
+
+            100% {
+
+                transform:
+                    translateY(-50%)
+                    scale(1);
+
+                box-shadow:
+                    0 0 0 14px rgba(201, 79, 61, 0);
+            }
+        }
+
+
+        /* =====================================================
+           VOICE HELP
+        ===================================================== */
+
+        .voice-help {
+
+            margin-top: 5px;
+
+            font-size: 12px;
+
+            color: #777;
+
+            transition:
+                color 0.2s ease;
+        }
+
+
+        /* =====================================================
+           LOGIN LINK
+        ===================================================== */
+
+        .login-link {
+
+            margin-top: 18px;
+
+            text-align: center;
+        }
+
+        .login-link a {
+
+            color: #6b452b;
+
+            font-weight: 600;
+
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+
+            text-decoration: underline;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .field-title-row {
+
+                gap: 6px;
+            }
+
+            .speaker-btn {
+
+                width: 34px;
+
+                height: 34px;
+
+                min-width: 34px;
+
+                font-size: 15px;
+            }
+
+            .mic-btn {
+
+                width: 38px;
+
+                height: 38px;
+
+                min-width: 38px;
+
+                right: 6px;
+
+                font-size: 16px;
+            }
+
+            .input-with-mic .form-input {
+
+                padding-right: 50px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body class="app-body center-screen">
+
+<div class="app-shell">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <div class="lang-hero small">
+    <img
+        src="{{ url_for('static', filename='images/kala_setu.png') }}"
+        alt="KalaSetu Logo"
+        class="kalasetu-logo">
+</div>
+
+
+    <!-- =====================================================
+         REGISTER CARD
+    ====================================================== -->
+
+    <div class="card login-card register-card">
+
+
+        <h2 class="card-title">
+
+            👨‍🎨 {{ t('register_as_artisan') }}
+
+        </h2>
+
+
+        {% if error %}
+
+        <div class="alert alert-error">
+
+            {{ error }}
+
+        </div>
+
+        {% endif %}
+
+
+
+        <!-- =================================================
+             FORM
+        ================================================== -->
+
+        <form method="POST"
+              action="{{ url_for('artisan_register') }}"
+              class="stacked-form">
+
+
+            <!-- =================================================
+                 NAME
+            ================================================== -->
+
+            <div class="field-group">
+
+
+                <!-- LABEL + SPEAKER -->
+
+                <div class="field-title-row">
+
+                    <label
+                        class="form-label field-title"
+                        for="name">
+
+                        👤 {{ t('name') }}
+
+                    </label>
+
+
+                    <button
+                        type="button"
+                        class="speaker-btn"
+                        id="nameSpeak"
+                        aria-label="Listen"
+                        title="Listen">
+
+                        🔊
+
+                    </button>
+
+                </div>
+
+
+                <!-- INPUT + MIC -->
+
+                <div class="input-with-mic">
+
+                    <input
+                        class="form-input"
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        autocomplete="name">
+
+
+                    <button
+                        type="button"
+                        class="mic-btn"
+                        id="nameMic"
+                        aria-label="Voice input"
+                        title="Speak">
+
+                        🎙️
+
+                    </button>
+
+                </div>
+
+
+                <div class="voice-help">
+
+                    🎙️ Speak your name
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MOBILE
+            ================================================== -->
+
+            <div class="field-group">
+
+
+                <!-- LABEL + SPEAKER -->
+
+                <div class="field-title-row">
+
+                    <label
+                        class="form-label field-title"
+                        for="mobile">
+
+                        📱 {{ t('mobile_number') }}
+
+                    </label>
+
+
+                    <button
+                        type="button"
+                        class="speaker-btn"
+                        id="mobileSpeak"
+                        aria-label="Listen"
+                        title="Listen">
+
+                        🔊
+
+                    </button>
+
+                </div>
+
+
+                <!-- INPUT + MIC -->
+
+                <div class="input-with-mic">
+
+                    <input
+                        class="form-input"
+                        type="tel"
+                        id="mobile"
+                        name="mobile"
+                        inputmode="numeric"
+                        pattern="[0-9]*"
+                        maxlength="10"
+                        required
+                        autocomplete="tel"
+                        placeholder="98XXXXXXXX">
+
+
+                    <button
+                        type="button"
+                        class="mic-btn"
+                        id="mobileMic"
+                        aria-label="Voice input"
+                        title="Speak">
+
+                        🎙️
+
+                    </button>
+
+                </div>
+
+
+                <div class="voice-help">
+
+                    🎙️ Speak your 10 digit mobile number
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LOCATION
+            ================================================== -->
+
+            <div class="field-group">
+
+
+                <!-- LABEL + SPEAKER -->
+
+                <div class="field-title-row">
+
+                    <label
+                        class="form-label field-title"
+                        for="location">
+
+                        📍 {{ t('location') }}
+
+                    </label>
+
+
+                    <button
+                        type="button"
+                        class="speaker-btn"
+                        id="locationSpeak"
+                        aria-label="Listen"
+                        title="Listen">
+
+                        🔊
+
+                    </button>
+
+                </div>
+
+
+                <!-- INPUT + MIC -->
+
+                <div class="input-with-mic">
+
+                    <input
+                        class="form-input"
+                        type="text"
+                        id="location"
+                        name="location"
+                        required
+                        autocomplete="address-level2">
+
+
+                    <button
+                        type="button"
+                        class="mic-btn"
+                        id="locationMic"
+                        aria-label="Voice input"
+                        title="Speak">
+
+                        🎙️
+
+                    </button>
+
+                </div>
+
+
+                <div class="voice-help">
+
+                    🎙️ Speak your village or location
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PASSWORD
+            ================================================== -->
+
+            <div class="field-group">
+
+
+                <!-- LABEL + SPEAKER -->
+
+                <div class="field-title-row">
+
+                    <label
+                        class="form-label field-title"
+                        for="password">
+
+                        🔒 {{ t('password') }}
+
+                    </label>
+
+
+                    <button
+                        type="button"
+                        class="speaker-btn"
+                        id="passwordSpeak"
+                        aria-label="Listen"
+                        title="Listen">
+
+                        🔊
+
+                    </button>
+
+                </div>
+
+
+                <!-- PASSWORD INPUT
+                     NO MICROPHONE -->
+
+                <div class="input-with-mic">
+
+                    <input
+                        class="form-input"
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                        autocomplete="new-password"
+                        placeholder="••••">
+
+                </div>
+
+
+                <div class="voice-help">
+
+                    🔊 Listen to the password instruction
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 REGISTER BUTTON
+            ================================================== -->
+
+            <button
+                type="submit"
+                class="btn btn-primary btn-large">
+
+                {{ t('register') }}
+
+            </button>
+
+        </form>
+
+
+
+        <!-- =================================================
+             LOGIN LINK
+        ================================================== -->
+
+        <div class="login-link">
+
+            <a href="{{ url_for('artisan_login') }}">
+
+                ← {{ t('artisan_login') }}
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CHANGE LANGUAGE
+    ====================================================== -->
+
+    <div class="lang-switch-row">
+
+        <a href="{{ url_for('choose_language') }}"
+           class="link-muted">
+
+            🌐 {{ t('change_language') }}
+
+        </a>
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   KALASETU REGISTER VOICE SYSTEM
+
+   Hindi + Marathi + English
+
+   Position:
+   Speaker = field title row
+   Mic     = inside input
+
+========================================================= */
+
+
+/* =========================================================
+   SPEECH RECOGNITION
+========================================================= */
+
+const SpeechRecognition =
+    window.SpeechRecognition ||
+    window.webkitSpeechRecognition;
+
+
+const currentLanguage =
+    "{{ current_lang }}";
+
+
+/* =========================================================
+   LANGUAGE SETTINGS
+========================================================= */
+
+const recognitionLanguages = {
+
+    "en": "en-IN",
+
+    "mr": "mr-IN",
+
+    "hi": "hi-IN"
+
+};
+
+
+/*
+   Marathi TTS fallback:
+   Chrome may not provide Marathi voice,
+   so Hindi voice is used for Marathi text.
+*/
+
+const speakerLanguages = {
+
+    "en": "en-IN",
+
+    "mr": "hi-IN",
+
+    "hi": "hi-IN"
+
+};
+
+
+const selectedRecognitionLanguage =
+    recognitionLanguages[currentLanguage]
+    || "en-IN";
+
+
+const selectedSpeakerLanguage =
+    speakerLanguages[currentLanguage]
+    || "en-IN";
+
+
+
+/* =========================================================
+   SPEAKER
+========================================================= */
+
+function speakText(
+    text,
+    button = null
+) {
+
+    if (!("speechSynthesis" in window)) {
+
+        console.log(
+            "Speech synthesis is not supported."
+        );
+
+        return;
+    }
+
+
+    if (!text) {
+
+        return;
+    }
+
+
+    /*
+       Stop previous speech.
+    */
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+        new SpeechSynthesisUtterance(text);
+
+
+    speech.lang =
+        selectedSpeakerLanguage;
+
+
+    speech.rate =
+        0.8;
+
+
+    speech.pitch =
+        1;
+
+
+
+    /*
+       Find available voice.
+    */
+
+    const voices =
+        window.speechSynthesis.getVoices();
+
+
+    let selectedVoice =
+        voices.find(function(voice) {
+
+            return voice.lang ===
+                selectedSpeakerLanguage;
+
+        });
+
+
+
+    /*
+       Fallback to same language family.
+    */
+
+    if (!selectedVoice) {
+
+        selectedVoice =
+            voices.find(function(voice) {
+
+                return voice.lang
+                    .toLowerCase()
+                    .startsWith(
+                        selectedSpeakerLanguage
+                            .split("-")[0]
+                            .toLowerCase()
+                    );
+
+            });
+    }
+
+
+
+    if (selectedVoice) {
+
+        speech.voice =
+            selectedVoice;
+
+        console.log(
+            "Speaker voice:",
+            selectedVoice.name,
+            selectedVoice.lang
+        );
+    }
+
+
+
+    /* =====================================================
+       SPEAKER START
+    ===================================================== */
+
+    speech.onstart =
+        function() {
+
+            if (button) {
+
+                button.classList.add(
+                    "speaking"
+                );
+            }
+        };
+
+
+
+    /* =====================================================
+       SPEAKER END
+    ===================================================== */
+
+    speech.onend =
+        function() {
+
+            if (button) {
+
+                button.classList.remove(
+                    "speaking"
+                );
+            }
+        };
+
+
+
+    /* =====================================================
+       SPEAKER ERROR
+    ===================================================== */
+
+    speech.onerror =
+        function() {
+
+            if (button) {
+
+                button.classList.remove(
+                    "speaking"
+                );
+            }
+        };
+
+
+    window.speechSynthesis.speak(
+        speech
+    );
+}
+
+
+
+/* =========================================================
+   CHROME VOICES LOADED
+========================================================= */
+
+if ("speechSynthesis" in window) {
+
+    window.speechSynthesis.onvoiceschanged =
+        function() {
+
+            console.log(
+                "Speech voices loaded:",
+                window.speechSynthesis
+                    .getVoices()
+                    .length
+            );
+        };
+}
+
+
+
+/* =========================================================
+   SPEAKER MESSAGES
+========================================================= */
+
+const messages = {
+
+    name: {
+
+        en:
+            "Please say your name.",
+
+        mr:
+            "कृपया आपले नाव सांगा.",
+
+        hi:
+            "कृपया अपना नाम बताइए."
+    },
+
+
+    mobile: {
+
+        en:
+            "Please say your 10 digit mobile number.",
+
+        mr:
+            "कृपया आपला दहा अंकी मोबाईल नंबर सांगा.",
+
+        hi:
+            "कृपया अपना दस अंकों का मोबाइल नंबर बताइए."
+    },
+
+
+    location: {
+
+        en:
+            "Please say your village or location.",
+
+        mr:
+            "कृपया आपल्या गावाचे किंवा ठिकाणाचे नाव सांगा.",
+
+        hi:
+            "कृपया अपने गांव या स्थान का नाम बताइए."
+    },
+
+
+    password: {
+
+        en:
+            "Please enter your password. Do not speak your password for security.",
+
+        mr:
+            "कृपया आपला पासवर्ड टाका. सुरक्षिततेसाठी आपला पासवर्ड बोलू नका.",
+
+        hi:
+            "कृपया अपना पासवर्ड दर्ज करें। सुरक्षा के लिए अपना पासवर्ड न बोलें."
+    }
+
+};
+
+
+
+/* =========================================================
+   SPEAKER BUTTONS
+========================================================= */
+
+function connectSpeaker(
+    buttonId,
+    messageType
+) {
+
+    const button =
+        document.getElementById(
+            buttonId
+        );
+
+
+    if (!button) {
+
+        return;
+    }
+
+
+    button.addEventListener(
+        "click",
+        function() {
+
+            const text =
+                messages[messageType]
+                    [currentLanguage]
+                ||
+                messages[messageType]
+                    .en;
+
+
+            speakText(
+                text,
+                button
+            );
+
+        }
+    );
+}
+
+
+
+connectSpeaker(
+    "nameSpeak",
+    "name"
+);
+
+
+connectSpeaker(
+    "mobileSpeak",
+    "mobile"
+);
+
+
+connectSpeaker(
+    "locationSpeak",
+    "location"
+);
+
+
+connectSpeaker(
+    "passwordSpeak",
+    "password"
+);
+
+
+
+/* =========================================================
+   DEVANAGARI DIGITS → ENGLISH DIGITS
+========================================================= */
+
+function convertDevanagariDigits(text) {
+
+    const devanagariDigits =
+        "०१२३४५६७८९";
+
+
+    return text.replace(
+        /[०-९]/g,
+        function(digit) {
+
+            return devanagariDigits.indexOf(
+                digit
+            );
+        }
+    );
+}
+
+
+
+/* =========================================================
+   NUMBER WORDS
+========================================================= */
+
+const numberWords = {
+
+    /* ENGLISH */
+
+    "zero": "0",
+    "one": "1",
+    "two": "2",
+    "three": "3",
+    "four": "4",
+    "five": "5",
+    "six": "6",
+    "seven": "7",
+    "eight": "8",
+    "nine": "9",
+    "oh": "0",
+
+
+    /* HINDI */
+
+    "शून्य": "0",
+    "एक": "1",
+    "दो": "2",
+    "तीन": "3",
+    "चार": "4",
+    "पांच": "5",
+    "पाँच": "5",
+    "छह": "6",
+    "छः": "6",
+    "सात": "7",
+    "आठ": "8",
+    "नौ": "9",
+
+
+    /* MARATHI */
+
+    "दोन": "2",
+    "पाच": "5",
+    "सहा": "6",
+    "नऊ": "9"
+
+};
+
+
+
+/* =========================================================
+   SPOKEN MOBILE NUMBER → DIGITS
+========================================================= */
+
+function spokenNumberToDigits(text) {
+
+    if (!text) {
+
+        return "";
+    }
+
+
+    /*
+       Convert Devanagari digits.
+    */
+
+    let cleaned =
+        convertDevanagariDigits(text);
+
+
+    /*
+       Lowercase English words.
+    */
+
+    cleaned =
+        cleaned.toLowerCase();
+
+
+    /*
+       Collect actual digits.
+
+       Example:
+
+       98 76 54 32 10
+
+       becomes:
+
+       9876543210
+    */
+
+    let directDigits =
+        cleaned.match(/[0-9]/g);
+
+
+    let result =
+        directDigits
+            ? directDigits.join("")
+            : "";
+
+
+    /*
+       Read spoken words.
+    */
+
+    const words =
+        cleaned
+            .replace(
+                /[,.!?;:\-\/\\]+/g,
+                " "
+            )
+            .split(/\s+/)
+            .filter(Boolean);
+
+
+    /*
+       Convert number words.
+    */
+
+    for (let word of words) {
+
+        word =
+            word.trim();
+
+
+        if (
+            Object.prototype.hasOwnProperty.call(
+                numberWords,
+                word
+            )
+        ) {
+
+            result +=
+                numberWords[word];
+        }
+    }
+
+
+    /*
+       FINAL CLEANING
+
+       NO spaces
+       NO letters
+       NO symbols
+       ONLY digits
+    */
+
+    result =
+        result.replace(
+            /[^0-9]/g,
+            ""
+        );
+
+
+    /*
+       Maximum 10 digits.
+    */
+
+    result =
+        result.substring(
+            0,
+            10
+        );
+
+
+    console.log(
+        "Final mobile number:",
+        result
+    );
+
+
+    return result;
+}
+
+
+
+/* =========================================================
+   SPEECH RECOGNITION ERROR
+========================================================= */
+
+function speakVoiceError() {
+
+    if (currentLanguage === "mr") {
+
+        speakText(
+            "या ब्राउझरमध्ये व्हॉइस इनपुट उपलब्ध नाही. कृपया Chrome वापरा."
+        );
+
+    }
+
+    else if (currentLanguage === "hi") {
+
+        speakText(
+            "इस ब्राउज़र में वॉइस इनपुट उपलब्ध नहीं है। कृपया Chrome का उपयोग करें."
+        );
+
+    }
+
+    else {
+
+        speakText(
+            "Voice input is not supported in this browser. Please use Chrome."
+        );
+    }
+}
+
+
+
+/* =========================================================
+   CREATE MICROPHONE
+========================================================= */
+
+function createRecognition(
+    inputElement,
+    micButton,
+    isMobile
+) {
+
+    if (!inputElement || !micButton) {
+
+        console.log(
+            "Input or microphone button not found."
+        );
+
+        return;
+    }
+
+
+
+    /*
+       Browser does not support SpeechRecognition.
+    */
+
+    if (!SpeechRecognition) {
+
+        micButton.addEventListener(
+            "click",
+            function() {
+
+                speakVoiceError();
+
+            }
+        );
+
+        return;
+    }
+
+
+
+    /*
+       Create NEW recognition object
+       every time microphone is clicked.
+    */
+
+    micButton.addEventListener(
+        "click",
+        function() {
+
+            console.log(
+                "🎙️ MIC BUTTON CLICKED:",
+                inputElement.id
+            );
+
+
+            const recognition =
+                new SpeechRecognition();
+
+
+            /*
+               Selected language.
+
+               en-IN
+               mr-IN
+               hi-IN
+            */
+
+            recognition.lang =
+                selectedRecognitionLanguage;
+
+
+            recognition.continuous =
+                false;
+
+
+            recognition.interimResults =
+                false;
+
+
+            recognition.maxAlternatives =
+                5;
+
+
+            console.log(
+                "Recognition language:",
+                selectedRecognitionLanguage
+            );
+
+
+
+            /* =================================================
+               START
+            ================================================= */
+
+            try {
+
+                micButton.classList.add(
+                    "listening"
+                );
+
+
+                micButton.textContent =
+                    "🔴";
+
+
+                recognition.start();
+
+
+                console.log(
+                    "🎙️ Recognition started"
+                );
+
+            }
+
+            catch (error) {
+
+                console.log(
+                    "❌ Recognition start error:",
+                    error
+                );
+
+
+                micButton.classList.remove(
+                    "listening"
+                );
+
+
+                micButton.textContent =
+                    "🎙️";
+            }
+
+
+
+            /* =================================================
+               ON START
+            ================================================= */
+
+            recognition.onstart =
+                function() {
+
+                    console.log(
+                        "🎙️ MIC IS LISTENING"
+                    );
+
+
+                    micButton.classList.add(
+                        "listening"
+                    );
+
+
+                    micButton.textContent =
+                        "🔴";
+                };
+
+
+
+            /* =================================================
+               ON RESULT
+            ================================================= */
+
+            recognition.onresult =
+                function(event) {
+
+                    console.log(
+                        "✅ SPEECH RESULT RECEIVED"
+                    );
+
+
+                    let transcript =
+                        event.results[0][0]
+                            .transcript;
+
+
+                    console.log(
+                        "🗣️ You said:",
+                        transcript
+                    );
+
+
+
+                    /* =========================================
+                       MOBILE
+                    ========================================= */
+
+                    if (isMobile) {
+
+                        const number =
+                            spokenNumberToDigits(
+                                transcript
+                            );
+
+
+                        console.log(
+                            "🔢 Converted mobile:",
+                            number
+                        );
+
+
+                        if (
+                            number.length > 0
+                        ) {
+
+                            inputElement.value =
+                                number
+                                    .replace(
+                                        /[^0-9]/g,
+                                        ""
+                                    )
+                                    .substring(
+                                        0,
+                                        10
+                                    );
+
+                        }
+
+                        else {
+
+                            console.log(
+                                "⚠️ Could not convert speech to digits."
+                            );
+                        }
+
+                    }
+
+
+
+                    /* =========================================
+                       NAME / LOCATION
+                    ========================================= */
+
+                    else {
+
+                        inputElement.value =
+                            transcript;
+                    }
+
+
+
+                    /*
+                       Trigger normal form events.
+                    */
+
+                    inputElement.dispatchEvent(
+                        new Event(
+                            "input",
+                            {
+                                bubbles: true
+                            }
+                        )
+                    );
+
+
+                    inputElement.dispatchEvent(
+                        new Event(
+                            "change",
+                            {
+                                bubbles: true
+                            }
+                        )
+                    );
+
+                };
+
+
+
+            /* =================================================
+               ON ERROR
+            ================================================= */
+
+            recognition.onerror =
+                function(event) {
+
+                    console.log(
+                        "❌ MIC ERROR:",
+                        event.error
+                    );
+
+
+                    micButton.classList.remove(
+                        "listening"
+                    );
+
+
+                    micButton.textContent =
+                        "🎙️";
+
+
+                    if (
+                        event.error ===
+                        "not-allowed"
+                    ) {
+
+                        console.log(
+                            "Chrome microphone permission denied."
+                        );
+
+                        return;
+                    }
+
+
+                    if (
+                        event.error ===
+                        "no-speech"
+                    ) {
+
+                        console.log(
+                            "No speech detected."
+                        );
+
+                        return;
+                    }
+
+
+                    if (
+                        event.error ===
+                        "aborted"
+                    ) {
+
+                        console.log(
+                            "Speech recognition aborted."
+                        );
+
+                        return;
+                    }
+
+
+                    if (
+                        event.error ===
+                        "network"
+                    ) {
+
+                        console.log(
+                            "Speech recognition network error."
+                        );
+
+                        return;
+                    }
+                };
+
+
+
+            /* =================================================
+               ON END
+            ================================================= */
+
+            recognition.onend =
+                function() {
+
+                    console.log(
+                        "🛑 MIC STOPPED"
+                    );
+
+
+                    micButton.classList.remove(
+                        "listening"
+                    );
+
+
+                    micButton.textContent =
+                        "🎙️";
+                };
+
+        }
+    );
+}
+
+
+
+/* =========================================================
+   CONNECT NAME MICROPHONE
+========================================================= */
+
+createRecognition(
+
+    document.getElementById("name"),
+
+    document.getElementById("nameMic"),
+
+    false
+
+);
+
+
+
+/* =========================================================
+   CONNECT MOBILE MICROPHONE
+========================================================= */
+
+createRecognition(
+
+    document.getElementById("mobile"),
+
+    document.getElementById("mobileMic"),
+
+    true
+
+);
+
+
+
+/* =========================================================
+   CONNECT LOCATION MICROPHONE
+========================================================= */
+
+createRecognition(
+
+    document.getElementById("location"),
+
+    document.getElementById("locationMic"),
+
+    false
+
+);
+
+
+
+/* =========================================================
+   MOBILE MANUAL INPUT
+   Keep digits only.
+========================================================= */
+
+const mobileInput =
+    document.getElementById(
+        "mobile"
+    );
+
+
+if (mobileInput) {
+
+    mobileInput.addEventListener(
+        "input",
+        function() {
+
+            this.value =
+                this.value
+                    .replace(
+                        /[^0-9]/g,
+                        ""
+                    )
+                    .substring(
+                        0,
+                        10
+                    );
+
+        }
+    );
+}
+
+
+
+/* =========================================================
+   DEBUG
+========================================================= */
+
+console.log(
+    "================================="
+);
+
+console.log(
+    "KALASETU REGISTER VOICE READY"
+);
+
+console.log(
+    "UI Language:",
+    currentLanguage
+);
+
+console.log(
+    "Recognition Language:",
+    selectedRecognitionLanguage
+);
+
+console.log(
+    "Speaker Language:",
+    selectedSpeakerLanguage
+);
+
+console.log(
+    "Speaker Position: FIELD TITLE"
+
+);
+
+console.log(
+    "Mic Position: INSIDE INPUT"
+);
+
+console.log(
+    "================================="
+);
+
+</script>
+
+
+</body>
+
+</html>

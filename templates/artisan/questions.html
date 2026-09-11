@@ -1,0 +1,468 @@
+
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <meta name="theme-color" content="#5C3A21">
+
+    <title>{{ t('step_questions') }}</title>
+
+
+    <!-- Existing KalaSetu CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/app.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/artisan.css') }}">
+
+    <!-- Questions page CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/questions.css') }}">
+
+</head>
+
+
+<body class="app-body questions-page">
+
+<div class="app-shell">
+
+
+    <!-- =====================================================
+         TOP BAR
+         ===================================================== -->
+
+    <header class="top-bar">
+
+        <a href="{{ url_for('add_product') }}"
+           class="top-bar-back">
+
+            ← {{ t('back') }}
+
+        </a>
+
+        <span class="top-bar-title">
+
+            {{ t('step_questions') }}
+
+        </span>
+
+        <span class="top-bar-action"></span>
+
+    </header>
+
+
+    <!-- =====================================================
+         PROGRESS
+         ===================================================== -->
+
+    <div class="progress-steps">
+
+        <span class="step-dot step-done"></span>
+
+        <span class="step-dot step-active"></span>
+
+        <span class="step-dot"></span>
+
+    </div>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="scroll-main">
+
+        <div class="questions-container">
+
+
+            <!-- =================================================
+                 PAGE INTRO
+                 ================================================= -->
+
+            <div class="questions-intro">
+
+                <h1>
+                    {{ t('step_questions') }}
+                </h1>
+
+                <p>
+                    Please answer the following questions about your product.
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 VOICE WARNING
+                 ================================================= -->
+
+            <div id="voice-warning"
+                 class="questions-error">
+
+                {{ t('voice_not_supported') }}
+
+            </div>
+
+
+            <!-- =================================================
+                 QUESTIONS
+                 ================================================= -->
+
+            <div id="questions-container">
+
+
+            
+<!-- =================================================
+     QUESTION 1
+     MATERIAL
+     ================================================= -->
+
+<div class="question-item">
+
+    <div class="question-header">
+
+        <div class="question-number">
+            01
+        </div>
+
+        <h2 class="question-title">
+            {{ questions[0].text }}
+        </h2>
+
+        <button
+            type="button"
+            class="question-listen-btn"
+            data-question-index="0"
+            aria-label="{{ t('listen') }}">
+            🔊
+        </button>
+
+    </div>
+
+    <div class="question-answer-wrapper">
+
+        <textarea
+            id="answer-0"
+            name="answer_0"
+            class="question-answer"
+            rows="2"
+            placeholder="{{ t('type_answer') }}"></textarea>
+
+        <button
+            type="button"
+            class="question-mic-btn"
+            data-voice-input="answer-0"
+            aria-label="{{ t('speak') }}">
+            🎙️
+        </button>
+
+    </div>
+
+    <p class="question-hint">
+        {{ t('type_answer') }}
+    </p>
+
+</div>
+
+
+<!-- =================================================
+     QUESTION 2
+     MAKING TIME
+     ================================================= -->
+
+<div class="question-item">
+
+    <div class="question-header">
+
+        <div class="question-number">
+            02
+        </div>
+
+        <h2 class="question-title">
+            {{ questions[1].text }}
+        </h2>
+
+        <button
+            type="button"
+            class="question-listen-btn"
+            data-question-index="1"
+            aria-label="{{ t('listen') }}">
+            🔊
+        </button>
+
+    </div>
+
+    <div class="question-answer-wrapper">
+
+        <textarea
+            id="answer-1"
+            name="answer_1"
+            class="question-answer"
+            rows="2"
+            placeholder="{{ t('type_answer') }}"></textarea>
+
+        <button
+            type="button"
+            class="question-mic-btn"
+            data-voice-input="answer-1"
+            aria-label="{{ t('speak') }}">
+            🎙️
+        </button>
+
+    </div>
+
+    <p class="question-hint">
+        {{ t('type_answer') }}
+    </p>
+
+</div>
+
+
+<!-- =================================================
+     QUESTION 3
+     MAKING COST
+     ================================================= -->
+
+<div class="question-item">
+
+    <div class="question-header">
+
+        <div class="question-number">
+            03
+        </div>
+
+        <h2 class="question-title">
+            {{ questions[2].text }}
+        </h2>
+
+        <button
+            type="button"
+            class="question-listen-btn"
+            data-question-index="2"
+            aria-label="{{ t('listen') }}">
+            🔊
+        </button>
+
+    </div>
+
+    <div class="question-answer-wrapper">
+
+        <textarea
+            id="answer-2"
+            name="answer_2"
+            class="question-answer"
+            rows="2"
+            placeholder="{{ t('type_answer') }}"></textarea>
+
+        <button
+            type="button"
+            class="question-mic-btn"
+            data-voice-input="answer-2"
+            aria-label="{{ t('speak') }}">
+            🎙️
+        </button>
+
+    </div>
+
+    <p class="question-hint">
+        {{ t('type_answer') }}
+    </p>
+
+</div>
+
+
+<!-- =================================================
+     QUESTION 4
+     SIZE
+     ================================================= -->
+
+<div class="question-item">
+
+    <div class="question-header">
+
+        <div class="question-number">
+            04
+        </div>
+
+        <h2 class="question-title">
+            {{ questions[3].text }}
+        </h2>
+
+        <button
+            type="button"
+            class="question-listen-btn"
+            data-question-index="3"
+            aria-label="{{ t('listen') }}">
+            🔊
+        </button>
+
+    </div>
+
+    <div class="question-answer-wrapper">
+
+        <textarea
+            id="answer-3"
+            name="answer_3"
+            class="question-answer"
+            rows="2"
+            placeholder="{{ t('type_answer') }}"></textarea>
+
+        <button
+            type="button"
+            class="question-mic-btn"
+            data-voice-input="answer-3"
+            aria-label="{{ t('speak') }}">
+            🎙️
+        </button>
+
+    </div>
+
+    <p class="question-hint">
+        {{ t('type_answer') }}
+    </p>
+
+</div>
+
+
+
+
+            <!-- =================================================
+                 ERROR MESSAGE
+                 ================================================= -->
+
+            <div id="answer-error"
+                 class="questions-error">
+
+                {{ t('please_type_answer') }}
+
+            </div>
+
+
+            <!-- =================================================
+                 GENERATE CATALOG BUTTON
+                 ================================================= -->
+
+            <div class="questions-submit-area">
+
+                <button
+                    type="button"
+                    id="generate-catalog-btn"
+                    class="questions-submit-btn">
+
+                    🤖 {{ t('generate_catalog') }}
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 GENERATING PANEL
+                 ================================================= -->
+
+            <div id="generating-panel"
+                 class="questions-generating">
+
+
+                <div class="questions-spinner"></div>
+
+
+                <h3>
+
+                    {{ t('generating_catalog') }}
+
+                </h3>
+
+
+                <p>
+
+                    {{ t('preparing_price') }}
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT DATA FROM FLASK
+     ========================================================= -->
+
+<script>
+
+    /*
+     * QUESTIONS contains dictionaries like:
+     *
+     * {
+     *     key: "material",
+     *     text: "तुम्ही कोणते साहित्य वापरले?"
+     * }
+     *
+     * We display .text above.
+     */
+
+    window.QUESTIONS = {{ questions|tojson }};
+window.SPEECH_LANG = {{ speech_lang|tojson }};
+
+    /*
+     * Voice warning message
+     */
+
+    const MSG_VOICE_NOT_SUPPORTED =
+        {{ t('voice_not_supported')|tojson }};
+
+
+    /*
+     * Empty answer message
+     */
+
+    const MSG_PLEASE_ANSWER =
+        {{ t('please_type_answer')|tojson }};
+
+
+    /*
+     * Flask catalog generation route
+     */
+
+    const GENERATE_URL =
+        "{{ url_for('generate_catalog_route') }}";
+
+</script>
+
+
+
+<!-- =========================================================
+     EXISTING VOICE SYSTEM
+     ========================================================= -->
+
+<script src="{{ url_for('static', filename='js/voice.js') }}"></script>
+
+
+
+<!-- =========================================================
+     EXISTING ARTISAN JAVASCRIPT
+     ========================================================= -->
+
+<script
+    src="{{ url_for('static', filename='js/artisan.js') }}"
+    data-page="questions">
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    >
+
+    <meta name="theme-color" content="#5C3A21">
+
+    <title>KalaSetu - Customer Login</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/customer_auth.css') }}"
+    >
+</head>
+
+<body class="customer-auth-body">
+
+<div class="auth-app">
+
+
+    <!-- TOP DECORATIVE LINE -->
+    <div class="craft-line"></div>
+
+
+    <!-- DECORATIVE CORNER -->
+    <div class="corner-pattern corner-top-left"></div>
+    <div class="corner-pattern corner-top-right"></div>
+
+
+    <main class="auth-content">
+
+
+        <!-- BACK -->
+        <a
+ href="{{ url_for('customer_home') }}" class="back-button">
+    
+    <span>←</span>
+   Back to Home
+</a>
+
+        <!-- BRAND -->
+        <section class="auth-brand">
+
+            <div class="logo-frame">
+
+                <div class="logo-ring"></div>
+
+                <img
+                    src="{{ url_for('static', filename='images/kala_setu_role.png') }}"
+                    alt="KalaSetu"
+                >
+
+            </div>
+
+            <h1>KalaSetu</h1>
+
+            <p>
+                कला • Craft • Culture
+            </p>
+
+        </section>
+
+
+        <!-- HEADING -->
+        <section class="auth-heading">
+
+            <span class="small-label">
+                WELCOME BACK
+            </span>
+
+            <h2>
+                Customer Login
+            </h2>
+
+            <p>
+                Discover authentic handmade creations
+                from talented artisans.
+            </p>
+
+        </section>
+
+
+        <!-- LOGIN CARD -->
+        <section class="auth-card">
+
+
+            {% if error %}
+
+            <div class="auth-error">
+                {{ error }}
+            </div>
+
+            {% endif %}
+
+
+            <form
+                method="POST"
+                action="{{ url_for('customer_login') }}"
+            >
+
+
+                <!-- MOBILE -->
+                <div class="field-group">
+
+                    <label for="mobile">
+                        Mobile Number
+                    </label>
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            +
+                        </span>
+
+                        <input
+                            type="tel"
+                            id="mobile"
+                            name="mobile"
+                            placeholder="Enter mobile number"
+                            maxlength="10"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+                <div class="field-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            •
+                        </span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            onclick="togglePassword()"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOGIN -->
+                <button
+                    type="submit"
+                    class="auth-button"
+                >
+                    <span>Login</span>
+                    <span class="button-arrow">→</span>
+                </button>
+
+            </form>
+
+
+            <!-- REGISTER -->
+            <div class="auth-divider">
+
+                <span></span>
+
+                <small>
+                    New to KalaSetu?
+                </small>
+
+                <span></span>
+
+            </div>
+
+
+            <a
+                href="{{ url_for('customer_register') }}"
+                class="secondary-button"
+            >
+                Create Customer Account
+            </a>
+
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <div class="auth-footer">
+
+            <span class="footer-pattern">✦</span>
+
+            <p>
+                Support local artisans • Preserve Indian crafts
+            </p>
+
+            <span class="footer-pattern">✦</span>
+
+        </div>
+
+
+    </main>
+
+</div>
+
+
+<script>
+
+function togglePassword() {
+
+    const password =
+        document.getElementById("password");
+
+    const button =
+        document.querySelector(".password-toggle");
+
+    if (password.type === "password") {
+
+        password.type = "text";
+
+        button.textContent = "Hide";
+
+    } else {
+
+        password.type = "password";
+
+        button.textContent = "Show";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

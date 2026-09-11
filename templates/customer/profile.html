@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="{{ current_lang }}">
+
+<head>
+    <meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+>
+
+<meta name="theme-color" content="#5C3A21">
+
+<title>KalaSetu - My Profile</title>
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/customer_dashboard.css') }}"
+>
+
+
+</head>
+
+<body>
+
+<div class="customer-app">
+
+
+<!-- HEADER -->
+<header class="customer-header">
+
+    <div class="brand-area">
+
+        <img
+            src="{{ url_for('static', filename='images/kala_setu_role.png') }}"
+            alt="KalaSetu"
+        >
+
+        <div>
+            <h1>KalaSetu</h1>
+            <span>My Profile</span>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- PROFILE CONTENT -->
+<main>
+
+    <section class="welcome-section">
+
+        <span class="welcome-small">
+            CUSTOMER PROFILE
+        </span>
+
+        <h2>
+            Welcome, {{ customer.name }}
+        </h2>
+
+        <p>
+            Manage your KalaSetu account information.
+        </p>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="profile-card">
+
+            <div class="profile-avatar">
+                👤
+            </div>
+
+            <div class="profile-info">
+
+                <div class="profile-field">
+                    <span>Name</span>
+                    <strong>{{ customer.name }}</strong>
+                </div>
+
+                <div class="profile-field">
+                    <span>Mobile Number</span>
+                    <strong>{{ customer.mobile }}</strong>
+                </div>
+
+                <div class="profile-field">
+                    <span>Address</span>
+                    <strong>{{ customer.address }}</strong>
+                </div>
+
+                <div class="profile-field">
+                    <span>Customer ID</span>
+                    <strong>{{ customer.customer_id }}</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACTIONS -->
+    <section class="section">
+
+        
+
+        <a
+            href="{{ url_for('customer_logout') }}"
+            class="auth-button profile-logout-button"
+        >
+            Logout
+        </a>
+
+    </section>
+
+</main>
+
+
+<!-- BOTTOM NAVIGATION -->
+<nav class="bottom-navigation">
+
+    <a
+        href="{{ url_for('customer_home') }}"
+        class="nav-item"
+    >
+        <span>⌂</span>
+        <small>Home</small>
+    </a>
+
+
+    <button class="nav-item">
+
+        <span>♡</span>
+        <small>Wishlist</small>
+
+    </button>
+
+
+    <button class="nav-item">
+
+        <span>🛒</span>
+        <small>Cart</small>
+
+    </button>
+
+
+    <a
+        href="{{ url_for('customer_profile') }}"
+        class="nav-item active"
+    >
+        <span>👤</span>
+        <small>Profile</small>
+    </a>
+
+</nav>
+
+
+</div>
+
+</body>
+</html>

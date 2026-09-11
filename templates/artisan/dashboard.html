@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="theme-color" content="#5C3A21">
+
+  <title>{{ t('app_name') }}</title>
+
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/app.css') }}">
+
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/artisan.css') }}">
+</head>
+
+<body class="app-body">
+
+  <div class="app-shell artisan-dashboard">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="dashboard-header">
+
+  <a
+    href="{{ url_for('artisan_dashboard') }}"
+    class="dashboard-brand"
+    aria-label="KalaSetu Dashboard"
+  >
+    <img
+      src="{{ url_for('static', filename='images/kalasetu_dash.png') }}"
+      alt="KalaSetu"
+      class="dashboard-logo"
+    >
+  </a>
+
+  <a
+    href="{{ url_for('artisan_logout') }}"
+    class="dashboard-logout"
+    title="{{ t('logout') }}"
+    aria-label="{{ t('logout') }}"
+  >
+    <span>↪</span>
+  </a>
+
+</header>
+
+    <main class="scroll-main dashboard-main">
+
+      <!-- =====================================================
+           WELCOME SECTION
+           ===================================================== -->
+
+      <section class="welcome-section">
+
+        <div class="welcome-content">
+
+          <p class="welcome-label">Welcome back</p>
+
+          <h1 class="welcome-title">
+            {{ artisan.name.split(' ')[0] }}
+            <span>👋</span>
+          </h1>
+
+          <p class="welcome-craft">
+            {{ t('your_craft') }}
+            <strong>{{ artisan.craft }}</strong>
+          </p>
+
+        </div>
+
+        <div class="artisan-avatar">
+          {{ artisan.name[0]|upper }}
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           MAIN ACTION
+           ===================================================== -->
+
+      <section class="primary-action-section">
+
+        <a
+          href="{{ url_for('add_product') }}"
+          class="add-product-card"
+        >
+
+          <div class="add-product-icon">
+            +
+          </div>
+
+          <div class="add-product-content">
+
+            <span class="add-product-title">
+              {{ t('add_product') }}
+            </span>
+
+            <span class="add-product-subtitle">
+              Create your product catalog with AI assistance
+            </span>
+
+          </div>
+
+          <span class="add-product-arrow">→</span>
+
+        </a>
+
+      </section>
+
+
+      <!-- =====================================================
+           QUICK ACTIONS
+           ===================================================== -->
+
+      <section class="dashboard-section">
+
+  <div class="section-heading">
+    <div>
+      <p class="section-eyebrow">Workspace</p>
+      <h2 class="dashboard-section-title">
+        Quick Actions
+      </h2>
+    </div>
+  </div>
+
+  <div class="quick-actions-grid">
+
+    <!-- My Products -->
+    <a
+      href="{{ url_for('my_products') }}"
+      class="quick-action-card"
+    >
+
+      <div class="quick-icon quick-icon-products">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7.5L12 3l8 4.5v9L12 21l-8-4.5z"/>
+          <path d="M4 7.5L12 12l8-4.5"/>
+          <path d="M12 12v9"/>
+        </svg>
+      </div>
+
+      <div class="quick-action-content">
+        <h3>{{ t('my_products') }}</h3>
+        <p>Manage your catalog</p>
+      </div>
+
+      <span class="quick-arrow">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 5l7 7-7 7"/>
+        </svg>
+      </span>
+
+    </a>
+
+
+    <!-- Market Demand -->
+    <a
+      href="{{ url_for('demand_insights') }}"
+      class="quick-action-card"
+    >
+
+      <div class="quick-icon quick-icon-demand">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 19V5"/>
+          <path d="M4 19h16"/>
+          <path d="M7 15l4-4 3 2 5-6"/>
+          <path d="M16 7h3v3"/>
+        </svg>
+      </div>
+
+      <div class="quick-action-content">
+        <h3>{{ t('market_demand') }}</h3>
+        <p>View market insights</p>
+      </div>
+
+      <span class="quick-arrow">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 5l7 7-7 7"/>
+        </svg>
+      </span>
+
+    </a>
+
+
+    <!-- Voice -->
+    <a
+      href="{{ url_for('add_product') }}"
+      class="quick-action-card"
+    >
+
+      <div class="quick-icon quick-icon-voice">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="8" y="3" width="8" height="12" rx="4"/>
+          <path d="M5 11a7 7 0 0 0 14 0"/>
+          <path d="M12 18v3"/>
+          <path d="M9 21h6"/>
+        </svg>
+      </div>
+
+      <div class="quick-action-content">
+        <h3>{{ t('use_voice') }}</h3>
+        <p>Speak instead of typing</p>
+      </div>
+
+      <span class="quick-arrow">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 5l7 7-7 7"/>
+        </svg>
+      </span>
+
+    </a>
+
+
+    <!-- Profile -->
+    <a
+      href="{{ url_for('artisan_profile') }}"
+      class="quick-action-card"
+    >
+
+      <div class="quick-icon quick-icon-profile">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 21a8 8 0 0 1 16 0"/>
+        </svg>
+      </div>
+
+      <div class="quick-action-content">
+        <h3>{{ t('profile') }}</h3>
+        <p>Manage your profile</p>
+      </div>
+
+      <span class="quick-arrow">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 5l7 7-7 7"/>
+        </svg>
+      </span>
+
+    </a>
+
+  </div>
+
+</section>
+
+      
+
+
+      <!-- =====================================================
+           RECENT PRODUCTS
+           ===================================================== -->
+
+      <section class="dashboard-section recent-products-section">
+
+        <div class="section-heading section-heading-with-link">
+
+          <div>
+
+            <p class="section-eyebrow">
+              Your Catalog
+            </p>
+
+            <h2 class="dashboard-section-title">
+              {{ t('recent_products') }}
+            </h2>
+
+          </div>
+
+          <a
+            href="{{ url_for('my_products') }}"
+            class="view-all-link"
+          >
+            View all
+          </a>
+
+        </div>
+
+
+        {% if recent_products %}
+
+          <div class="dashboard-products-list">
+
+            {% for p in recent_products %}
+
+              <div class="dashboard-product-card">
+
+                <!-- Product Image -->
+
+                <div class="dashboard-product-image-wrapper">
+
+                  <img
+                    src="{{ p.image }}"
+                    alt="{{ p.name }}"
+                    class="dashboard-product-image"
+                  >
+
+                </div>
+
+
+                <!-- Product Information -->
+
+                <div class="dashboard-product-info">
+
+                  <h3 class="dashboard-product-name">
+                    {{ p.name }}
+                  </h3>
+
+                  <p class="dashboard-product-price">
+                    ₹{{ p.final_price|int }}
+                  </p>
+
+
+                  <div class="dashboard-product-meta">
+
+                    {% if p.status == 'published' %}
+
+                      <span class="product-status status-published">
+                        <span class="status-dot"></span>
+                        {{ t('status_published') }}
+                      </span>
+
+                    {% else %}
+
+                      <span class="product-status status-draft">
+                        <span class="status-dot"></span>
+                        {{ t('status_draft') }}
+                      </span>
+
+                    {% endif %}
+
+                  </div>
+
+                </div>
+
+
+                <span class="product-card-arrow">
+                  ›
+                </span>
+
+              </div>
+
+            {% endfor %}
+
+          </div>
+
+        {% else %}
+
+          <!-- Empty State -->
+
+          <div class="dashboard-empty-state">
+
+            <div class="empty-product-icon">
+              +
+            </div>
+
+            <h3>
+              {{ t('no_products_yet') }}
+            </h3>
+
+            <p>
+              Add your first handmade product
+              and start building your digital catalog.
+            </p>
+
+            <a
+              href="{{ url_for('add_product') }}"
+              class="empty-add-button"
+            >
+              {{ t('add_product') }}
+            </a>
+
+          </div>
+
+        {% endif %}
+
+      </section>
+
+
+      <!-- =====================================================
+           FOOTER SPACE
+           ===================================================== -->
+
+      <div class="dashboard-bottom-space"></div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

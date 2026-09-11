@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    >
+
+    <meta name="theme-color" content="#5C3A21">
+
+    <title>KalaSetu - Customer</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/customer_dashboard.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="customer-app">
+
+    <!-- TOP BAR -->
+    <header class="customer-header">
+
+        <div class="brand-area">
+
+            <img
+                src="{{ url_for('static', filename='images/kala_setu_role.png') }}"
+                alt="KalaSetu"
+            >
+
+            <div>
+                <h1>KalaSetu</h1>
+                <span>Indian Crafts Marketplace</span>
+            </div>
+
+        </div>
+
+        <button class="profile-button">
+            👤
+        </button>
+
+    </header>
+
+
+    <!-- SEARCH -->
+    <section class="search-section">
+
+        <div class="search-box">
+
+            <span>⌕</span>
+
+            <input
+                type="text"
+                placeholder="Search handmade products"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- WELCOME -->
+    <section class="welcome-section">
+
+        <span class="welcome-small">
+            WELCOME TO KALASETU
+        </span>
+
+        <h2>
+            Discover India's<br>
+            Traditional Crafts
+        </h2>
+
+        <p>
+            Handmade products directly from talented artisans.
+        </p>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+    <section class="section">
+
+        <div class="section-heading">
+
+            <h3>Explore Categories</h3>
+
+            <button>
+                See All
+            </button>
+
+        </div>
+
+
+        <div class="category-list">
+
+            <button class="category-item">
+                <span>🏺</span>
+                <small>Pottery</small>
+            </button>
+
+            <button class="category-item">
+                <span>🧵</span>
+                <small>Handloom</small>
+            </button>
+
+            <button class="category-item">
+                <span>🎋</span>
+                <small>Bamboo</small>
+            </button>
+
+            <button class="category-item">
+                <span>💍</span>
+                <small>Jewellery</small>
+            </button>
+
+            <button class="category-item">
+                <span>🎨</span>
+                <small>Painting</small>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="section">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">
+                    ARTISAN COLLECTION
+                </span>
+
+                <h3>
+                    Featured Products
+                </h3>
+            </div>
+
+            <button>
+                See All
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCT GRID -->
+
+        <div class="product-grid">
+
+            <!-- TEMPORARY PRODUCT CARD -->
+
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <div class="image-placeholder">
+                        Handmade Craft
+                    </div>
+
+                    <button class="wishlist-button">
+                        ♡
+                    </button>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        Traditional Craft
+                    </span>
+
+                    <h4>
+                        Artisan Handmade Product
+                    </h4>
+
+                    <p class="artisan-name">
+                        By KalaSetu Artisan
+                    </p>
+
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            ₹850
+                        </strong>
+
+                        <button class="view-button">
+                            View
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <div class="image-placeholder">
+                        Traditional Art
+                    </div>
+
+                    <button class="wishlist-button">
+                        ♡
+                    </button>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        Indian Handicraft
+                    </span>
+
+                    <h4>
+                        Traditional Handmade Craft
+                    </h4>
+
+                    <p class="artisan-name">
+                        By KalaSetu Artisan
+                    </p>
+
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            ₹1,200
+                        </strong>
+
+                        <button class="view-button">
+                            View
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- SUPPORT BANNER -->
+
+    <section class="support-card">
+
+        <div>
+
+            <span>
+                SUPPORT LOCAL ARTISANS
+            </span>
+
+            <h3>
+                Every purchase preserves
+                traditional craftsmanship.
+            </h3>
+
+        </div>
+
+    </section>
+
+
+    <!-- BOTTOM NAVIGATION -->
+
+    <nav class="bottom-navigation">
+
+        <button class="nav-item active">
+
+            <span>⌂</span>
+
+            <small>
+                Home
+            </small>
+
+        </button>
+
+
+        <button class="nav-item">
+
+            <span>♡</span>
+
+            <small>
+                Wishlist
+            </small>
+
+        </button>
+
+
+        <button class="nav-item">
+
+            <span>🛒</span>
+
+            <small>
+                Cart
+            </small>
+
+        </button>
+
+
+        <button class="nav-item">
+
+            <span>👤</span>
+
+            <small>
+                Profile
+            </small>
+
+        </button>
+
+    </nav>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    >
+
+    <meta name="theme-color" content="#5C3A21">
+
+    <title>{{ t('review_product') }}</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/app.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/artisan.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/catalog_review.css') }}"
+    >
+</head>
+
+<body class="app-body">
+
+<div class="app-shell">
+
+    <!-- TOP BAR -->
+    <header class="top-bar">
+
+        <a
+            href="{{ url_for('artisan_questions') }}"
+            class="top-bar-back"
+        >
+            ← {{ t('back') }}
+        </a>
+
+        <span class="top-bar-title">
+            {{ t('review_product') }}
+        </span>
+
+        <span class="top-bar-action"></span>
+
+    </header>
+
+
+    <!-- PROGRESS -->
+    <div class="progress-steps">
+
+        <span class="step-dot step-done"></span>
+
+        <span class="step-dot step-done"></span>
+
+        <span class="step-dot step-active"></span>
+
+    </div>
+
+
+    <!-- MAIN -->
+    <main class="scroll-main">
+
+        <div class="catalog-review-container">
+
+
+            <!-- AI HEADER -->
+            <div class="ai-catalog-header">
+
+                <div class="ai-icon">
+                    AI
+                </div>
+
+                <div>
+
+                    <h2>
+                        {{ t('ai_catalog_assistant') }}
+                    </h2>
+
+                    <p>
+                        {{ t('catalog_ready') }}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT IMAGE -->
+            <div class="product-image-card">
+
+                <img
+                    src="{{ pending.final_image }}"
+                    alt="{{ pending.draft.name }}"
+                    class="review-image"
+                >
+
+            </div>
+
+
+            <!-- EDITABLE CATALOG -->
+            <form
+                method="POST"
+                action="{{ url_for('catalog_review') }}"
+                id="review-form"
+                class="catalog-form"
+            >
+
+
+                <!-- PRODUCT NAME -->
+                <div class="catalog-field">
+
+                    <label class="catalog-label">
+                        {{ t('product_name') }}
+                    </label>
+
+                    <input
+                        class="catalog-input"
+                        type="text"
+                        name="name"
+                        value="{{ pending.draft.name }}"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+                <div class="catalog-field">
+
+                    <label class="catalog-label">
+                        {{ t('description') }}
+                    </label>
+
+                    <textarea
+                        class="catalog-input catalog-textarea"
+                        name="description"
+                        rows="4"
+                    >{{ pending.draft.description }}</textarea>
+
+                </div>
+
+
+                <!-- MATERIAL -->
+                <div class="catalog-field">
+
+                    <label class="catalog-label">
+                        {{ t('material') }}
+                    </label>
+
+                    <input
+                        class="catalog-input"
+                        type="text"
+                        name="material"
+                        value="{{ pending.draft.material }}"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- SIZE -->
+                <div class="catalog-field">
+
+                    <label class="catalog-label">
+                        {{ t('size') }}
+                    </label>
+
+                    <input
+                        class="catalog-input"
+                        type="text"
+                        name="size"
+                        value="{{ pending.draft.size }}"
+                    >
+
+                </div>
+
+
+                <!-- TARGET MARKET -->
+                <div class="catalog-field">
+
+                    <label class="catalog-label">
+                        {{ t('target_market') }}
+                    </label>
+
+                    <div class="market-tags">
+
+                        {% for market in pending.draft.target_market %}
+
+                            <span class="market-tag">
+                                {{ market }}
+                            </span>
+
+                        {% endfor %}
+
+                    </div>
+
+                    <!-- Hidden value sent to Flask -->
+                    <input
+                        type="hidden"
+                        name="target_market"
+                        value="{{ pending.draft.target_market | join(', ') }}"
+                    >
+
+                </div>
+
+
+                <!-- AI PRICE -->
+                <div class="price-card">
+
+                    <div class="price-card-header">
+
+                        <span class="price-icon">
+                            ₹
+                        </span>
+
+                        <div>
+
+                            <p class="price-title">
+                                {{ t('suggested_price') }}
+                            </p>
+
+                            <p class="price-subtitle">
+                                AI recommended selling range
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="price-range">
+
+                        ₹{{ pending.suggested_price_min }}
+
+                        <span>–</span>
+
+                        ₹{{ pending.suggested_price_max }}
+
+                    </div>
+
+
+                    {% if pending.recommended_price %}
+
+                    <div class="recommended-price">
+
+                        Recommended:
+                        <strong>
+                            ₹{{ pending.recommended_price }}
+                        </strong>
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- FINAL PRICE -->
+                <div class="catalog-field">
+
+                    <label class="catalog-label">
+                        {{ t('final_price') }} (₹)
+                    </label>
+
+                    <input
+                        class="catalog-input price-input"
+                        type="number"
+                        name="final_price"
+                        min="1"
+                        value="{{
+                            pending.final_price
+                            or pending.recommended_price
+                            or pending.suggested_price_min
+                        }}"
+                        required
+                    >
+
+                    <p class="field-help">
+                        You can change the AI suggested price before publishing.
+                    </p>
+
+                </div>
+
+
+                <!-- ACTIONS -->
+                <div class="review-actions">
+
+                    <button
+                        type="submit"
+                        name="action"
+                        value="save"
+                        class="btn btn-outline btn-large"
+                    >
+                        ✏️ {{ t('save_edits') }}
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        name="action"
+                        value="approve"
+                        class="btn btn-primary btn-large"
+                    >
+                        ✓ {{ t('approve_publish') }}
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <!-- INTERNAL AI INFORMATION -->
+            <div class="internal-ai-note">
+
+                <strong>AI calculation</strong>
+
+                <p>
+                    Making time and making cost are used internally
+                    to calculate the suggested selling price.
+                    They are not displayed in the customer catalog.
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>
+

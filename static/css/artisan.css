@@ -1,0 +1,3273 @@
+/* =========================================================
+   KALASETU - artisan.css
+
+   Artisan-specific styling:
+   - Language screen
+   - Login
+   - Artisan dashboard
+   - Upload / enhancement
+   - Question wizard
+   - Catalog review
+   - Product cards
+   - Demand insights
+   - Profile
+
+   Mobile-first
+   Primary target: 360px - 430px
+   ========================================================= */
+
+
+/* =========================================================
+   LANGUAGE + LOGIN HERO
+   ========================================================= */
+
+.lang-hero {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.lang-hero.small {
+  margin-bottom: 16px;
+}
+
+
+/* ---------------------------------------------------------
+   KalaSetu Logo
+   --------------------------------------------------------- */
+
+.kalasetu-logo {
+  width: 350px;
+  max-width: 90%;
+  height: auto;
+  display: block;
+  margin: 0 auto 24px;
+  object-fit: contain;
+}
+
+.lang-lamp {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.lang-title {
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  color: var(--color-brown-dark);
+  margin: 8px 0 4px;
+  font-weight: 800;
+}
+
+.lang-subtitle {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.lang-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--color-white);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-brown-dark);
+  cursor: pointer;
+  min-height: 64px;
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.lang-btn:hover {
+  border-color: var(--color-saffron);
+  box-shadow: var(--shadow-soft);
+}
+
+.lang-btn:active {
+  border-color: var(--color-terracotta);
+  transform: scale(0.98);
+}
+
+.lang-flag {
+  font-size: 1.6rem;
+}
+
+.lang-switch-row {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-card {
+  margin-top: 8px;
+}
+
+
+/* =========================================================
+   ARTISAN DASHBOARD
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   Dashboard shell
+   --------------------------------------------------------- */
+
+.artisan-dashboard {
+  background:
+    linear-gradient(
+      180deg,
+      #FFF9F1 0%,
+      var(--color-bg) 360px
+    );
+}
+
+
+/* ---------------------------------------------------------
+   Dashboard Header
+   --------------------------------------------------------- */
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 18px;
+
+  background: rgba(255, 248, 238, 0.96);
+
+  border-bottom: 1px solid var(--color-border);
+
+  position: sticky;
+  top: 0;
+
+  z-index: 20;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+
+/* Brand */
+.dashboard-brand {
+  display: flex;
+  align-items: center;
+
+  text-decoration: none;
+
+  min-width: 0;
+}
+
+.dashboard-logo {
+  width: 80px;
+  height: px;
+
+  object-fit: contain;
+  object-position: left center;
+
+  display: block;
+}
+
+/* Logout */
+
+.dashboard-logout {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  color: var(--color-brown);
+  font-size: 1.25rem;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.dashboard-logout:hover {
+  border-color: var(--color-terracotta);
+  background: var(--color-cream);
+}
+
+.dashboard-logout:active {
+  transform: scale(0.94);
+}
+.dashboard-logout:hover {
+  border-color: var(--color-terracotta);
+  background: var(--color-cream);
+}
+
+.dashboard-logout:active {
+  transform: scale(0.94);
+}
+
+
+/* ---------------------------------------------------------
+   Dashboard Main
+   --------------------------------------------------------- */
+
+.dashboard-main {
+  padding-top: 22px;
+}
+
+
+/* ---------------------------------------------------------
+   Welcome Section
+   --------------------------------------------------------- */
+
+.welcome-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  margin-bottom: 22px;
+}
+
+.welcome-content {
+  min-width: 0;
+}
+
+.welcome-label {
+  margin: 0 0 3px;
+
+  color: var(--color-muted);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+.welcome-title {
+  margin: 0;
+
+  color: var(--color-brown-dark);
+
+  font-size: 1.7rem;
+  line-height: 1.2;
+
+  font-weight: 900;
+
+  letter-spacing: -0.4px;
+}
+
+.welcome-title span {
+  font-size: 1.25rem;
+}
+
+.welcome-craft {
+  margin: 7px 0 0;
+
+  color: var(--color-muted);
+
+  font-size: 0.9rem;
+}
+
+.welcome-craft strong {
+  color: var(--color-terracotta-dark);
+  font-weight: 800;
+}
+
+
+/* Avatar */
+
+.artisan-avatar {
+  width: 58px;
+  height: 58px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--color-brown),
+      var(--color-terracotta)
+    );
+
+  color: var(--color-white);
+
+  font-size: 1.4rem;
+  font-weight: 900;
+
+  box-shadow:
+    0 7px 16px rgba(92, 58, 33, 0.18);
+}
+
+
+/* ---------------------------------------------------------
+   Primary Add Product Action
+   --------------------------------------------------------- */
+
+.primary-action-section {
+  margin-bottom: 28px;
+}
+
+.add-product-card {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  width: 100%;
+
+  padding: 17px 16px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--color-terracotta),
+      var(--color-saffron)
+    );
+
+  color: var(--color-white);
+
+  box-shadow:
+    0 10px 22px rgba(193, 89, 42, 0.20);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.add-product-card:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 13px 25px rgba(193, 89, 42, 0.24);
+}
+
+.add-product-card:active {
+  transform: scale(0.985);
+}
+
+.add-product-icon {
+  width: 43px;
+  height: 43px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: rgba(255, 255, 255, 0.18);
+
+  font-size: 1.65rem;
+  font-weight: 400;
+}
+
+.add-product-content {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.add-product-title {
+  font-size: 1rem;
+  font-weight: 900;
+
+  line-height: 1.25;
+}
+
+.add-product-subtitle {
+  margin-top: 4px;
+
+  font-size: 0.75rem;
+  line-height: 1.35;
+
+  opacity: 0.9;
+}
+
+.add-product-arrow {
+  font-size: 1.5rem;
+  font-weight: 500;
+
+  padding-left: 3px;
+}
+
+
+/* ---------------------------------------------------------
+   Dashboard Sections
+   --------------------------------------------------------- */
+
+.dashboard-section {
+  margin-bottom: 28px;
+}
+
+.section-heading {
+  margin-bottom: 13px;
+}
+
+.section-heading-with-link {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+.section-eyebrow {
+  margin: 0 0 2px;
+
+  color: var(--color-terracotta-dark);
+
+  font-size: 0.7rem;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.dashboard-section-title {
+  margin: 0;
+
+  color: var(--color-brown-dark);
+
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.view-all-link {
+  color: var(--color-terracotta-dark);
+
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  padding: 4px 0;
+}
+
+
+/* ---------------------------------------------------------
+   Quick Actions
+   --------------------------------------------------------- */
+
+.quick-actions-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 11px;
+}
+
+.quick-action-card {
+  position: relative;
+
+  min-height: 132px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 15px;
+
+  background: var(--color-white);
+
+  border: 1px solid rgba(230, 216, 195, 0.85);
+
+  border-radius: 16px;
+
+  box-shadow: var(--shadow-soft);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.quick-action-card:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--color-saffron);
+
+  box-shadow:
+    0 8px 20px rgba(92, 58, 33, 0.12);
+}
+
+.quick-action-card:active {
+  transform: scale(0.98);
+}
+
+
+/* Quick icons */
+/* =========================================================
+   PROFESSIONAL QUICK ACTION ICONS
+   ========================================================= */
+
+.quick-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  margin-bottom: 12px;
+
+  flex-shrink: 0;
+}
+
+.quick-icon svg {
+  width: 21px;
+  height: 21px;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 1.8;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* My Products */
+
+.quick-icon-products {
+  background: #F8EBDD;
+  color: var(--color-terracotta);
+}
+
+
+/* Market Demand */
+
+.quick-icon-demand {
+  background: #E8F0E8;
+  color: var(--color-green);
+}
+
+
+/* Voice */
+
+.quick-icon-voice {
+  background: #FDF0DA;
+  color: #A86C1D;
+}
+
+
+/* Profile */
+
+.quick-icon-profile {
+  background: #EEE8E1;
+  color: var(--color-brown);
+}
+
+
+/* Arrow */
+
+.quick-arrow {
+  position: absolute;
+
+  right: 13px;
+  bottom: 13px;
+
+  color: var(--color-muted);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quick-arrow svg {
+  width: 17px;
+  height: 17px;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 2;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* ---------------------------------------------------------
+   Recent Products
+   --------------------------------------------------------- */
+
+.recent-products-section {
+  margin-bottom: 0;
+}
+
+.dashboard-products-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.dashboard-product-card {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  min-height: 88px;
+
+  padding: 10px 12px 10px 10px;
+
+  background: var(--color-white);
+
+  border: 1px solid rgba(230, 216, 195, 0.85);
+
+  border-radius: 15px;
+
+  box-shadow: var(--shadow-soft);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.dashboard-product-card:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 18px rgba(92, 58, 33, 0.11);
+}
+
+
+/* Product image */
+
+.dashboard-product-image-wrapper {
+  width: 68px;
+  height: 68px;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+  border-radius: 11px;
+
+  background: var(--color-border);
+}
+
+.dashboard-product-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* Product info */
+
+.dashboard-product-info {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.dashboard-product-name {
+  margin: 0 20px 3px 0;
+
+  color: var(--color-brown-dark);
+
+  font-size: 0.92rem;
+  font-weight: 850;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dashboard-product-price {
+  margin: 0 0 6px;
+
+  color: var(--color-terracotta-dark);
+
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+
+/* Product status */
+
+.dashboard-product-meta {
+  display: flex;
+  align-items: center;
+}
+
+.product-status {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 4px 8px;
+
+  border-radius: 999px;
+
+  font-size: 0.67rem;
+  font-weight: 800;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+}
+
+.status-published {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.status-published .status-dot {
+  background: #3E6B4F;
+}
+
+.status-draft {
+  background: #FBF0D8;
+  color: #8A5A19;
+}
+
+.status-draft .status-dot {
+  background: #D59A32;
+}
+
+
+/* Product arrow */
+
+.product-card-arrow {
+  color: var(--color-muted);
+
+  font-size: 1.3rem;
+
+  padding-right: 2px;
+}
+
+
+/* ---------------------------------------------------------
+   Dashboard Empty State
+   --------------------------------------------------------- */
+
+.dashboard-empty-state {
+  padding: 26px 18px;
+
+  text-align: center;
+
+  background: var(--color-white);
+
+  border: 1px dashed var(--color-border);
+
+  border-radius: 16px;
+}
+
+.empty-product-icon {
+  width: 48px;
+  height: 48px;
+
+  margin: 0 auto 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: var(--color-cream);
+
+  border: 1px solid var(--color-border);
+
+  color: var(--color-terracotta);
+
+  font-size: 1.7rem;
+}
+
+.dashboard-empty-state h3 {
+  margin: 0 0 5px;
+
+  color: var(--color-brown-dark);
+
+  font-size: 0.95rem;
+  font-weight: 850;
+}
+
+.dashboard-empty-state p {
+  max-width: 280px;
+
+  margin: 0 auto 15px;
+
+  color: var(--color-muted);
+
+  font-size: 0.78rem;
+
+  line-height: 1.45;
+}
+
+.empty-add-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 16px;
+
+  border-radius: 10px;
+
+  background: var(--color-terracotta);
+
+  color: var(--color-white);
+
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+
+/* Bottom spacing */
+
+.dashboard-bottom-space {
+  height: 25px;
+}
+
+
+/* =========================================================
+KALASETU - 3 PHOTO ADD PRODUCT PAGE
+========================================================= */
+
+.add-product-page {
+background:
+linear-gradient(
+180deg,
+#FFF9F1 0%,
+var(--color-bg) 520px
+);
+}
+
+/* =========================================================
+HEADER
+========================================================= */
+
+.product-header {
+height: 62px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 16px;
+background: rgba(255, 248, 238, 0.97);
+border-bottom: 1px solid var(--color-border);
+position: sticky;
+top: 0;
+z-index: 20;
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+}
+
+.product-back-button {
+width: 40px;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 12px;
+background: var(--color-white);
+border: 1px solid var(--color-border);
+color: var(--color-brown-dark);
+font-size: 1.35rem;
+text-decoration: none;
+transition:
+transform 0.15s ease,
+border-color 0.15s ease;
+}
+
+.product-back-button:hover {
+border-color: var(--color-terracotta);
+}
+
+.product-back-button:active {
+transform: scale(0.94);
+}
+
+.product-header-title {
+color: var(--color-brown-dark);
+font-size: 1rem;
+font-weight: 900;
+text-align: center;
+}
+
+.product-header-spacer {
+width: 40px;
+}
+
+/* =========================================================
+PROGRESS
+========================================================= */
+
+.product-progress {
+display: flex;
+align-items: center;
+padding: 17px 20px 10px;
+}
+
+.progress-item {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 5px;
+flex-shrink: 0;
+}
+
+.progress-number {
+width: 28px;
+height: 28px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+background: var(--color-white);
+border: 1px solid var(--color-border);
+color: var(--color-muted);
+font-size: 0.7rem;
+font-weight: 900;
+}
+
+.progress-item.active .progress-number {
+background: var(--color-terracotta);
+border-color: var(--color-terracotta);
+color: var(--color-white);
+box-shadow:
+0 4px 9px rgba(193, 89, 42, 0.18);
+}
+
+.progress-label {
+color: var(--color-muted);
+font-size: 0.62rem;
+font-weight: 700;
+white-space: nowrap;
+}
+
+.progress-item.active .progress-label {
+color: var(--color-terracotta-dark);
+}
+
+.progress-line {
+height: 1px;
+flex: 1;
+background: var(--color-border);
+margin: -16px 7px 0;
+}
+
+/* =========================================================
+MAIN
+========================================================= */
+
+.add-product-main {
+padding-top: 14px;
+}
+
+/* =========================================================
+THREE PHOTO SCREEN
+========================================================= */
+
+.three-photo-screen {
+padding-bottom: 35px;
+}
+
+.upload-intro {
+text-align: center;
+padding: 8px 5px 18px;
+}
+
+.upload-eyebrow {
+display: inline-block;
+color: var(--color-terracotta-dark);
+font-size: 0.67rem;
+font-weight: 900;
+letter-spacing: 1px;
+}
+
+.upload-title {
+margin: 6px 0 7px;
+color: var(--color-brown-dark);
+font-size: 1.45rem;
+line-height: 1.25;
+font-weight: 900;
+}
+
+.upload-description {
+max-width: 340px;
+margin: 0 auto;
+color: var(--color-muted);
+font-size: 0.82rem;
+line-height: 1.5;
+}
+
+/* =========================================================
+PHOTO GUIDANCE
+========================================================= */
+
+.photo-guidance {
+display: flex;
+align-items: flex-start;
+gap: 10px;
+padding: 13px;
+margin-bottom: 16px;
+border-radius: 14px;
+background: #FFF5E5;
+border: 1px solid #E9D5B7;
+}
+
+.guidance-icon {
+width: 32px;
+height: 32px;
+flex-shrink: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 10px;
+background: var(--color-brown);
+color: var(--color-white);
+font-size: 0.9rem;
+}
+
+.photo-guidance strong {
+display: block;
+color: var(--color-brown-dark);
+font-size: 0.76rem;
+font-weight: 850;
+}
+
+.photo-guidance p {
+margin: 2px 0 0;
+color: var(--color-muted);
+font-size: 0.68rem;
+line-height: 1.4;
+}
+
+/* =========================================================
+PHOTO SLOT
+========================================================= */
+
+.photo-slot {
+margin-bottom: 14px;
+padding: 14px;
+background: var(--color-white);
+border: 1px solid var(--color-border);
+border-radius: 18px;
+box-shadow: var(--shadow-soft);
+}
+
+.photo-slot-heading {
+display: flex;
+align-items: center;
+gap: 10px;
+margin-bottom: 12px;
+}
+
+.photo-slot-number {
+width: 32px;
+height: 32px;
+flex-shrink: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 10px;
+background: var(--color-terracotta);
+color: var(--color-white);
+font-size: 0.78rem;
+font-weight: 900;
+}
+
+.photo-slot-title {
+flex: 1;
+min-width: 0;
+}
+
+.photo-slot-title h2 {
+margin: 0;
+color: var(--color-brown-dark);
+font-size: 0.9rem;
+font-weight: 900;
+}
+
+.photo-slot-title p {
+margin: 2px 0 0;
+color: var(--color-muted);
+font-size: 0.66rem;
+}
+
+.photo-status {
+padding: 4px 7px;
+border-radius: 999px;
+background: #FBF0D8;
+color: #8A5A19;
+font-size: 0.57rem;
+font-weight: 800;
+white-space: nowrap;
+}
+
+/* =========================================================
+MINI PHOTO TIP
+========================================================= */
+
+.photo-tip-mini {
+display: flex;
+align-items: flex-start;
+gap: 7px;
+margin-bottom: 10px;
+padding: 8px 9px;
+border-radius: 10px;
+background: var(--color-cream);
+}
+
+.photo-tip-mini > span {
+flex-shrink: 0;
+color: var(--color-terracotta);
+font-size: 0.75rem;
+font-weight: 900;
+}
+
+.photo-tip-mini p {
+margin: 0;
+color: var(--color-muted);
+font-size: 0.64rem;
+line-height: 1.4;
+}
+
+/* =========================================================
+PHOTO PREVIEW
+========================================================= */
+
+.photo-preview-area {
+position: relative;
+width: 100%;
+min-height: 170px;
+overflow: hidden;
+border: 2px dashed #DCCAB1;
+border-radius: 15px;
+background:
+linear-gradient(
+180deg,
+#FFF9F1,
+#FDF7EF
+);
+}
+
+.photo-placeholder {
+min-height: 170px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 20px;
+text-align: center;
+}
+
+.photo-placeholder-icon {
+width: 52px;
+height: 52px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 10px;
+border-radius: 16px;
+background: var(--color-white);
+color: var(--color-terracotta);
+box-shadow: var(--shadow-soft);
+}
+
+.photo-placeholder-icon svg {
+width: 25px;
+height: 25px;
+fill: none;
+stroke: currentColor;
+stroke-width: 1.7;
+stroke-linecap: round;
+stroke-linejoin: round;
+}
+
+.side-icon {
+color: var(--color-green);
+}
+
+.detail-icon {
+color: #A86C1D;
+}
+
+.photo-placeholder strong {
+color: var(--color-brown-dark);
+font-size: 0.78rem;
+font-weight: 850;
+}
+
+.photo-placeholder span {
+margin-top: 3px;
+color: var(--color-muted);
+font-size: 0.63rem;
+}
+
+.multi-photo-preview {
+width: 100%;
+height: 220px;
+object-fit: cover;
+display: block;
+}
+
+/* =========================================================
+UPLOAD ACTION
+========================================================= */
+
+.photo-upload-action {
+width: 100%;
+min-height: 48px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+margin-top: 10px;
+padding: 10px 12px;
+border-radius: 12px;
+border: 1.5px solid var(--color-border);
+background: var(--color-cream);
+color: var(--color-brown-dark);
+font-size: 0.76rem;
+font-weight: 850;
+cursor: pointer;
+transition:
+background 0.15s ease,
+border-color 0.15s ease,
+transform 0.1s ease;
+}
+
+.photo-upload-action:hover {
+background: var(--color-white);
+border-color: var(--color-terracotta);
+}
+
+.photo-upload-action:active {
+transform: scale(0.98);
+}
+
+.action-icon {
+width: 27px;
+height: 27px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 8px;
+background: #F8EBDD;
+color: var(--color-terracotta);
+}
+
+.side-action-icon {
+background: #E8F0E8;
+color: var(--color-green);
+}
+
+.detail-action-icon {
+background: #FDF0DA;
+color: #A86C1D;
+}
+
+.action-icon svg {
+width: 16px;
+height: 16px;
+fill: none;
+stroke: currentColor;
+stroke-width: 1.8;
+stroke-linecap: round;
+stroke-linejoin: round;
+}
+
+/* =========================================================
+PHOTO TIPS
+========================================================= */
+
+.photo-tips-card {
+margin: 18px 0;
+padding: 15px;
+border-radius: 16px;
+background: var(--color-white);
+border: 1px solid var(--color-border);
+box-shadow: var(--shadow-soft);
+}
+
+.photo-tips-card h3 {
+margin: 0 0 11px;
+color: var(--color-brown-dark);
+font-size: 0.82rem;
+font-weight: 900;
+}
+
+.photo-tips-list {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.photo-tip-item {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.photo-tip-item span {
+width: 19px;
+height: 19px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+border-radius: 50%;
+background: var(--color-success-bg);
+color: var(--color-green-dark);
+font-size: 0.62rem;
+font-weight: 900;
+}
+
+.photo-tip-item p {
+margin: 0;
+color: var(--color-muted);
+font-size: 0.68rem;
+}
+
+/* =========================================================
+CONTINUE BUTTON
+========================================================= */
+
+.continue-photo-button {
+margin-top: 4px;
+}
+
+.continue-photo-button:disabled {
+opacity: 0.45;
+cursor: not-allowed;
+box-shadow: none;
+}
+
+.photo-count-message {
+margin: 9px 0 0;
+text-align: center;
+color: var(--color-muted);
+font-size: 0.67rem;
+font-weight: 600;
+}
+
+/* =========================================================
+ERROR
+========================================================= */
+
+.upload-error {
+margin-top: 12px;
+}
+
+/* =========================================================
+AI PROCESSING SCREEN
+========================================================= */
+/* =========================================================
+   KalaSetu AI Processing Screen
+   ========================================================= */
+
+.processing-progress {
+    width: 100%;
+    margin: 24px 0 20px;
+    text-align: center;
+}
+
+.processing-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #E6D8C3;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#processing-progress-fill {
+    width: 15%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        #C1592A,
+        #E8A33D
+    );
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+#processing-progress-text {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--color-muted);
+}
+
+.processing-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    color: var(--color-muted);
+    transition: all 0.3s ease;
+}
+
+.processing-step span {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #E6D8C3;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+.processing-step p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.processing-step.active {
+    color: var(--color-text);
+}
+
+.processing-step.active span {
+    background: var(--color-green);
+    color: white;
+}
+
+.processing-step.current {
+    color: var(--color-terracotta);
+    font-weight: 600;
+}
+
+.processing-step.current span {
+    background: var(--color-terracotta);
+    color: white;
+    animation: processingPulse 1.2s infinite;
+}
+
+.processing-note {
+    margin-top: 22px;
+    font-size: 12px;
+    color: var(--color-muted);
+    text-align: center;
+}
+
+@keyframes processingPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(193, 89, 42, 0.25);
+    }
+
+    70% {
+        transform: scale(1.08);
+        box-shadow: 0 0 0 10px rgba(193, 89, 42, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(193, 89, 42, 0);
+    }
+}
+/* =========================================================
+CUSTOMER GALLERY PREVIEW
+========================================================= */
+
+.customer-gallery-preview {
+margin-bottom: 18px;
+padding: 15px;
+border-radius: 18px;
+background: var(--color-white);
+border: 1px solid var(--color-border);
+box-shadow: var(--shadow-soft);
+}
+
+.gallery-preview-header {
+display: flex;
+align-items: flex-start;
+justify-content: space-between;
+gap: 10px;
+margin-bottom: 12px;
+}
+
+.gallery-preview-header > div > span {
+color: var(--color-terracotta-dark);
+font-size: 0.6rem;
+font-weight: 900;
+letter-spacing: 0.8px;
+}
+
+.gallery-preview-header h2 {
+margin: 3px 0 0;
+color: var(--color-brown-dark);
+font-size: 0.95rem;
+font-weight: 900;
+}
+
+.ai-gallery-badge {
+padding: 5px 8px;
+border-radius: 999px;
+background: var(--color-success-bg);
+color: var(--color-success-text);
+font-size: 0.58rem;
+font-weight: 900;
+white-space: nowrap;
+}
+
+.customer-gallery-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 8px;
+}
+
+.gallery-image-card {
+position: relative;
+overflow: hidden;
+min-height: 120px;
+border-radius: 12px;
+background: var(--color-border);
+}
+
+.gallery-image-card.large {
+grid-column: 1 / -1;
+min-height: 190px;
+}
+
+.gallery-image-card img {
+width: 100%;
+height: 100%;
+min-height: 120px;
+object-fit: cover;
+display: block;
+}
+
+.gallery-image-card.large img {
+min-height: 190px;
+}
+
+.gallery-image-card > span {
+position: absolute;
+left: 8px;
+bottom: 8px;
+padding: 4px 7px;
+border-radius: 999px;
+background: rgba(62, 39, 17, 0.78);
+color: var(--color-white);
+font-size: 0.58rem;
+font-weight: 800;
+}
+
+/* =========================================================
+IMAGE COMPARISON
+========================================================= */
+
+.compare-screen {
+padding-bottom: 30px;
+}
+
+.compare-intro {
+text-align: center;
+padding: 10px 4px 18px;
+}
+
+.compare-intro h1 {
+margin: 6px 0;
+color: var(--color-brown-dark);
+font-size: 1.35rem;
+font-weight: 900;
+}
+
+.compare-intro p {
+max-width: 330px;
+margin: 0 auto;
+color: var(--color-muted);
+font-size: 0.78rem;
+line-height: 1.45;
+}
+
+.image-comparison-card {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 10px;
+margin-bottom: 18px;
+}
+
+.comparison-column {
+min-width: 0;
+}
+
+.comparison-label {
+display: flex;
+align-items: center;
+gap: 5px;
+margin-bottom: 7px;
+color: var(--color-muted);
+font-size: 0.68rem;
+font-weight: 800;
+}
+
+.enhanced-label {
+color: var(--color-green-dark);
+}
+
+.comparison-dot {
+width: 7px;
+height: 7px;
+border-radius: 50%;
+}
+
+.original-dot {
+background: var(--color-muted);
+}
+
+.enhanced-dot {
+background: var(--color-green);
+}
+
+.comparison-image-wrapper {
+position: relative;
+overflow: hidden;
+border-radius: 15px;
+background: var(--color-border);
+box-shadow: var(--shadow-soft);
+}
+
+.compare-img {
+width: 100%;
+aspect-ratio: 1 / 1;
+object-fit: cover;
+display: block;
+background: var(--color-border);
+}
+
+.enhanced-wrapper {
+border: 2px solid var(--color-green);
+}
+
+.ai-enhanced-badge {
+position: absolute;
+top: 8px;
+right: 8px;
+padding: 4px 7px;
+border-radius: 999px;
+background: var(--color-green);
+color: var(--color-white);
+font-size: 0.58rem;
+font-weight: 900;
+}
+
+/* =========================================================
+IMAGE CHOICE
+========================================================= */
+
+.image-choice-form {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+.enhanced-choice-button {
+box-shadow:
+0 8px 18px rgba(193, 89, 42, 0.17);
+}
+
+.comparison-note {
+margin: 13px 0 0;
+text-align: center;
+color: var(--color-muted);
+font-size: 0.68rem;
+}
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width: 370px) {
+
+.product-progress {
+padding-left: 14px;
+padding-right: 14px;
+}
+
+.progress-label {
+font-size: 0.58rem;
+}
+
+.upload-title {
+font-size: 1.3rem;
+}
+
+.photo-slot {
+padding: 12px;
+}
+
+.photo-slot-title h2 {
+font-size: 0.84rem;
+}
+
+.photo-slot-title p {
+font-size: 0.61rem;
+}
+
+.photo-status {
+font-size: 0.52rem;
+}
+
+.photo-preview-area,
+.photo-placeholder {
+min-height: 155px;
+}
+
+.multi-photo-preview {
+height: 190px;
+}
+
+.gallery-image-card.large,
+.gallery-image-card.large img {
+min-height: 165px;
+}
+}
+
+
+/* ============================================================
+   KALASETU — MODERN ARTISAN QUESTIONS
+   Separate CSS
+   ============================================================ */
+
+.questions-page {
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(218, 173, 126, 0.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 45%,
+            rgba(121, 82, 50, 0.08),
+            transparent 32%
+        ),
+        #f7f1e8;
+
+    min-height: 100vh;
+}
+
+
+/* ============================================================
+   MAIN AREA
+   ============================================================ */
+
+.questions-page .scroll-main {
+    padding-bottom: 45px;
+}
+
+.questions-container {
+    width: 100%;
+    max-width: 680px;
+
+    margin: 0 auto;
+
+    padding: 22px 16px 40px;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   INTRO
+   ============================================================ */
+
+.questions-intro {
+    position: relative;
+
+    margin-bottom: 25px;
+
+    padding: 22px 20px;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf4 0%,
+            #f5e6d5 100%
+        );
+
+    border: 1px solid #ead8c5;
+
+    box-shadow:
+        0 8px 25px rgba(79, 50, 31, 0.08);
+}
+
+
+/* Decorative circle */
+
+.questions-intro::after {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    right: -45px;
+    top: -45px;
+
+    border-radius: 50%;
+
+    background: rgba(177, 122, 80, 0.10);
+}
+
+
+.questions-intro h1 {
+    position: relative;
+    z-index: 1;
+
+    margin: 0;
+
+    color: #4d301e;
+
+    font-size: 25px;
+    font-weight: 800;
+
+    line-height: 1.25;
+}
+
+
+.questions-intro p {
+    position: relative;
+    z-index: 1;
+
+    margin: 8px 0 0;
+
+    max-width: 520px;
+
+    color: #806b5b;
+
+    font-size: 14px;
+
+    line-height: 1.55;
+}
+
+
+/* ============================================================
+   QUESTIONS CONTAINER
+   ============================================================ */
+
+#questions-container {
+    width: 100%;
+}
+
+
+/* ============================================================
+   QUESTION CARD
+   ============================================================ */
+
+.question-item {
+    position: relative;
+
+    margin-bottom: 17px;
+
+    padding: 18px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border: 1px solid #eadccf;
+
+    box-shadow:
+        0 5px 15px rgba(79, 50, 31, 0.06);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+/* Small decorative side line */
+
+.question-item::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 18px;
+    bottom: 18px;
+
+    width: 3px;
+
+    border-radius: 0 4px 4px 0;
+
+    background: #c58a5b;
+
+    opacity: 0.55;
+
+    transition:
+        opacity 0.25s ease,
+        width 0.25s ease;
+}
+
+
+.question-item:hover {
+    transform: translateY(-2px);
+
+    border-color: #ddc3aa;
+
+    box-shadow:
+        0 10px 25px rgba(79, 50, 31, 0.10);
+}
+
+
+.question-item:hover::before {
+    width: 5px;
+
+    opacity: 1;
+}
+
+
+.question-item:focus-within {
+    border-color: #c49a76;
+
+    box-shadow:
+        0 10px 27px rgba(79, 50, 31, 0.11);
+}
+
+
+/* ============================================================
+   QUESTION HEADER
+   ============================================================ */
+
+.question-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 14px;
+}
+
+
+/* ============================================================
+   QUESTION NUMBER
+   ============================================================ */
+
+.question-number {
+    position: relative;
+
+    flex-shrink: 0;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f3dfca,
+            #e8c9a9
+        );
+
+    color: #684126;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.7),
+        0 3px 7px rgba(104,65,38,0.10);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.question-item:focus-within .question-number {
+    transform: scale(1.06) rotate(-2deg);
+
+    box-shadow:
+        0 5px 12px rgba(104,65,38,0.16);
+}
+
+
+/* ============================================================
+   QUESTION TITLE
+   ============================================================ */
+
+.question-title {
+    flex: 1;
+
+    margin: 0;
+
+    color: #463021;
+
+    font-size: 16px;
+    font-weight: 750;
+
+    line-height: 1.45;
+}
+
+
+/* ============================================================
+   SPEAKER BUTTON
+   ============================================================ */
+
+.question-listen-btn {
+    position: relative;
+
+    flex-shrink: 0;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #e0c9b3;
+
+    border-radius: 50%;
+
+    background: #fff8f0;
+
+    color: #684126;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 3px 8px rgba(104,65,38,0.08);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.question-listen-btn:hover {
+    background: #f4e4d4;
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 5px 12px rgba(104,65,38,0.13);
+}
+
+
+.question-listen-btn:active {
+    transform: scale(0.91);
+}
+
+
+/* Speaker active */
+
+.question-listen-btn.speaking {
+    background: #ead0b5;
+
+    animation:
+        speakerPulse 1.2s infinite;
+
+    box-shadow:
+        0 0 0 4px rgba(177,122,80,0.10);
+}
+
+
+@keyframes speakerPulse {
+
+    0% {
+        box-shadow:
+            0 0 0 0 rgba(177,122,80,0.35);
+    }
+
+    70% {
+        box-shadow:
+            0 0 0 10px rgba(177,122,80,0);
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 0 rgba(177,122,80,0);
+    }
+}
+
+
+/* ============================================================
+   ANSWER AREA
+   ============================================================ */
+
+.question-answer-wrapper {
+    position: relative;
+
+    width: 100%;
+}
+
+
+/* ============================================================
+   TEXTAREA
+   ============================================================ */
+
+.question-answer {
+    display: block;
+
+    width: 100%;
+
+    min-height: 64px;
+
+    box-sizing: border-box;
+
+    padding:
+        15px
+        62px
+        15px
+        16px;
+
+    border: 1.5px solid #ddc8b5;
+
+    border-radius: 15px;
+
+    background: #fffdfb;
+
+    color: #3e2a1d;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    outline: none;
+
+    resize: vertical;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.2s ease;
+}
+
+
+.question-answer:hover {
+    border-color: #cdb198;
+}
+
+
+.question-answer:focus {
+    border-color: #a66b43;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(166,107,67,0.09),
+        0 5px 12px rgba(79,50,31,0.05);
+
+    transform: translateY(-1px);
+}
+
+
+.question-answer::placeholder {
+    color: #aa998a;
+}
+
+
+/* ============================================================
+   MICROPHONE BUTTON
+   ============================================================ */
+
+.question-mic-btn {
+    position: absolute;
+
+    right: 10px;
+    top: 10px;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #74492b,
+            #5d371f
+        );
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 10px rgba(104,65,38,0.20);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.question-mic-btn:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 6px 14px rgba(104,65,38,0.25);
+}
+
+
+.question-mic-btn:active {
+    transform: scale(0.91);
+}
+
+
+/* ============================================================
+   RECORDING STATE
+   ============================================================ */
+
+.question-mic-btn.recording {
+    background:
+        linear-gradient(
+            145deg,
+            #c75545,
+            #a83d32
+        );
+
+    animation:
+        micPulse 1.1s infinite;
+}
+
+
+@keyframes micPulse {
+
+    0% {
+        box-shadow:
+            0 0 0 0 rgba(199,85,69,0.42);
+    }
+
+    70% {
+        box-shadow:
+            0 0 0 11px rgba(199,85,69,0);
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 0 rgba(199,85,69,0);
+    }
+}
+
+
+/* ============================================================
+   HINT
+   ============================================================ */
+
+.question-hint {
+    margin: 8px 3px 0;
+
+    color: #9a8878;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+
+/* ============================================================
+   ERROR
+   ============================================================ */
+
+.questions-error {
+    display: none;
+
+    margin: 14px 0;
+
+    padding: 13px 15px;
+
+    border: 1px solid #e0aaa0;
+
+    border-radius: 13px;
+
+    background: #fff1ee;
+
+    color: #9c4034;
+
+    font-size: 13px;
+
+    line-height: 1.45;
+
+    box-shadow:
+        0 4px 10px rgba(156,64,52,0.05);
+}
+
+
+/* ============================================================
+   GENERATE AREA
+   ============================================================ */
+
+.questions-submit-area {
+    margin-top: 24px;
+}
+
+
+/* ============================================================
+   GENERATE BUTTON
+   ============================================================ */
+
+.questions-submit-btn {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 58px;
+
+    border: none;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #74492b,
+            #59351f
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    font-weight: 750;
+
+    letter-spacing: 0.1px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 18px rgba(104,65,38,0.20);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/* Button shine */
+
+.questions-submit-btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.12),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.55s ease;
+}
+
+
+.questions-submit-btn:hover::before {
+    left: 130%;
+}
+
+
+.questions-submit-btn:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #815437,
+            #633c24
+        );
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 11px 23px rgba(104,65,38,0.25);
+}
+
+
+.questions-submit-btn:active {
+    transform: scale(0.985);
+}
+
+
+.questions-submit-btn:disabled {
+    opacity: 0.55;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* ============================================================
+   GENERATING PANEL
+   ============================================================ */
+
+.questions-generating {
+    display: none;
+
+    margin-top: 18px;
+
+    padding: 28px 18px;
+
+    border: 1px solid #eadccf;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffdf9,
+            #f7eee4
+        );
+
+    text-align: center;
+
+    box-shadow:
+        0 7px 20px rgba(79,50,31,0.08);
+}
+
+
+.questions-generating h3 {
+    margin: 14px 0 6px;
+
+    color: #4f321f;
+
+    font-size: 18px;
+}
+
+
+.questions-generating p {
+    margin: 0;
+
+    color: #806b5b;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* ============================================================
+   SPINNER
+   ============================================================ */
+
+.questions-spinner {
+    width: 40px;
+    height: 40px;
+
+    margin: 0 auto;
+
+    border: 4px solid #eadccf;
+
+    border-top-color: #684126;
+
+    border-right-color: #b7794e;
+
+    border-radius: 50%;
+
+    animation:
+        questionsSpin 0.85s linear infinite;
+}
+
+
+@keyframes questionsSpin {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+    .questions-container {
+        padding:
+            16px
+            12px
+            30px;
+    }
+
+
+    .questions-intro {
+        margin-bottom: 19px;
+
+        padding: 19px 16px;
+
+        border-radius: 19px;
+    }
+
+
+    .questions-intro h1 {
+        font-size: 22px;
+    }
+
+
+    .questions-intro p {
+        font-size: 13px;
+    }
+
+
+    .question-item {
+        margin-bottom: 13px;
+
+        padding: 15px;
+
+        border-radius: 17px;
+    }
+
+
+    .question-item::before {
+        top: 15px;
+        bottom: 15px;
+    }
+
+
+    .question-header {
+        gap: 9px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .question-number {
+        width: 34px;
+        height: 34px;
+
+        border-radius: 10px;
+    }
+
+
+    .question-title {
+        font-size: 15px;
+    }
+
+
+    .question-listen-btn {
+        width: 39px;
+        height: 39px;
+
+        font-size: 16px;
+    }
+
+
+    .question-answer {
+        min-height: 60px;
+
+        padding:
+            14px
+            56px
+            14px
+            14px;
+
+        font-size: 14px;
+
+        border-radius: 14px;
+    }
+
+
+    .question-mic-btn {
+        right: 9px;
+        top: 9px;
+
+        width: 39px;
+        height: 39px;
+
+        font-size: 16px;
+    }
+
+
+    .questions-submit-btn {
+        min-height: 55px;
+
+        border-radius: 15px;
+
+        font-size: 15px;
+    }
+}
+
+
+/* ============================================================
+   SMALL PHONES
+   ============================================================ */
+
+@media (max-width: 360px) {
+
+    .questions-container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+
+    .questions-intro {
+        padding: 17px 14px;
+    }
+
+
+    .questions-intro h1 {
+        font-size: 20px;
+    }
+
+
+    .question-item {
+        padding: 13px;
+    }
+
+
+    .question-number {
+        width: 31px;
+        height: 31px;
+    }
+
+
+    .question-title {
+        font-size: 14px;
+    }
+
+
+    .question-listen-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+
+    .question-answer {
+        font-size: 13px;
+    }
+
+
+    .question-mic-btn {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+
+.question-listen-btn:focus-visible,
+.question-mic-btn:focus-visible,
+.questions-submit-btn:focus-visible,
+.question-answer:focus-visible {
+
+    outline:
+        3px solid rgba(166,107,67,0.25);
+
+    outline-offset: 3px;
+}
+
+
+/* ============================================================
+   REDUCE MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .question-listen-btn,
+    .question-mic-btn,
+    .question-item,
+    .questions-submit-btn,
+    .question-answer,
+    .question-number {
+
+        transition: none;
+    }
+
+
+    .question-listen-btn.speaking,
+    .question-mic-btn.recording,
+    .questions-spinner {
+
+        animation: none;
+    }
+}
+/* =========================================================
+   KALASETU - AI CATALOG REVIEW
+   Mobile-app style
+   ========================================================= */
+
+.catalog-review-container {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 18px 16px 40px;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   AI HEADER
+   ========================================================= */
+
+.ai-catalog-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #fff8ef;
+    border: 1px solid #ead8c5;
+    border-radius: 18px;
+    padding: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 14px rgba(92, 58, 33, 0.08);
+}
+
+.ai-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #5c3a21;
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.ai-catalog-header h2 {
+    margin: 0 0 4px;
+
+    color: #5c3a21;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.ai-catalog-header p {
+    margin: 0;
+
+    color: #806b5b;
+
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* =========================================================
+   PRODUCT IMAGE
+   ========================================================= */
+
+.product-image-card {
+    width: 100%;
+    background: #ffffff;
+
+    border: 1px solid #eadfd4;
+    border-radius: 20px;
+
+    padding: 10px;
+    margin-bottom: 20px;
+
+    box-sizing: border-box;
+
+    box-shadow: 0 5px 16px rgba(92, 58, 33, 0.10);
+}
+
+.review-image {
+    display: block;
+
+    width: 100%;
+    height: 250px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+    background: #f3eee8;
+}
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.catalog-form {
+    width: 100%;
+}
+
+.catalog-field {
+    margin-bottom: 17px;
+}
+
+.catalog-label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #5c3a21;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.catalog-input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 13px 14px;
+
+    border: 1px solid #d9c7b7;
+    border-radius: 12px;
+
+    background: #fffdfb;
+
+    color: #3f3025;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.catalog-input:focus {
+    border-color: #b65f32;
+
+    background: #ffffff;
+
+    box-shadow: 0 0 0 3px rgba(182, 95, 50, 0.12);
+}
+
+.catalog-textarea {
+    min-height: 105px;
+
+    resize: vertical;
+
+    line-height: 1.55;
+}
+
+/* =========================================================
+   MARKET TAGS
+   ========================================================= */
+
+.market-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    padding: 4px 0;
+}
+
+.market-tag {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 8px 11px;
+
+    border-radius: 20px;
+
+    background: #f7eadc;
+
+    border: 1px solid #e7cbb4;
+
+    color: #704322;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    line-height: 1.2;
+}
+
+/* =========================================================
+   PRICE CARD
+   ========================================================= */
+
+.price-card {
+    margin: 22px 0 18px;
+
+    padding: 17px;
+
+    border-radius: 18px;
+
+    background: linear-gradient(
+        145deg,
+        #fff7ec,
+        #fffdf9
+    );
+
+    border: 1px solid #e6cdb7;
+
+    box-shadow: 0 5px 15px rgba(92, 58, 33, 0.08);
+}
+
+.price-card-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 14px;
+}
+
+.price-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #5c3a21;
+
+    color: #ffffff;
+
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.price-title {
+    margin: 0 0 3px;
+
+    color: #5c3a21;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.price-subtitle {
+    margin: 0;
+
+    color: #8b7665;
+
+    font-size: 12px;
+}
+
+.price-range {
+    text-align: center;
+
+    margin: 10px 0;
+
+    color: #9a4f2d;
+
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.price-range span {
+    padding: 0 5px;
+
+    color: #927866;
+
+    font-weight: 500;
+}
+
+.recommended-price {
+    text-align: center;
+
+    margin-top: 10px;
+    padding-top: 11px;
+
+    border-top: 1px dashed #d8c0ab;
+
+    color: #705d4d;
+
+    font-size: 13px;
+}
+
+.recommended-price strong {
+    color: #4d7a42;
+
+    font-size: 15px;
+}
+
+/* =========================================================
+   FINAL PRICE
+   ========================================================= */
+
+.price-input {
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: #5c3a21;
+
+    text-align: left;
+}
+
+.field-help {
+    margin: 6px 2px 0;
+
+    color: #8b7665;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+/* =========================================================
+   ACTION BUTTONS
+   ========================================================= */
+
+.review-actions {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 11px;
+
+    margin-top: 25px;
+}
+
+.review-actions .btn {
+    width: 100%;
+
+    min-height: 50px;
+
+    border-radius: 13px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        opacity 0.15s ease;
+}
+
+.review-actions .btn:active {
+    transform: scale(0.98);
+}
+
+.btn-outline {
+    background: #ffffff;
+
+    border: 1.5px solid #9a6947;
+
+    color: #704322;
+}
+
+.btn-outline:hover {
+    background: #fff7ef;
+
+    box-shadow: 0 4px 10px rgba(92, 58, 33, 0.08);
+}
+
+.btn-primary {
+    background: #5c3a21;
+
+    border: 1.5px solid #5c3a21;
+
+    color: #ffffff;
+
+    box-shadow: 0 5px 12px rgba(92, 58, 33, 0.18);
+}
+
+.btn-primary:hover {
+    background: #70482a;
+}
+
+/* =========================================================
+   INTERNAL AI NOTE
+   ========================================================= */
+
+.internal-ai-note {
+    margin-top: 20px;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    background: #f5f2ed;
+
+    border: 1px dashed #d5c7b9;
+
+    color: #75675b;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+.internal-ai-note strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #665342;
+
+    font-size: 12px;
+}
+
+.internal-ai-note p {
+    margin: 0;
+}
+
+/* =========================================================
+   PROGRESS STEPS
+   ========================================================= */
+
+.progress-steps {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px 0 5px;
+}
+
+.step-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #d8c9bb;
+}
+
+.step-dot.step-done {
+    background: #7c9a63;
+}
+
+.step-dot.step-active {
+    width: 10px;
+    height: 10px;
+
+    background: #b65f32;
+
+    box-shadow: 0 0 0 3px rgba(182, 95, 50, 0.12);
+}
+
+/* =========================================================
+   DESKTOP
+   Keep mobile-app appearance
+   ========================================================= */
+
+@media (min-width: 768px) {
+
+    .catalog-review-container {
+        padding-top: 25px;
+        padding-bottom: 50px;
+    }
+
+    .review-image {
+        height: 280px;
+    }
+
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .catalog-review-container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .ai-catalog-header {
+        padding: 13px;
+    }
+
+    .ai-icon {
+        width: 43px;
+        height: 43px;
+        min-width: 43px;
+    }
+
+    .price-range {
+        font-size: 22px;
+    }
+
+    .review-image {
+        height: 220px;
+    }
+
+}

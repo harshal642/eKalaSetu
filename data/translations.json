@@ -1,0 +1,674 @@
+{
+  "en": {
+    "app_name": "Kalasetu",
+    "tagline": "Bridge between Artisans and the Market",
+    "choose_language": "Choose your language",
+    "lang_en": "English",
+    "lang_mr": "मराठी",
+    "lang_hi": "हिन्दी",
+    "continue": "Continue",
+    
+    "role_selection": "Choose Your Role",
+    "role_selection_subtitle": "How would you like to use KalaSetu?",
+    "role_artisan": "Artisan",
+    "role_artisan_desc": "Create and sell your traditional products",
+    "role_customer": "Customer",
+    "role_customer_desc": "Discover and buy handcrafted products",
+    "role_admin": "Admin",
+    "role_admin_desc": "Manage artisans, products and orders",
+    
+    "register_as_artisan": "Register as Artisan",
+    "new_artisan": "New Artisan?",
+    "register": "Register",
+    "name": "Name",
+    "location": "Village / Location",
+    "register_required": "Please fill all required fields.",
+    "invalid_mobile": "Please enter a valid 10 digit mobile number.",
+
+    "mobile_already_registered": "This mobile number is already registered.",
+    "voice_help_title": "Voice & Speaker Help",
+    "voice_mic_label": "Mic:",
+    "voice_mic_help": "Tap the microphone and speak clearly.",
+    "voice_speaker_label": "Speaker:",
+    "voice_speaker_help": "Tap the speaker if you want to hear the instruction.",
+    "voice_language_help": "You can use voice in your selected language.",
+    "voice_repeat_help": "If you do not understand the instruction, tap the speaker again and listen slowly.",
+    "voice_manual_help": "If voice input does not work, you can type the information manually.",
+
+    "artisan_login": "Artisan Login",
+    "mobile_number": "Mobile Number",
+    "password": "Password",
+    "login": "Login",
+    "login_error": "Mobile number or password is incorrect.",
+
+    "welcome": "Welcome",
+    "your_craft": "Your Craft",
+    "add_product": "Add Product",
+    "my_products": "My Products",
+    "market_demand": "Market Insights",
+    "market_opportunities": "Market Opportunities",
+    "profile": "My Profile",
+    "use_voice": "Use Voice",
+    "recent_products": "Recent Products",
+    "logout": "Logout",
+
+    "add_your_product": "Add Your Product",
+
+    "take_photo": "Take Photo",
+    "upload_photo": "Upload Photo",
+    "or_word": "OR",
+
+    "image_uploaded_success": "Image uploaded successfully.",
+    "enhancing_image": "Improving your product photo...",
+    "enhance_wait": "Please wait...",
+    "original_image": "Original",
+    "enhanced_image": "Enhanced",
+    "use_enhanced": "Use Enhanced Image",
+    "keep_original": "Keep Original",
+
+    "next": "Next",
+    "back": "Back",
+
+    "question_of": "Question {current} of {total}",
+    "q_material": "What material did you use?",
+    "q_making_time": "How much time does it take to make this product?",
+    "q_making_cost": "What is the making cost?",
+    "q_size": "What is the size?",
+    "q_story": "Tell us about this product or its story.",
+
+    "listen": "Listen",
+    "speak": "Speak",
+    "stop": "Stop",
+    "type_answer": "Type your answer",
+
+    "voice_not_supported": "Voice input is not available on this browser. Please type your answer.",
+    "please_type_answer": "Please answer or type before continuing.",
+
+    "generating_catalog": "Creating your product catalog...",
+    "catalog_ready": "Catalog draft is ready.",
+    "preparing_price": "Preparing a price suggestion...",
+
+    "review_product": "Review Your Product",
+    "product_name": "Product Name",
+    "description": "Description",
+    "material": "Material",
+    "size": "Size",
+    "making_time": "Making Time",
+    "making_cost": "Making Cost",
+    "suggested_price": "AI Suggested Price",
+    "final_price": "Your Selling Price",
+
+    "edit": "Edit",
+    "save_edits": "Save Changes",
+    "approve_publish": "Approve & Publish",
+    "published_success": "Your product has been published.",
+
+    "please_upload_image": "Please upload a product image.",
+    "please_enter_cost": "Please enter your making cost.",
+
+    "views": "Views",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "orders": "Orders",
+    "demand_score": "Demand Score",
+
+    "high_demand": "HIGH DEMAND",
+    "medium_demand": "MODERATE DEMAND",
+    "low_demand": "GROWING DEMAND",
+
+    "ai_insight_high": "Customers are showing strong interest in this product.",
+    "ai_insight_medium": "This product is getting a fair amount of attention.",
+    "ai_insight_low": "This product is new and slowly gaining attention.",
+
+    "ai_suggestion_high": "AI Suggestion: Consider producing more of this product.",
+    "ai_suggestion_medium": "AI Suggestion: Keep an eye on this product's demand.",
+    "ai_suggestion_low": "AI Suggestion: Try sharing this product on more markets.",
+
+    "market_match": "Match",
+
+    "my_profile": "My Profile",
+    "craft_label": "Craft",
+    "location_label": "Location",
+    "mobile_label": "Mobile",
+    "language_label": "Language",
+    "change_language": "Change Language",
+    "save": "Save",
+
+    "status_draft": "Draft",
+    "status_published": "Published",
+
+    "back_to_dashboard": "Back to Dashboard",
+
+    "select_photo_source": "Choose how to add your photo",
+    "no_products_yet": "You have not added any products yet.",
+    "select_product": "Select Product",
+
+    "ai_catalog_assistant": "AI Catalog Assistant",
+    "step_upload": "Upload Photo",
+    "step_questions": "Answer Questions",
+    "step_review": "Review & Publish",
+
+    "loading": "Loading...",
+    "product_story": "Product Story",
+
+    "step_1_of_3": "STEP 1 OF 3",
+    "step_2_of_3": "STEP 2 OF 3",
+    "step_3_of_3": "STEP 3 OF 3",
+
+    "photos": "Photos",
+    "ai_enhance": "AI Enhance",
+    "catalog": "Catalog",
+
+    "add_3_photos": "Add 3 product photos",
+    "photo_angle_description": "Show your product from different angles. KalaSetu AI will use these photos to create a better customer catalog.",
+
+    "better_photos": "Better photos = better catalog",
+    "photo_guidance": "Take clear photos in good natural light. Keep the product fully visible.",
+
+    "front_view": "Front View",
+    "front_view_description": "Show the complete product",
+    "front_photo": "Front photo",
+    "front_photo_description": "Keep the entire product in frame",
+    "take_upload_front": "Take / Upload Front Photo",
+
+    "side_view": "Side / 45° View",
+    "side_view_description": "Show depth and shape",
+    "side_photo": "Side / 45° photo",
+    "side_photo_description": "Show the product from an angle",
+    "take_upload_side": "Take / Upload Side Photo",
+
+    "detail_view": "Detail View",
+    "detail_view_description": "Show craftsmanship and texture",
+    "detail_photo": "Detail photo",
+    "detail_photo_description": "Show texture and craftsmanship",
+    "take_upload_detail": "Take / Upload Detail Photo",
+
+    "required": "Required",
+
+    "side_photo_tip": "Hold your phone slightly to the side to show the product's depth.",
+    "detail_photo_tip": "Move closer and capture important patterns, texture or handmade details.",
+
+    "photo_tips": "Photo Tips",
+    "tip_natural_light": "Use natural or bright light",
+    "tip_clean_product": "Keep your product clean and visible",
+    "tip_no_blur": "Avoid blurry or dark photos",
+    "tip_different_angles": "Use different angles for each photo",
+
+    "continue_to_ai": "Continue to AI Enhancement",
+    "add_all_photos": "Add all 3 photos to continue",
+
+    "kalasetu_ai": "KALASETU AI",
+    "enhancing_photos": "Enhancing your photos",
+    "enhancing_photos_description": "AI is improving your product images for customer viewing.",
+
+    "checking_photo_quality": "Checking photo quality",
+    "enhancing_product_images": "Enhancing product images",
+    "preparing_customer_gallery": "Preparing customer gallery",
+
+    "images_ready": "Your product images are ready",
+    "review_images_description": "KalaSetu has enhanced your photos. Review the images before creating your catalog.",
+
+    "customer_view": "CUSTOMER VIEW",
+    "product_gallery": "Product Gallery",
+    "ai_enhanced": "AI Enhanced",
+
+    "front": "Front",
+    "side": "Side",
+    "detail": "Detail",
+
+    "use_ai_enhanced_images": "Use AI Enhanced Images",
+    "keep_original_images": "Keep Original Images",
+
+    "review_catalog_note": "You can review your catalog before publishing it."
+
+    
+
+  },
+
+  "mr": {
+    "app_name": "कलासेतू",
+    "tagline": "कारागीर आणि बाजारपेठेतील सेतू",
+    "choose_language": "आपली भाषा निवडा",
+    "lang_en": "English",
+    "lang_mr": "मराठी",
+    "lang_hi": "हिंदी",
+    "continue": "पुढे जा",
+
+    "role_selection": "आपली भूमिका निवडा",
+    "role_selection_subtitle": "तुम्हाला कलासेतूचा वापर कसा करायचा आहे?",
+    "role_artisan": "कारागीर",
+    "role_artisan_desc": "तुमची पारंपरिक उत्पादने तयार करा आणि विक्री करा",
+    "role_customer": "ग्राहक",
+    "role_customer_desc": "हस्तनिर्मित उत्पादने शोधा आणि खरेदी करा",
+    "role_admin": "प्रशासक",
+    "role_admin_desc": "कारागीर, उत्पादने आणि ऑर्डर व्यवस्थापित करा",
+
+    "register_as_artisan": "कारागीर म्हणून नोंदणी करा",
+    "new_artisan": "नवीन कारागीर?",
+    "register": "नोंदणी करा",
+    "name": "नाव",
+    "location": "गाव / ठिकाण",
+    "register_required": "कृपया सर्व आवश्यक माहिती भरा.",
+    "invalid_mobile": "कृपया 10 अंकी मोबाईल नंबर टाका.",
+    "mobile_already_registered": "हा मोबाईल नंबर आधीच नोंदणीकृत आहे.",
+
+    "voice_help_title": "व्हॉइस आणि स्पीकर मदत",
+    "voice_mic_label": "मायक्रोफोन:",
+    "voice_mic_help": "मायक्रोफोनवर क्लिक करा आणि स्पष्टपणे बोला.",
+    "voice_speaker_label": "स्पीकर:",
+    "voice_speaker_help": "सूचना ऐकण्यासाठी स्पीकरवर क्लिक करा.",
+    "voice_language_help": "आपण निवडलेल्या भाषेत व्हॉइस वापरू शकता.",
+    "voice_repeat_help": "सूचना समजली नाही तर स्पीकरवर पुन्हा क्लिक करा आणि हळूहळू ऐका.",
+    "voice_manual_help": "व्हॉइस इनपुट काम करत नसेल तर माहिती टाइप करू शकता.",
+        
+
+    "artisan_login": "कारागीर लॉगिन",
+    "mobile_number": "मोबाईल क्रमांक",
+    "password": "पासवर्ड",
+    "login": "लॉगिन",
+    "login_error": "मोबाईल क्रमांक किंवा पासवर्ड चुकीचा आहे.",
+
+    "welcome": "नमस्कार",
+    "your_craft": "तुमची कला",
+    "add_product": "उत्पादन जोडा",
+    "my_products": "माझी उत्पादने",
+    "market_demand": "बाजारातील मागणी",
+    "market_opportunities": "बाजार संधी",
+    "profile": "माझे प्रोफाइल",
+    "use_voice": "आवाजाने वापरा",
+    "recent_products": "अलीकडील उत्पादने",
+    "logout": "लॉगआउट",
+
+    "add_your_product": "तुमचे उत्पादन जोडा",
+
+    "take_photo": "फोटो काढा",
+    "upload_photo": "फोटो अपलोड करा",
+    "or_word": "किंवा",
+
+    "image_uploaded_success": "फोटो यशस्वीरित्या अपलोड झाला.",
+    "enhancing_image": "तुमचा उत्पादनाचा फोटो सुधारत आहोत...",
+    "enhance_wait": "कृपया थांबा...",
+    "original_image": "मूळ फोटो",
+    "enhanced_image": "सुधारित फोटो",
+    "use_enhanced": "सुधारित फोटो वापरा",
+    "keep_original": "मूळ फोटो ठेवा",
+
+    "next": "पुढे",
+    "back": "मागे",
+
+    "question_of": "प्रश्न {current} / {total}",
+    "q_material": "तुम्ही कोणते साहित्य वापरले?",
+    "q_making_time": "हे उत्पादन बनवण्यासाठी किती वेळ लागतो?",
+    "q_making_cost": "बनवण्याचा खर्च किती आहे?",
+    "q_size": "आकारमान किती आहे?",
+    "q_story": "या उत्पादनाबद्दल किंवा त्यामागील कथेबद्दल सांगा.",
+
+    "listen": "ऐका",
+    "speak": "बोला",
+    "stop": "थांबवा",
+    "type_answer": "तुमचे उत्तर टाइप करा",
+
+    "voice_not_supported": "या ब्राउझरवर आवाजाची सुविधा उपलब्ध नाही. कृपया टाइप करा.",
+    "please_type_answer": "कृपया पुढे जाण्यापूर्वी उत्तर द्या.",
+
+    "generating_catalog": "तुमचे उत्पादन कॅटलॉग तयार करत आहोत...",
+    "catalog_ready": "कॅटलॉग ड्राफ्ट तयार आहे.",
+    "preparing_price": "किंमत सूचना तयार करत आहोत...",
+
+    "review_product": "उत्पादन तपासा",
+    "product_name": "उत्पादनाचे नाव",
+    "description": "वर्णन",
+    "material": "साहित्य",
+    "size": "आकार",
+    "making_time": "बनवण्याचा वेळ",
+    "making_cost": "बनवण्याचा खर्च",
+    "suggested_price": "AI सुचवलेली किंमत",
+    "final_price": "तुमची विक्री किंमत",
+
+    "edit": "बदल करा",
+    "save_edits": "बदल जतन करा",
+    "approve_publish": "मंजूर करा आणि प्रकाशित करा",
+    "published_success": "तुमचे उत्पादन प्रकाशित झाले आहे.",
+
+    "please_upload_image": "कृपया उत्पादनाचा फोटो अपलोड करा.",
+    "please_enter_cost": "कृपया बनवण्याचा खर्च नोंदवा.",
+
+    "views": "पाहिले",
+    "wishlist": "आवडती यादी",
+    "cart": "कार्ट",
+    "orders": "ऑर्डर",
+    "demand_score": "मागणी गुण",
+
+    "high_demand": "उच्च मागणी",
+    "medium_demand": "मध्यम मागणी",
+    "low_demand": "वाढती मागणी",
+
+    "ai_insight_high": "ग्राहक या उत्पादनामध्ये मोठी आवड दाखवत आहेत.",
+    "ai_insight_medium": "या उत्पादनाला चांगले लक्ष मिळत आहे.",
+    "ai_insight_low": "हे उत्पादन नवीन आहे आणि हळूहळू लक्ष वेधून घेत आहे.",
+
+    "ai_suggestion_high": "AI सूचना: हे उत्पादन अधिक बनवण्याचा विचार करा.",
+    "ai_suggestion_medium": "AI सूचना: या उत्पादनाच्या मागणीवर लक्ष ठेवा.",
+    "ai_suggestion_low": "AI सूचना: हे उत्पादन अधिक बाजारपेठांमध्ये शेअर करून पहा.",
+
+    "market_match": "जुळणी",
+
+    "my_profile": "माझे प्रोफाइल",
+    "craft_label": "कला",
+    "location_label": "ठिकाण",
+    "mobile_label": "मोबाईल",
+    "language_label": "भाषा",
+    "change_language": "भाषा बदला",
+    "save": "जतन करा",
+
+    "status_draft": "ड्राफ्ट",
+    "status_published": "प्रकाशित",
+
+    "back_to_dashboard": "डॅशबोर्डवर जा",
+
+    "select_photo_source": "फोटो कसा जोडायचा ते निवडा",
+    "no_products_yet": "तुम्ही अजून कोणतेही उत्पादन जोडलेले नाही.",
+    "select_product": "उत्पादन निवडा",
+
+    "ai_catalog_assistant": "AI कॅटलॉग सहाय्यक",
+    "step_upload": "फोटो अपलोड",
+    "step_questions": "प्रश्नांची उत्तरे",
+    "step_review": "तपासा आणि प्रकाशित करा",
+
+    "loading": "लोड होत आहे...",
+    "product_story": "उत्पादनाची कथा",
+
+    "step_1_of_3": "टप्पा १ / ३",
+    "step_2_of_3": "टप्पा २ / ३",
+    "step_3_of_3": "टप्पा ३ / ३",
+
+    "photos": "फोटो",
+    "ai_enhance": "AI सुधारणा",
+    "catalog": "कॅटलॉग",
+
+    "add_3_photos": "३ उत्पादनांचे फोटो जोडा",
+    "photo_angle_description": "तुमचे उत्पादन वेगवेगळ्या कोनातून दाखवा. कलासेतू AI या फोटोंचा वापर करून ग्राहकांसाठी चांगला कॅटलॉग तयार करेल.",
+
+    "better_photos": "चांगले फोटो = चांगला कॅटलॉग",
+    "photo_guidance": "चांगल्या नैसर्गिक प्रकाशात स्पष्ट फोटो काढा. उत्पादन पूर्णपणे दिसेल याची काळजी घ्या.",
+
+    "front_view": "समोरील दृश्य",
+    "front_view_description": "संपूर्ण उत्पादन दाखवा",
+    "front_photo": "समोरील फोटो",
+    "front_photo_description": "संपूर्ण उत्पादन फोटोमध्ये ठेवा",
+    "take_upload_front": "समोरील फोटो काढा / अपलोड करा",
+
+    "side_view": "बाजूचे / ४५° दृश्य",
+    "side_view_description": "उत्पादनाची खोली आणि आकार दाखवा",
+    "side_photo": "बाजूचा / ४५° फोटो",
+    "side_photo_description": "उत्पादन एका कोनातून दाखवा",
+    "take_upload_side": "बाजूचा फोटो काढा / अपलोड करा",
+
+    "detail_view": "तपशीलाचे दृश्य",
+    "detail_view_description": "कारागिरी आणि पोत दाखवा",
+    "detail_photo": "तपशीलाचा फोटो",
+    "detail_photo_description": "पोत आणि कारागिरी दाखवा",
+    "take_upload_detail": "तपशीलाचा फोटो काढा / अपलोड करा",
+
+    "required": "आवश्यक",
+
+    "side_photo_tip": "उत्पादनाची खोली दाखवण्यासाठी फोन थोडा बाजूला धरून फोटो काढा.",
+    "detail_photo_tip": "जवळ जाऊन महत्त्वाचे नमुने, पोत किंवा हाताने केलेले तपशील कॅप्चर करा.",
+
+    "photo_tips": "फोटो टिप्स",
+    "tip_natural_light": "नैसर्गिक किंवा पुरेसा प्रकाश वापरा",
+    "tip_clean_product": "उत्पादन स्वच्छ आणि स्पष्ट दिसेल याची काळजी घ्या",
+    "tip_no_blur": "अस्पष्ट किंवा अंधुक फोटो टाळा",
+    "tip_different_angles": "प्रत्येक फोटोसाठी वेगवेगळे कोन वापरा",
+
+    "continue_to_ai": "AI सुधारणेकडे पुढे जा",
+    "add_all_photos": "पुढे जाण्यासाठी सर्व ३ फोटो जोडा",
+
+    "kalasetu_ai": "कलासेतू AI",
+    "enhancing_photos": "तुमचे फोटो सुधारत आहोत",
+    "enhancing_photos_description": "ग्राहकांना दाखवण्यासाठी AI तुमचे उत्पादनाचे फोटो सुधारत आहे.",
+
+    "checking_photo_quality": "फोटोची गुणवत्ता तपासत आहोत",
+    "enhancing_product_images": "उत्पादनाचे फोटो सुधारत आहोत",
+    "preparing_customer_gallery": "ग्राहक गॅलरी तयार करत आहोत",
+
+    "images_ready": "तुमचे उत्पादनाचे फोटो तयार आहेत",
+    "review_images_description": "कलासेतूने तुमचे फोटो सुधारले आहेत. कॅटलॉग तयार करण्यापूर्वी फोटो तपासा.",
+
+    "customer_view": "ग्राहक दृश्य",
+    "product_gallery": "उत्पादन गॅलरी",
+    "ai_enhanced": "AI सुधारित",
+
+    "front": "समोर",
+    "side": "बाजू",
+    "detail": "तपशील",
+
+    "use_ai_enhanced_images": "AI सुधारित फोटो वापरा",
+    "keep_original_images": "मूळ फोटो ठेवा",
+
+    "review_catalog_note": "प्रकाशित करण्यापूर्वी तुम्ही तुमचा कॅटलॉग तपासू शकता."
+  },
+
+  "hi": {
+    "app_name": "कलासेतु",
+    "tagline": "कारीगरों और बाजार के बीच का सेतु",
+    "choose_language": "अपनी भाषा चुनें",
+    "lang_en": "English",
+    "lang_mr": "मराठी",
+    "lang_hi": "हिन्दी",
+    "continue": "आगे बढ़ें",
+
+    "role_selection": "अपनी भूमिका चुनें",
+    "role_selection_subtitle": "आप कलासेतु का उपयोग कैसे करना चाहते हैं?",
+    "role_artisan": "कारीगर",
+    "role_artisan_desc": "अपने पारंपरिक उत्पाद बनाएं और बेचें",
+    "role_customer": "ग्राहक",
+    "role_customer_desc": "हस्तनिर्मित उत्पाद खोजें और खरीदें",
+    "role_admin": "एडमिन",
+    "role_admin_desc": "कारीगर, उत्पाद और ऑर्डर प्रबंधित करें",
+    
+    "register_as_artisan": "कारीगर के रूप में पंजीकरण करें",
+    "new_artisan": "नए कारीगर?",
+    "register": "पंजीकरण करें",
+    "name": "नाम",
+    "location": "गांव / स्थान",
+    "register_required": "कृपया सभी आवश्यक जानकारी भरें.",
+    "invalid_mobile": "कृपया 10 अंकों का मोबाइल नंबर दर्ज करें.",
+    "mobile_already_registered": "यह मोबाइल नंबर पहले से पंजीकृत है.",
+
+    "voice_help_title": "वॉइस और स्पीकर सहायता",
+    "voice_mic_label": "माइक्रोफोन:",
+    "voice_mic_help": "माइक्रोफोन पर क्लिक करें और स्पष्ट रूप से बोलें।",
+    "voice_speaker_label": "स्पीकर:",
+    "voice_speaker_help": "निर्देश सुनने के लिए स्पीकर पर क्लिक करें।",
+    "voice_language_help": "आप अपनी चुनी हुई भाषा में वॉइस का उपयोग कर सकते हैं।",
+    "voice_repeat_help": "अगर निर्देश समझ में नहीं आता है, तो स्पीकर पर फिर से क्लिक करें और धीरे-धीरे सुनें।",
+    "voice_manual_help": "अगर वॉइस इनपुट काम नहीं करता है, तो आप जानकारी टाइप कर सकते हैं।",
+
+    "artisan_login": "कारीगर लॉगिन",
+    "mobile_number": "मोबाइल नंबर",
+    "password": "पासवर्ड",
+    "login": "लॉगिन",
+    "login_error": "मोबाइल नंबर या पासवर्ड गलत है.",
+
+    "welcome": "नमस्ते",
+    "your_craft": "आपकी कला",
+    "add_product": "उत्पाद जोड़ें",
+    "my_products": "मेरे उत्पाद",
+    "market_demand": "बाजार की मांग",
+    "market_opportunities": "बाजार के अवसर",
+    "profile": "मेरी प्रोफाइल",
+    "use_voice": "आवाज का उपयोग करें",
+    "recent_products": "हाल के उत्पाद",
+    "logout": "लॉगआउट",
+
+    "add_your_product": "अपना उत्पाद जोड़ें",
+
+    "take_photo": "फोटो लें",
+    "upload_photo": "फोटो अपलोड करें",
+    "or_word": "या",
+
+    "image_uploaded_success": "फोटो सफलतापूर्वक अपलोड हो गया.",
+    "enhancing_image": "आपके उत्पाद की फोटो बेहतर बनाई जा रही है...",
+    "enhance_wait": "कृपया प्रतीक्षा करें...",
+    "original_image": "मूल फोटो",
+    "enhanced_image": "बेहतर फोटो",
+    "use_enhanced": "बेहतर फोटो का उपयोग करें",
+    "keep_original": "मूल फोटो रखें",
+
+    "next": "आगे",
+    "back": "पीछे",
+
+    "question_of": "प्रश्न {current} / {total}",
+    "q_material": "आपने कौन सा सामान इस्तेमाल किया?",
+    "q_making_time": "इस उत्पाद को बनाने में कितना समय लगता है?",
+    "q_making_cost": "बनाने की लागत क्या है?",
+    "q_size": "आकार क्या है?",
+    "q_story": "इस उत्पाद या इसकी कहानी के बारे में बताएं.",
+
+    "listen": "सुनें",
+    "speak": "बोलें",
+    "stop": "रोकें",
+    "type_answer": "अपना जवाब टाइप करें",
+
+    "voice_not_supported": "इस ब्राउज़र पर वॉइस इनपुट उपलब्ध नहीं है. कृपया टाइप करें.",
+    "please_type_answer": "कृपया आगे बढ़ने से पहले जवाब दें.",
+
+    "generating_catalog": "आपका उत्पाद कैटलॉग बनाया जा रहा है...",
+    "catalog_ready": "कैटलॉग ड्राफ्ट तैयार है.",
+    "preparing_price": "कीमत का सुझाव तैयार किया जा रहा है...",
+
+    "review_product": "उत्पाद की समीक्षा करें",
+    "product_name": "उत्पाद का नाम",
+    "description": "विवरण",
+    "material": "सामान",
+    "size": "आकार",
+    "making_time": "बनाने का समय",
+    "making_cost": "बनाने की लागत",
+    "suggested_price": "AI द्वारा सुझाई गई कीमत",
+    "final_price": "आपकी बिक्री कीमत",
+
+    "edit": "संपादित करें",
+    "save_edits": "बदलाव सहेजें",
+    "approve_publish": "मंजूर करें और प्रकाशित करें",
+    "published_success": "आपका उत्पाद प्रकाशित हो गया है.",
+
+    "please_upload_image": "कृपया उत्पाद की फोटो अपलोड करें.",
+    "please_enter_cost": "कृपया बनाने की लागत दर्ज करें.",
+
+    "views": "देखे गए",
+    "wishlist": "विशलिस्ट",
+    "cart": "कार्ट",
+    "orders": "ऑर्डर",
+    "demand_score": "मांग स्कोर",
+
+    "high_demand": "उच्च मांग",
+    "medium_demand": "मध्यम मांग",
+    "low_demand": "बढ़ती मांग",
+
+    "ai_insight_high": "ग्राहक इस उत्पाद में काफी रुचि दिखा रहे हैं.",
+    "ai_insight_medium": "इस उत्पाद को अच्छी मात्रा में ध्यान मिल रहा है.",
+    "ai_insight_low": "यह उत्पाद नया है और धीरे-धीरे ध्यान आकर्षित कर रहा है.",
+
+    "ai_suggestion_high": "AI सुझाव: इस उत्पाद को अधिक बनाने पर विचार करें.",
+    "ai_suggestion_medium": "AI सुझाव: इस उत्पाद की मांग पर नजर रखें.",
+    "ai_suggestion_low": "AI सुझाव: इस उत्पाद को अधिक बाजारों में साझा करने का प्रयास करें.",
+
+    "market_match": "मेल",
+
+    "my_profile": "मेरी प्रोफाइल",
+    "craft_label": "कला",
+    "location_label": "स्थान",
+    "mobile_label": "मोबाइल",
+    "language_label": "भाषा",
+    "change_language": "भाषा बदलें",
+    "save": "सहेजें",
+
+    "status_draft": "ड्राफ्ट",
+    "status_published": "प्रकाशित",
+
+    "back_to_dashboard": "डैशबोर्ड पर जाएं",
+
+    "select_photo_source": "फोटो जोड़ने का तरीका चुनें",
+    "no_products_yet": "आपने अभी तक कोई उत्पाद नहीं जोड़ा है.",
+    "select_product": "उत्पाद चुनें",
+
+    "ai_catalog_assistant": "AI कैटलॉग सहायक",
+    "step_upload": "फोटो अपलोड",
+    "step_questions": "प्रश्नों के जवाब",
+    "step_review": "समीक्षा और प्रकाशन",
+
+    "loading": "लोड हो रहा है...",
+    "product_story": "उत्पाद की कहानी",
+
+    "step_1_of_3": "चरण १ / ३",
+    "step_2_of_3": "चरण २ / ३",
+    "step_3_of_3": "चरण ३ / ३",
+
+    "photos": "फोटो",
+    "ai_enhance": "AI सुधार",
+    "catalog": "कैटलॉग",
+
+    "add_3_photos": "3 उत्पाद फोटो जोड़ें",
+    "photo_angle_description": "अपने उत्पाद को अलग-अलग कोणों से दिखाएं. कलासेतु AI इन फोटो का उपयोग करके ग्राहकों के लिए बेहतर कैटलॉग बनाएगा.",
+
+    "better_photos": "बेहतर फोटो = बेहतर कैटलॉग",
+    "photo_guidance": "अच्छी प्राकृतिक रोशनी में साफ फोटो लें. पूरा उत्पाद दिखाई देना चाहिए.",
+
+    "front_view": "सामने का दृश्य",
+    "front_view_description": "पूरा उत्पाद दिखाएं",
+    "front_photo": "सामने की फोटो",
+    "front_photo_description": "पूरा उत्पाद फ्रेम में रखें",
+    "take_upload_front": "सामने की फोटो लें / अपलोड करें",
+
+    "side_view": "साइड / 45° दृश्य",
+    "side_view_description": "गहराई और आकार दिखाएं",
+    "side_photo": "साइड / 45° फोटो",
+    "side_photo_description": "उत्पाद को एक कोण से दिखाएं",
+    "take_upload_side": "साइड फोटो लें / अपलोड करें",
+
+    "detail_view": "विवरण का दृश्य",
+    "detail_view_description": "कारीगरी और बनावट दिखाएं",
+    "detail_photo": "विवरण की फोटो",
+    "detail_photo_description": "बनावट और कारीगरी दिखाएं",
+    "take_upload_detail": "विवरण की फोटो लें / अपलोड करें",
+
+    "required": "जरूरी",
+
+    "side_photo_tip": "उत्पाद की गहराई दिखाने के लिए फोन को थोड़ा साइड में रखकर फोटो लें.",
+    "detail_photo_tip": "पास जाकर महत्वपूर्ण डिजाइन, बनावट या हाथ से किए गए विवरण की फोटो लें.",
+
+    "photo_tips": "फोटो के सुझाव",
+    "tip_natural_light": "प्राकृतिक या अच्छी रोशनी का उपयोग करें",
+    "tip_clean_product": "अपने उत्पाद को साफ और स्पष्ट रखें",
+    "tip_no_blur": "धुंधली या अंधेरी फोटो से बचें",
+    "tip_different_angles": "हर फोटो के लिए अलग कोण का उपयोग करें",
+
+    "continue_to_ai": "AI सुधार के लिए आगे बढ़ें",
+    "add_all_photos": "आगे बढ़ने के लिए सभी 3 फोटो जोड़ें",
+
+    "kalasetu_ai": "कलासेतु AI",
+    "enhancing_photos": "आपकी फोटो बेहतर बनाई जा रही हैं",
+    "enhancing_photos_description": "ग्राहकों को दिखाने के लिए AI आपके उत्पाद की फोटो बेहतर बना रहा है.",
+
+    "checking_photo_quality": "फोटो की गुणवत्ता जांची जा रही है",
+    "enhancing_product_images": "उत्पाद की फोटो बेहतर बनाई जा रही हैं",
+    "preparing_customer_gallery": "ग्राहक गैलरी तैयार की जा रही है",
+
+    "images_ready": "आपके उत्पाद की फोटो तैयार हैं",
+    "review_images_description": "कलासेतु ने आपकी फोटो बेहतर बनाई हैं. कैटलॉग बनाने से पहले फोटो की समीक्षा करें.",
+
+    "customer_view": "ग्राहक दृश्य",
+    "product_gallery": "उत्पाद गैलरी",
+    "ai_enhanced": "AI द्वारा बेहतर",
+
+    "front": "सामने",
+    "side": "साइड",
+    "detail": "विवरण",
+
+    "use_ai_enhanced_images": "AI द्वारा बेहतर फोटो का उपयोग करें",
+    "keep_original_images": "मूल फोटो रखें",
+
+    "review_catalog_note": "प्रकाशित करने से पहले आप अपने कैटलॉग की समीक्षा कर सकते हैं."
+  }
+}

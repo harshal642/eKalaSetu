@@ -1,0 +1,74 @@
+[
+  {
+    "artisan_id": 24,
+    "name": "सावित्री",
+    "mobile": "9011435411",
+    "password": "1234",
+    "location": "नाशिक",
+    "language": "mr",
+    "profile_image": "/static/images/default_artisan.png"
+  },
+  {
+    "artisan_id": 25,
+    "name": "अमोल",
+    "mobile": "9011435422",
+    "password": "1234",
+    "location": "जळगाव",
+    "language": "mr",
+    "profile_image": "/static/images/default_artisan.png"
+  },
+  {
+    "artisan_id": 26,
+    "name": "पूजा",
+    "mobile": "9011435444",
+    "password": "1234",
+    "location": "औरंगाबाद",
+    "language": "mr",
+    "profile_image": "/static/images/default_artisan.png"
+  },
+  {
+    "artisan_id": 27,
+    "name": "राजेश",
+    "mobile": "9011435455",
+    "password": "1234",
+    "location": "पुणे",
+    "language": "mr",
+    "profile_image": "/static/images/default_artisan.png"
+  },
+  {
+    "artisan_id": 28,
+    "name": "मीना",
+    "mobile": "9011435466",
+    "password": "1234",
+    "location": "धुळे",
+    "language": "mr",
+    "profile_image": "/static/images/default_artisan.png"
+  },
+  {
+    "artisan_id": 29,
+    "name": "रमेश",
+    "mobile": "9011435477",
+    "password": "1234",
+    "location": "सातारा",
+    "language": "mr",
+    "profile_image": "/static/images/default_artisan.png"
+  },
+  {
+    "artisan_id": 30,
+    "name": "कविता",
+    "mobile": "9011435488",
+    "password": "1234",
+    "location": "कोल्हापूर",
+    "language": "mr",
+    "profile_image": "/static/images/default_artisan.png"
+  },
+  {
+    "artisan_id": 31,
+    "name": "संदीप",
+    "mobile": "9011435499",
+    "password": "1234",
+    "location": "अहमदनगर",
+    "language": "mr",
+    "profile_image": "/static/images/default_artisan.png"
+  }
+]

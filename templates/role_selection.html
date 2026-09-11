@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no">
+
+    <meta name="theme-color" content="#5C3A21">
+
+    <title>{{ t('app_name') }} - {{ t('role_selection') }}</title>
+
+   <style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        min-height: 100vh;
+
+        background:
+            radial-gradient(
+                circle at 15% 5%,
+                rgba(196, 124, 67, 0.14),
+                transparent 32%
+            ),
+            #f5eee3;
+
+        font-family:
+            "Segoe UI",
+            "Noto Sans Devanagari",
+            Arial,
+            sans-serif;
+
+        color: #3d281b;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 20px;
+    }
+
+
+    /* =========================================================
+       MOBILE APP CONTAINER
+       ========================================================= */
+
+    .app-container {
+        width: 100%;
+        max-width: 430px;
+        min-height: 720px;
+
+        background: #fffaf3;
+
+        border-radius: 30px;
+
+        box-shadow:
+            0 24px 70px rgba(76, 47, 25, 0.16);
+
+        overflow: hidden;
+
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    /* =========================================================
+       TOP DECORATION
+       ========================================================= */
+
+    .top-decoration {
+        height: 7px;
+
+        background:
+            linear-gradient(
+                90deg,
+                #5c3a21 0%,
+                #a65f32 35%,
+                #d18a42 70%,
+                #71864a 100%
+            );
+    }
+
+
+    /* =========================================================
+       MAIN CONTENT
+       ========================================================= */
+
+    .content {
+        flex: 1;
+
+        padding:
+            28px 24px 22px;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    /* =========================================================
+       BRAND / LOGO
+       ========================================================= */
+
+    .brand {
+        text-align: center;
+
+        margin-bottom: 24px;
+    }
+
+
+    /*
+       IMPORTANT:
+       No background
+       No border-radius
+       No shadow
+
+       Your original KalaSetu logo remains square.
+    */
+
+    .logo-wrapper {
+        width: 100px;
+        height: 100px;
+
+        margin: 0 auto 12px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: transparent;
+
+        overflow: visible;
+    }
+
+
+    .logo-wrapper img {
+        width: 100px;
+        height: 100px;
+
+        object-fit: contain;
+
+        border-radius: 0;
+
+        display: block;
+    }
+
+
+    .brand-name {
+        font-size: 28px;
+
+        font-weight: 800;
+
+        color: #5c3a21;
+
+        letter-spacing: 0.2px;
+
+        line-height: 1.1;
+    }
+
+
+    .brand-tagline {
+        margin-top: 6px;
+
+        font-size: 11px;
+
+        font-weight: 600;
+
+        color: #92745c;
+
+        letter-spacing: 1px;
+    }
+
+
+    /* =========================================================
+       HEADING
+       ========================================================= */
+
+    .heading {
+        text-align: center;
+
+        margin-bottom: 20px;
+    }
+
+
+    .heading h1 {
+        font-size: 22px;
+
+        font-weight: 750;
+
+        color: #3d281b;
+
+        margin-bottom: 7px;
+    }
+
+
+    .heading p {
+        font-size: 12.5px;
+
+        line-height: 1.5;
+
+        color: #856b56;
+
+        padding: 0 15px;
+    }
+
+
+    /* =========================================================
+       ROLE LIST
+       ========================================================= */
+
+    .roles {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        margin-top: 2px;
+    }
+
+
+    /* =========================================================
+       ROLE CARD
+       ========================================================= */
+
+    .role-card {
+        text-decoration: none;
+
+        display: flex;
+
+        align-items: center;
+
+        min-height: 88px;
+
+        padding: 13px 14px;
+
+        border-radius: 16px;
+
+        background: #ffffff;
+
+        border: 1px solid #eadbc9;
+
+        box-shadow:
+            0 5px 16px rgba(82, 52, 31, 0.06);
+
+        transition:
+            transform 0.18s ease,
+            box-shadow 0.18s ease,
+            border-color 0.18s ease;
+    }
+
+
+    .role-card:hover {
+        transform: translateY(-2px);
+
+        border-color: #c88a55;
+
+        box-shadow:
+            0 10px 24px rgba(82, 52, 31, 0.11);
+    }
+
+
+    .role-card:active {
+        transform: scale(0.985);
+    }
+
+
+    /* =========================================================
+       ROLE VISUAL
+       ========================================================= */
+
+    /*
+       This area is intentionally softer than the old
+       rounded-square A/C/A boxes.
+
+       Later we can put actual PNG/SVG illustrations here.
+    */
+
+    .role-icon {
+        width: 62px;
+        height: 62px;
+
+        flex-shrink: 0;
+
+        margin-right: 15px;
+
+        border-radius: 14px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        overflow: hidden;
+
+        font-size: 26px;
+    }
+
+
+    .artisan-icon {
+        background: #f4dfc8;
+
+        color: #8c4e28;
+    }
+
+
+    .customer-icon {
+        background: #e5ecd9;
+
+        color: #55703b;
+    }
+
+
+    .admin-icon {
+        background: #eee2d6;
+
+        color: #674832;
+    }
+
+
+    /* =========================================================
+       ROLE TEXT
+       ========================================================= */
+
+    .role-content {
+        flex: 1;
+
+        min-width: 0;
+    }
+
+
+    .role-title {
+        font-size: 17px;
+
+        font-weight: 750;
+
+        color: #432b1d;
+
+        margin-bottom: 4px;
+
+        line-height: 1.2;
+    }
+
+
+    .role-description {
+        font-size: 11.5px;
+
+        line-height: 1.4;
+
+        color: #8b735f;
+    }
+
+
+    /* =========================================================
+       ARROW
+       ========================================================= */
+
+    .arrow {
+        width: 30px;
+        height: 30px;
+
+        flex-shrink: 0;
+
+        margin-left: 8px;
+
+        border-radius: 50%;
+
+        background: #f5ebe0;
+
+        color: #795033;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        font-size: 18px;
+
+        transition:
+            background 0.18s ease,
+            transform 0.18s ease;
+    }
+
+
+    .role-card:hover .arrow {
+        background: #ead7c3;
+
+        transform: translateX(2px);
+    }
+
+
+    /* =========================================================
+       BOTTOM AREA
+       ========================================================= */
+
+    .bottom-area {
+        margin-top: auto;
+
+        padding-top: 22px;
+
+        text-align: center;
+    }
+
+
+    .language-button {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        padding: 9px 16px;
+
+        border-radius: 24px;
+
+        background: #f3e7d8;
+
+        color: #69482f;
+
+        text-decoration: none;
+
+        font-size: 11.5px;
+
+        font-weight: 650;
+
+        border: 1px solid #e4d1ba;
+
+        transition:
+            background 0.18s ease,
+            transform 0.18s ease;
+    }
+
+
+    .language-button:hover {
+        background: #ead9c5;
+
+        transform: translateY(-1px);
+    }
+
+
+    .current-language {
+        margin-top: 8px;
+
+        font-size: 9px;
+
+        color: #a28b75;
+
+        text-transform: uppercase;
+
+        letter-spacing: 1px;
+    }
+
+
+    /* =========================================================
+       DESKTOP
+       ========================================================= */
+
+    @media (min-width: 600px) {
+
+        body {
+            padding: 35px;
+        }
+
+        .app-container {
+            min-height: 760px;
+        }
+    }
+
+
+    /* =========================================================
+       SMALL PHONES
+       ========================================================= */
+
+    @media (max-height: 700px) {
+
+        .content {
+            padding-top: 20px;
+        }
+
+        .brand {
+            margin-bottom: 17px;
+        }
+
+        .logo-wrapper {
+            width: 76px;
+            height: 76px;
+        }
+
+        .logo-wrapper img {
+            width: 76px;
+            height: 76px;
+        }
+
+        .brand-name {
+            font-size: 25px;
+        }
+
+        .role-card {
+            min-height: 78px;
+
+            padding: 10px 12px;
+        }
+
+        .role-icon {
+            width: 52px;
+            height: 52px;
+
+            margin-right: 12px;
+        }
+
+        .role-title {
+            font-size: 16px;
+        }
+
+        .role-description {
+            font-size: 10.5px;
+        }
+    }
+
+    .role-icon {
+    width: 62px;
+    height: 62px;
+
+    flex-shrink: 0;
+    margin-right: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+}
+
+/* Artisan */
+.artisan-icon {
+    background: #f4dfc8;
+}
+
+/* Customer */
+.customer-icon {
+    background: #e5ecd9;
+}
+
+/* Admin */
+.admin-icon {
+    background: #eee2d6;
+}
+
+
+/* All role images use the same visual size */
+.role-icon img {
+    width: 50px;
+    height: 50px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* Artisan logo is circular, so give it slightly more space */
+.artisan-icon img {
+    width: 75px;
+    height: 75px;
+}
+
+
+/* Customer and Admin */
+.customer-icon img,
+.admin-icon img {
+    width: 50px;
+    height: 50px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <div class="top-decoration"></div>
+
+    <main class="content">
+
+        <!-- Brand -->
+
+        <section class="brand">
+
+            <div class="logo-wrapper">
+
+                <img
+                    src="{{ url_for('static', filename='images/kala_setu_role.png') }}"
+                    alt="{{ t('app_name') }}"
+                    onerror="this.style.display='none';"
+                >
+
+            </div>
+
+            <div class="brand-name">
+                {{ t('app_name') }}
+            </div>
+
+            <div class="brand-tagline">
+                कला • Craft • Culture
+            </div>
+
+        </section>
+
+
+        <!-- Heading -->
+
+        <section class="heading">
+
+            <h1>
+                {{ t('role_selection') }}
+            </h1>
+
+            <p>
+                {{ t('role_selection_subtitle') }}
+            </p>
+
+        </section>
+
+
+        <!-- Role Cards -->
+
+        <section class="roles">
+
+            <!-- Artisan -->
+
+            <a
+                href="{{ url_for('artisan_login') }}"
+                class="role-card"
+            >
+
+                <div class="role-icon artisan-icon">
+    <img src="{{ url_for('static', filename='images/artisian.png') }}" alt="Artisan">
+</div>
+
+                <div class="role-content">
+
+                    <div class="role-title">
+                        {{ t('role_artisan') }}
+                    </div>
+
+                    <div class="role-description">
+                        {{ t('role_artisan_desc') }}
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <!-- Customer -->
+
+            <a
+                href="{{ url_for('customer_home') }}"
+                class="role-card"
+            >
+
+                <div class="role-icon customer-icon">
+    <img src="{{ url_for('static', filename='images/customer.png') }}" alt="Customer">
+</div>
+
+                <div class="role-content">
+
+                    <div class="role-title">
+                        {{ t('role_customer') }}
+                    </div>
+
+                    <div class="role-description">
+                        {{ t('role_customer_desc') }}
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <!-- Admin -->
+
+            <a
+                href="{{ url_for('admin_placeholder') }}"
+                class="role-card"
+            >
+
+               <div class="role-icon admin-icon">
+    <img src="{{ url_for('static', filename='images/admin.png') }}" alt="Admin">
+</div>
+
+                <div class="role-content">
+
+                    <div class="role-title">
+                        {{ t('role_admin') }}
+                    </div>
+
+                    <div class="role-description">
+                        {{ t('role_admin_desc') }}
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </a>
+
+        </section>
+
+
+        <!-- Language -->
+
+        <div class="bottom-area">
+
+            <a
+                href="{{ url_for('choose_language') }}"
+                class="language-button"
+            >
+                {{ t('change_language') }}
+            </a>
+
+            <div class="current-language">
+                {% if current_lang == 'en' %}
+                    English
+                {% elif current_lang == 'mr' %}
+                    मराठी
+                {% elif current_lang == 'hi' %}
+                    हिन्दी
+                {% endif %}
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

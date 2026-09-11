@@ -1,0 +1,1300 @@
+/* =========================================================
+   KALASETU - CUSTOMER AUTHENTICATION
+   Login + Registration
+   Traditional Indian Craft Theme
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   ROOT
+--------------------------------------------------------- */
+
+:root {
+
+    --cream: #f8f1e5;
+
+    --cream-light: #fffaf2;
+
+    --brown-dark: #3e2416;
+
+    --brown: #5c3a21;
+
+    --brown-light: #7a5132;
+
+    --terracotta: #b65f3a;
+
+    --terracotta-dark: #93472b;
+
+    --gold: #c99a3e;
+
+    --gold-light: #e5c47a;
+
+    --green: #557047;
+
+    --green-dark: #3e5733;
+
+    --text-dark: #302015;
+
+    --text-light: #765f4e;
+
+    --border: #ddcbb5;
+
+    --shadow:
+        0 18px 45px rgba(62, 36, 22, 0.16);
+
+    --soft-shadow:
+        0 8px 25px rgba(62, 36, 22, 0.10);
+}
+
+
+/* ---------------------------------------------------------
+   RESET
+--------------------------------------------------------- */
+
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(201, 154, 62, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(182, 95, 58, 0.10),
+            transparent 30%
+        ),
+        var(--cream);
+
+    color: var(--text-dark);
+
+    min-height: 100vh;
+}
+
+
+/* ---------------------------------------------------------
+   MAIN APP
+--------------------------------------------------------- */
+
+.customer-auth-body {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding: 0;
+}
+
+
+.auth-app {
+
+    width: 100%;
+
+    max-width: 430px;
+
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffaf2 0%,
+            #f8f1e5 55%,
+            #f4e9da 100%
+        );
+
+    box-shadow:
+        0 0 50px rgba(62, 36, 22, 0.12);
+}
+
+
+/* ---------------------------------------------------------
+   TOP DECORATIVE LINE
+--------------------------------------------------------- */
+
+.craft-line {
+
+    width: 100%;
+
+    height: 6px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--brown-dark),
+            var(--terracotta),
+            var(--gold),
+            var(--terracotta),
+            var(--brown-dark)
+        );
+
+    position: relative;
+}
+
+
+.craft-line::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 75px;
+
+    height: 2px;
+
+    transform: translate(-50%, -50%);
+
+    background: var(--cream-light);
+
+    opacity: 0.75;
+}
+
+
+/* ---------------------------------------------------------
+   DECORATIVE CORNERS
+--------------------------------------------------------- */
+
+.corner-pattern {
+
+    position: absolute;
+
+    width: 85px;
+
+    height: 85px;
+
+    pointer-events: none;
+
+    opacity: 0.20;
+}
+
+
+.corner-pattern::before,
+
+.corner-pattern::after {
+
+    content: "";
+
+    position: absolute;
+
+    border: 2px solid var(--terracotta);
+}
+
+
+.corner-pattern::before {
+
+    width: 42px;
+
+    height: 42px;
+}
+
+
+.corner-pattern::after {
+
+    width: 22px;
+
+    height: 22px;
+}
+
+
+/* TOP LEFT */
+
+.corner-top-left {
+
+    top: 18px;
+
+    left: 18px;
+}
+
+
+.corner-top-left::before {
+
+    top: 0;
+
+    left: 0;
+
+    border-right: none;
+
+    border-bottom: none;
+
+    transform: rotate(0deg);
+}
+
+
+.corner-top-left::after {
+
+    top: 10px;
+
+    left: 10px;
+
+    border-right: none;
+
+    border-bottom: none;
+}
+
+
+/* TOP RIGHT */
+
+.corner-top-right {
+
+    top: 18px;
+
+    right: 18px;
+}
+
+
+.corner-top-right::before {
+
+    top: 0;
+
+    right: 0;
+
+    border-left: none;
+
+    border-bottom: none;
+}
+
+
+.corner-top-right::after {
+
+    top: 10px;
+
+    right: 10px;
+
+    border-left: none;
+
+    border-bottom: none;
+}
+
+
+/* ---------------------------------------------------------
+   CONTENT
+--------------------------------------------------------- */
+
+.auth-content {
+
+    position: relative;
+
+    width: 100%;
+
+    padding:
+        25px
+        22px
+        28px;
+}
+
+
+/* ---------------------------------------------------------
+   BACK BUTTON
+--------------------------------------------------------- */
+
+.back-button {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    width: fit-content;
+
+    margin: 18px auto 0;
+
+    text-decoration: none;
+
+    color: var(--brown);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    padding: 8px 12px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 250, 242, 0.75);
+
+    border: 1px solid rgba(201, 154, 62, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.back-button span {
+
+    font-size: 19px;
+
+    line-height: 1;
+}
+
+
+.back-button:hover {
+
+    transform: translateY(-2px);
+
+    background: #fff;
+
+    box-shadow: var(--soft-shadow);
+}
+
+
+.back-button:active {
+
+    transform: scale(0.97);
+}
+
+
+/* ---------------------------------------------------------
+   BRAND
+--------------------------------------------------------- */
+
+.auth-brand {
+
+    text-align: center;
+
+    margin-top: 22px;
+}
+
+
+.logo-frame {
+
+    width: 100px;
+
+    height: 100px;
+
+    margin: 0 auto 12px;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #fffdf8 0%,
+            #f4e6d3 100%
+        );
+
+    border: 2px solid var(--gold);
+
+    box-shadow:
+        0 7px 22px rgba(62, 36, 22, 0.14);
+}
+
+
+.logo-frame img {
+
+    width: 72px;
+
+    height: 72px;
+
+    border-radius: 30px;
+
+    object-fit: contain;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.logo-ring {
+
+    position: absolute;
+
+    width: 88px;
+
+    height: 88px;
+
+    border-radius: 50%;
+
+    border:
+        1px dashed
+        rgba(182, 95, 58, 0.75);
+
+    animation:
+        rotateRing 18s linear infinite;
+}
+
+
+@keyframes rotateRing {
+
+    from {
+
+        transform: rotate(0deg);
+    }
+
+    to {
+
+        transform: rotate(360deg);
+    }
+}
+
+
+.auth-brand h1 {
+
+    color: var(--brown-dark);
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+}
+
+
+.auth-brand p {
+
+    margin-top: 4px;
+
+    color: var(--terracotta);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+
+/* ---------------------------------------------------------
+   HEADING
+--------------------------------------------------------- */
+
+.auth-heading {
+
+    text-align: center;
+
+    margin-top: 28px;
+
+    margin-bottom: 22px;
+}
+
+
+.small-label {
+
+    display: inline-block;
+
+    color: var(--terracotta);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 7px;
+}
+
+
+.auth-heading h2 {
+
+    color: var(--brown-dark);
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+
+.auth-heading p {
+
+    max-width: 330px;
+
+    margin: 9px auto 0;
+
+    color: var(--text-light);
+
+    font-size: 13px;
+
+    line-height: 1.55;
+}
+
+
+/* ---------------------------------------------------------
+   AUTH CARD
+--------------------------------------------------------- */
+
+.auth-card {
+
+    width: 100%;
+
+    padding: 22px 20px 20px;
+
+    background:
+        rgba(255, 250, 242, 0.92);
+
+    border:
+        1px solid rgba(201, 154, 62, 0.25);
+
+    border-radius: 20px;
+
+    box-shadow: var(--shadow);
+
+    position: relative;
+
+    animation:
+        cardAppear 0.55s ease both;
+}
+
+
+@keyframes cardAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(18px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* Decorative card line */
+
+.auth-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 25%;
+
+    width: 50%;
+
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+
+    border-radius: 0 0 10px 10px;
+}
+
+
+/* ---------------------------------------------------------
+   ERROR
+--------------------------------------------------------- */
+
+.auth-error {
+
+    padding: 11px 13px;
+
+    margin-bottom: 17px;
+
+    border-radius: 10px;
+
+    background: #f8dddd;
+
+    border: 1px solid #e4b1b1;
+
+    color: #8c3030;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+
+/* ---------------------------------------------------------
+   FIELD
+--------------------------------------------------------- */
+
+.field-group {
+
+    margin-bottom: 17px;
+}
+
+
+.field-group label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--brown-dark);
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* ---------------------------------------------------------
+   INPUT BOX
+--------------------------------------------------------- */
+
+.input-box {
+
+    width: 100%;
+
+    min-height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    position: relative;
+
+    border-radius: 12px;
+
+    background: #fffdf9;
+
+    border:
+        1px solid var(--border);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.input-box:focus-within {
+
+    border-color: var(--terracotta);
+
+    box-shadow:
+        0 0 0 3px rgba(182, 95, 58, 0.11);
+
+    transform: translateY(-1px);
+}
+
+
+.input-icon {
+
+    width: 42px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: var(--terracotta);
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+
+.input-box input {
+
+    width: 100%;
+
+    height: 46px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: var(--text-dark);
+
+    font-size: 14px;
+
+    padding:
+        0
+        10px
+        0
+        0;
+}
+
+
+.input-box input::placeholder {
+
+    color: #a69585;
+}
+
+
+.input-box input:focus::placeholder {
+
+    opacity: 0.55;
+}
+
+
+/* Remove browser number controls */
+
+input[type="number"]::-webkit-inner-spin-button,
+
+input[type="number"]::-webkit-outer-spin-button {
+
+    appearance: none;
+}
+
+
+/* ---------------------------------------------------------
+   ADDRESS TEXTAREA
+--------------------------------------------------------- */
+
+.input-box textarea {
+
+    width: 100%;
+
+    min-height: 90px;
+
+    padding: 12px 10px 12px 0;
+
+    border: none;
+
+    outline: none;
+
+    resize: vertical;
+
+    background: transparent;
+
+    color: var(--text-dark);
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    box-sizing: border-box;
+}
+
+
+.input-box textarea::placeholder {
+
+    color: #a69585;
+}
+
+
+.input-box textarea:focus::placeholder {
+
+    opacity: 0.55;
+}
+
+
+.address-box {
+
+    align-items: flex-start;
+}
+
+
+.address-box .input-icon {
+
+    padding-top: 14px;
+}
+
+
+/* ---------------------------------------------------------
+   PASSWORD TOGGLE
+--------------------------------------------------------- */
+
+.password-toggle {
+
+    flex-shrink: 0;
+
+    margin-right: 9px;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--terracotta);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    padding: 6px;
+
+    border-radius: 7px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.password-toggle:hover {
+
+    background: rgba(182, 95, 58, 0.09);
+
+    color: var(--terracotta-dark);
+}
+
+
+/* ---------------------------------------------------------
+   MAIN AUTH BUTTON
+--------------------------------------------------------- */
+
+.auth-button {
+
+    width: 100%;
+
+    min-height: 50px;
+
+    margin-top: 5px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--brown),
+            var(--terracotta)
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 18px rgba(92, 58, 33, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+
+.auth-button .button-arrow {
+
+    font-size: 19px;
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+.auth-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 11px 23px rgba(92, 58, 33, 0.28);
+
+    filter: brightness(1.04);
+}
+
+
+.auth-button:hover .button-arrow {
+
+    transform: translateX(4px);
+}
+
+
+.auth-button:active {
+
+    transform: translateY(1px);
+
+    box-shadow:
+        0 5px 12px rgba(92, 58, 33, 0.18);
+}
+
+
+/* ---------------------------------------------------------
+   DIVIDER
+--------------------------------------------------------- */
+
+.auth-divider {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 20px 0 14px;
+}
+
+
+.auth-divider span {
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--border)
+        );
+}
+
+
+.auth-divider span:last-child {
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--border),
+            transparent
+        );
+}
+
+
+.auth-divider small {
+
+    color: #927c6a;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+}
+
+
+/* ---------------------------------------------------------
+   SECONDARY BUTTON
+--------------------------------------------------------- */
+
+.secondary-button {
+
+    width: 100%;
+
+    min-height: 45px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-decoration: none;
+
+    border:
+        1px solid var(--brown);
+
+    border-radius: 11px;
+
+    background: transparent;
+
+    color: var(--brown);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.secondary-button:hover {
+
+    background: var(--brown);
+
+    color: white;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 14px rgba(92, 58, 33, 0.15);
+}
+
+
+.secondary-button:active {
+
+    transform: scale(0.98);
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+--------------------------------------------------------- */
+
+.auth-footer {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 24px;
+
+    text-align: center;
+}
+
+
+.auth-footer p {
+
+    color: #806b59;
+
+    font-size: 10px;
+
+    line-height: 1.4;
+}
+
+
+.footer-pattern {
+
+    color: var(--gold);
+
+    font-size: 12px;
+}
+
+
+/* ---------------------------------------------------------
+   INPUT AUTOFILL
+--------------------------------------------------------- */
+
+input:-webkit-autofill,
+
+input:-webkit-autofill:hover,
+
+input:-webkit-autofill:focus {
+
+    -webkit-text-fill-color: var(--text-dark);
+
+    box-shadow:
+        0 0 0 1000px #fffdf9 inset;
+
+    transition:
+        background-color 5000s ease-in-out 0s;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 430px) {
+
+    .auth-content {
+
+        padding:
+            22px
+            17px
+            25px;
+    }
+
+
+    .auth-brand {
+
+        margin-top: 20px;
+    }
+
+
+    .logo-frame {
+
+        width: 90px;
+
+        height: 90px;
+    }
+
+
+    .logo-frame img {
+
+        width: 65px;
+
+        height: 65px;
+    }
+
+
+    .logo-ring {
+
+        width: 80px;
+
+        height: 80px;
+    }
+
+
+    .auth-brand h1 {
+
+        font-size: 25px;
+    }
+
+
+    .auth-heading {
+
+        margin-top: 24px;
+    }
+
+
+    .auth-heading h2 {
+
+        font-size: 22px;
+    }
+
+
+    .auth-card {
+
+        padding:
+            20px
+            17px
+            18px;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   SMALL PHONES
+--------------------------------------------------------- */
+
+@media (max-width: 360px) {
+
+    .auth-content {
+
+        padding-left: 14px;
+
+        padding-right: 14px;
+    }
+
+
+    .auth-card {
+
+        padding-left: 14px;
+
+        padding-right: 14px;
+    }
+
+
+    .auth-heading h2 {
+
+        font-size: 21px;
+    }
+
+
+    .auth-heading p {
+
+        font-size: 12px;
+    }
+
+
+    .field-group label {
+
+        font-size: 12px;
+    }
+
+
+    .input-box input {
+
+        font-size: 13px;
+    }
+
+
+    .auth-button {
+
+        font-size: 14px;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   DESKTOP
+   Keep the interface like a mobile application
+--------------------------------------------------------- */
+
+@media (min-width: 700px) {
+
+    .customer-auth-body {
+
+        padding:
+            30px
+            0;
+    }
+
+
+    .auth-app {
+
+        min-height: auto;
+
+        border-radius: 26px;
+
+        box-shadow:
+            0 20px 60px rgba(62, 36, 22, 0.20);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   BOTTOM BACK BUTTON
+--------------------------------------------------------- */
+
+.bottom-back-button {
+
+    display: flex;
+
+    width: fit-content;
+
+    margin: 18px auto 0;
+
+    justify-content: center;
+
+    align-items: center;
+}
