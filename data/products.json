@@ -1,1 +1,140 @@
-[]
+[
+  {
+    "product_id": 1,
+    "artisan_id": 31,
+    "artisan_name": "संदीप",
+    "image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187073/kalasetu/products/enhanced/pldscdtt10tiwvp4k33o.jpg",
+    "final_image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187073/kalasetu/products/enhanced/pldscdtt10tiwvp4k33o.jpg",
+    "images": {
+      "detail": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187086/kalasetu/products/enhanced/dao0zh3jtla5tirbfjoy.jpg",
+      "front": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187073/kalasetu/products/enhanced/pldscdtt10tiwvp4k33o.jpg",
+      "side": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187083/kalasetu/products/enhanced/egyocv3aojqv9oor1aku.jpg"
+    },
+    "front_image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187073/kalasetu/products/enhanced/pldscdtt10tiwvp4k33o.jpg",
+    "side_image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187083/kalasetu/products/enhanced/egyocv3aojqv9oor1aku.jpg",
+    "detail_image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187086/kalasetu/products/enhanced/dao0zh3jtla5tirbfjoy.jpg",
+    "original_images": {
+      "detail": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187084/kalasetu/products/original/uwaqgf1x6paziybitcdg.jpg",
+      "front": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187071/kalasetu/products/original/a3ykdbkiwejcaddlwu1r.jpg",
+      "side": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187080/kalasetu/products/original/zldexr5fzofgek9favwl.jpg"
+    },
+    "original_image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187071/kalasetu/products/original/a3ykdbkiwejcaddlwu1r.jpg",
+    "enhanced_images": {
+      "detail": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187086/kalasetu/products/enhanced/dao0zh3jtla5tirbfjoy.jpg",
+      "front": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187073/kalasetu/products/enhanced/pldscdtt10tiwvp4k33o.jpg",
+      "side": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187083/kalasetu/products/enhanced/egyocv3aojqv9oor1aku.jpg"
+    },
+    "name": "Handmade ciramic Craft",
+    "description": "This is a beautiful traditional handmade product. It is carefully crafted using ciramic. Size: small. Each piece is created with traditional craftsmanship and attention to detail.",
+    "material": "ciramic",
+    "size": "small",
+    "target_market": [
+      "Handmade Marketplaces",
+      "Local Gift Shops",
+      "Online Marketplaces"
+    ],
+    "making_time": "2hour",
+    "making_cost": 150.0,
+    "suggested_price_min": 240,
+    "suggested_price_max": 320,
+    "recommended_price": 280,
+    "final_price": 280.0,
+    "status": "published",
+    "approval_status": "approved",
+    "image_choice": "enhanced",
+    "created_at": "2026-09-12T09:55:25.420107",
+    "published_at": "2026-09-12T09:55:25.420107"
+  },
+  {
+    "product_id": 2,
+    "artisan_id": 31,
+    "artisan_name": "संदीप",
+    "image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187168/kalasetu/products/enhanced/a7mlam0yy9ranb1ylleq.jpg",
+    "final_image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187168/kalasetu/products/enhanced/a7mlam0yy9ranb1ylleq.jpg",
+    "images": {
+      "detail": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187178/kalasetu/products/enhanced/h8ulhu9zkibeiur7xk5d.jpg",
+      "front": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187168/kalasetu/products/enhanced/a7mlam0yy9ranb1ylleq.jpg",
+      "side": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187175/kalasetu/products/enhanced/mo9856jsn0ltfr7igpxz.jpg"
+    },
+    "front_image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187168/kalasetu/products/enhanced/a7mlam0yy9ranb1ylleq.jpg",
+    "side_image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187175/kalasetu/products/enhanced/mo9856jsn0ltfr7igpxz.jpg",
+    "detail_image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187178/kalasetu/products/enhanced/h8ulhu9zkibeiur7xk5d.jpg",
+    "original_images": {
+      "detail": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187176/kalasetu/products/original/j6mmczeqcoomocjdqel1.jpg",
+      "front": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187162/kalasetu/products/original/fquhobcayqgkltpp83ug.jpg",
+      "side": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187173/kalasetu/products/original/xq01dipnxgg20szcitkf.jpg"
+    },
+    "original_image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187162/kalasetu/products/original/fquhobcayqgkltpp83ug.jpg",
+    "enhanced_images": {
+      "detail": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187178/kalasetu/products/enhanced/h8ulhu9zkibeiur7xk5d.jpg",
+      "front": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187168/kalasetu/products/enhanced/a7mlam0yy9ranb1ylleq.jpg",
+      "side": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187175/kalasetu/products/enhanced/mo9856jsn0ltfr7igpxz.jpg"
+    },
+    "name": "Handmade red mud Craft",
+    "description": "This is a beautiful traditional handmade product. It is carefully crafted using red mud. Size: medium. Each piece is created with traditional craftsmanship and attention to detail.",
+    "material": "red mud",
+    "size": "medium",
+    "target_market": [
+      "Home Décor",
+      "Art & Craft Stores",
+      "Gift Shops"
+    ],
+    "making_time": "2 hour",
+    "making_cost": 150.0,
+    "suggested_price_min": 240,
+    "suggested_price_max": 320,
+    "recommended_price": 280,
+    "final_price": 280.0,
+    "status": "published",
+    "approval_status": "approved",
+    "image_choice": "enhanced",
+    "created_at": "2026-09-12T09:56:48.461711",
+    "published_at": "2026-09-12T09:56:48.461711"
+  },
+  {
+    "product_id": 3,
+    "artisan_id": 25,
+    "artisan_name": "अमोल",
+    "image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187270/kalasetu/products/enhanced/c6t6pdgzooahalletopf.jpg",
+    "final_image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187270/kalasetu/products/enhanced/c6t6pdgzooahalletopf.jpg",
+    "images": {
+      "detail": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187275/kalasetu/products/enhanced/qjgrfbhbhqvpzv3qgvrt.jpg",
+      "front": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187270/kalasetu/products/enhanced/c6t6pdgzooahalletopf.jpg",
+      "side": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187273/kalasetu/products/enhanced/wms5lh7clk3mlbpho8ja.jpg"
+    },
+    "front_image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187270/kalasetu/products/enhanced/c6t6pdgzooahalletopf.jpg",
+    "side_image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187273/kalasetu/products/enhanced/wms5lh7clk3mlbpho8ja.jpg",
+    "detail_image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187275/kalasetu/products/enhanced/qjgrfbhbhqvpzv3qgvrt.jpg",
+    "original_images": {
+      "detail": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187274/kalasetu/products/original/aarrrkx2s59tgleevp4v.jpg",
+      "front": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187268/kalasetu/products/original/yzfwngaxdh4fezhnhqtm.jpg",
+      "side": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187271/kalasetu/products/original/agw4ed0bjdvsuwr6gmj6.jpg"
+    },
+    "original_image": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187268/kalasetu/products/original/yzfwngaxdh4fezhnhqtm.jpg",
+    "enhanced_images": {
+      "detail": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187275/kalasetu/products/enhanced/qjgrfbhbhqvpzv3qgvrt.jpg",
+      "front": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187270/kalasetu/products/enhanced/c6t6pdgzooahalletopf.jpg",
+      "side": "https://res.cloudinary.com/z7jjhtpm/image/upload/v1789187273/kalasetu/products/enhanced/wms5lh7clk3mlbpho8ja.jpg"
+    },
+    "name": "Handmade special wood Craft",
+    "description": "This is a beautiful traditional handmade product. It is carefully crafted using special wood. Size: medium. Each piece is created with traditional craftsmanship and attention to detail.",
+    "material": "special wood",
+    "size": "medium",
+    "target_market": [
+      "Home Décor",
+      "Gift Shops",
+      "Handmade Marketplaces"
+    ],
+    "making_time": "3hour",
+    "making_cost": 300.0,
+    "suggested_price_min": 540,
+    "suggested_price_max": 710,
+    "recommended_price": 620,
+    "final_price": 620.0,
+    "status": "published",
+    "approval_status": "approved",
+    "image_choice": "enhanced",
+    "created_at": "2026-09-12T09:58:21.466703",
+    "published_at": "2026-09-12T09:58:21.466703"
+  }
+]

@@ -1,6 +1,8 @@
 
 import json
 import os
+import cloudinary
+import cloudinary.uploader
 import uuid
 from datetime import datetime
 from functools import wraps
@@ -69,7 +71,11 @@ DEFAULT_LANGUAGE = "en"
 
 
 app = Flask(__name__)
-
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET")
+)
 app.secret_key = "kalasetu-prototype-secret-key"
 
 app.config["MAX_CONTENT_LENGTH"] = 30 * 1024 * 1024
@@ -892,13 +898,13 @@ def add_product():
 # ===========================================================================
 # UPLOAD THREE PRODUCT PHOTOS
 # ===========================================================================
-
 @app.route(
     "/artisan/upload-image",
     methods=["POST"]
 )
 @login_required
 def upload_image():
+
 
     photo_fields = {
         "front": "front_image",
@@ -907,6 +913,10 @@ def upload_image():
     }
 
     files_to_process = {}
+
+    # ---------------------------------------------------------------
+    # VALIDATE ALL THREE IMAGES
+    # ---------------------------------------------------------------
 
     for view_name, field_name in photo_fields.items():
 
@@ -943,6 +953,10 @@ def upload_image():
             view_name
         ] = uploaded_file
 
+    # ---------------------------------------------------------------
+    # PENDING PRODUCT
+    # ---------------------------------------------------------------
+
     pending = session.get(
         "pending_product",
         {}
@@ -955,6 +969,10 @@ def upload_image():
         pending = {}
 
     uploaded_images = {}
+
+    # ---------------------------------------------------------------
+    # PROCESS FRONT / SIDE / DETAIL
+    # ---------------------------------------------------------------
 
     for view_name, uploaded_file in files_to_process.items():
 
@@ -1000,6 +1018,10 @@ def upload_image():
             enhanced_name
         )
 
+        # -----------------------------------------------------------
+        # SAVE TEMPORARY ORIGINAL IMAGE
+        # -----------------------------------------------------------
+
         try:
 
             uploaded_file.save(
@@ -1021,6 +1043,10 @@ def upload_image():
                 ),
             }), 500
 
+        # -----------------------------------------------------------
+        # ENHANCE IMAGE
+        # -----------------------------------------------------------
+
         enhancement_ok = True
 
         try:
@@ -1041,15 +1067,85 @@ def upload_image():
             enhanced_path = original_path
             enhancement_ok = False
 
-        original_url = url_for(
-            "uploaded_product_file",
-            filename=original_name
-        )
+        # -----------------------------------------------------------
+        # UPLOAD ORIGINAL IMAGE TO CLOUDINARY
+        # -----------------------------------------------------------
 
-        enhanced_url = url_for(
-            "uploaded_product_file",
-            filename=enhanced_name
-        )
+        try:
+
+            original_upload = cloudinary.uploader.upload(
+                original_path,
+                folder="kalasetu/products/original",
+                resource_type="image"
+            )
+
+            original_url = original_upload.get(
+                "secure_url"
+            )
+
+            if not original_url:
+
+                raise RuntimeError(
+                    "Cloudinary did not return "
+                    "a secure URL for the original image."
+                )
+
+        except Exception as e:
+
+            app.logger.exception(
+                "Could not upload original %s image to Cloudinary",
+                view_name
+            )
+
+            return jsonify({
+                "success": False,
+                "error": (
+                    f"Cloudinary original image error "
+                    f"for {view_name}: {str(e)}"
+                ),
+            }), 500
+
+        # -----------------------------------------------------------
+        # UPLOAD ENHANCED IMAGE TO CLOUDINARY
+        # -----------------------------------------------------------
+
+        try:
+
+            enhanced_upload = cloudinary.uploader.upload(
+                enhanced_path,
+                folder="kalasetu/products/enhanced",
+                resource_type="image"
+            )
+
+            enhanced_url = enhanced_upload.get(
+                "secure_url"
+            )
+
+            if not enhanced_url:
+
+                raise RuntimeError(
+                    "Cloudinary did not return "
+                    "a secure URL for the enhanced image."
+                )
+
+        except Exception as e:
+
+            app.logger.exception(
+                "Could not upload enhanced %s image to Cloudinary",
+                view_name
+            )
+
+            return jsonify({
+                "success": False,
+                "error": (
+                    f"Cloudinary enhanced image error "
+                    f"for {view_name}: {str(e)}"
+                ),
+            }), 500
+
+        # -----------------------------------------------------------
+        # STORE CLOUDINARY URLS
+        # -----------------------------------------------------------
 
         uploaded_images[
             view_name
@@ -1058,6 +1154,10 @@ def upload_image():
             "enhanced": enhanced_url,
             "enhancement_ok": enhancement_ok,
         }
+
+    # ---------------------------------------------------------------
+    # SAVE IMAGE INFORMATION IN SESSION
+    # ---------------------------------------------------------------
 
     pending["images"] = uploaded_images
 
@@ -1110,6 +1210,10 @@ def upload_image():
     session["pending_product"] = pending
     session.modified = True
 
+    # ---------------------------------------------------------------
+    # RESPONSE
+    # ---------------------------------------------------------------
+
     return jsonify({
 
         "success": True,
@@ -1160,8 +1264,6 @@ def upload_image():
             for image in uploaded_images.values()
         ),
     })
-
-
 # ===========================================================================
 # CHOOSE ORIGINAL OR ENHANCED IMAGE
 # ===========================================================================
